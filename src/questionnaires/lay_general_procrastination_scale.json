@@ -1,0 +1,80 @@
+{
+  "id": "procrastination_20_ru",
+  "title": "Шкала общей прокрастинации",
+  "description": "Методика К. Лэй для оценки общего уровня прокрастинации.",
+  "instructions": {
+    "title": "Инструкция",
+    "text": "Для каждого утверждения выберите степень по шкале от 1 до 5, в которой утверждение является характерным или нехарактерным для вас.",
+    "reverseNote": "Обратные вопросы оцениваются в обратном порядке: 1->5, 2->4, 3->3, 4->2, 5->1."
+  },
+  "scale": {
+    "type": "likert_5",
+    "min": 1,
+    "max": 5,
+    "options": [
+      { "value": 1, "label": "Совершенно не характерно" },
+      { "value": 2, "label": "Скорее не характерно" },
+      { "value": 3, "label": "Нейтрально" },
+      { "value": 4, "label": "Порой да, характерно" },
+      { "value": 5, "label": "Очень характерно" }
+    ],
+    "reverseScoring": {
+      "1": 5,
+      "2": 4,
+      "3": 3,
+      "4": 2,
+      "5": 1
+    }
+  },
+  "questions": [
+    { "id": "q1", "number": 1, "text": "Я часто берусь за выполнение заданий, которые планировал выполнить несколько дней назад.", "trait": "procrastination", "reverse": false },
+    { "id": "q2", "number": 2, "text": "Я не выполняю заданий до тех пор, пока их не нужно сдавать.", "trait": "procrastination", "reverse": false },
+    { "id": "q3", "number": 3, "text": "Когда я заканчиваю читать книгу, взятую в библиотеке, я сразу же возвращаю ее, независимо от указанной даты возврата.", "trait": "procrastination", "reverse": true },
+    { "id": "q4", "number": 4, "text": "Когда наступает время утреннего пробуждения, я чаще всего сразу же встаю из постели.", "trait": "procrastination", "reverse": true },
+    { "id": "q5", "number": 5, "text": "Написанное мною письмо может лежать несколько дней, пока я его отправлю.", "trait": "procrastination", "reverse": false },
+    { "id": "q6", "number": 6, "text": "Как правило, я своевременно делаю ответные телефонные звонки.", "trait": "procrastination", "reverse": true },
+    { "id": "q7", "number": 7, "text": "Я редко выполняю вовремя даже те виды работ, которые требуют незначительных усилий, — просто сесть и сделать их.", "trait": "procrastination", "reverse": false },
+    { "id": "q8", "number": 8, "text": "Я, как правило, принимаю решения как можно скорее.", "trait": "procrastination", "reverse": true },
+    { "id": "q9", "number": 9, "text": "Я, как правило, откладываю начало работы, которую нужно выполнять.", "trait": "procrastination", "reverse": false },
+    { "id": "q10", "number": 10, "text": "Мне обычно приходится спешить, чтобы выполнить задание к нужному сроку.", "trait": "procrastination", "reverse": false },
+    { "id": "q11", "number": 11, "text": "Когда я готовлюсь к выходу из дома, я редко спохватываюсь что-нибудь доделывать в последнюю минуту.", "trait": "procrastination", "reverse": true },
+    { "id": "q12", "number": 12, "text": "Когда близится срок завершения работы, я часто впустую трачу время на другие вещи.", "trait": "procrastination", "reverse": false },
+    { "id": "q13", "number": 13, "text": "Я предпочитаю заранее выходить на деловую встречу.", "trait": "procrastination", "reverse": true },
+    { "id": "q14", "number": 14, "text": "Обычно я берусь за выполнение задания сразу после того, как оно было дано.", "trait": "procrastination", "reverse": true },
+    { "id": "q15", "number": 15, "text": "Я часто выполняю задания раньше, чем это необходимо.", "trait": "procrastination", "reverse": true },
+    { "id": "q16", "number": 16, "text": "Я часто завершаю покупку подарков к дню рождения или Новому году в последнюю минуту.", "trait": "procrastination", "reverse": false },
+    { "id": "q17", "number": 17, "text": "Даже важные вещи я часто покупаю в последнюю минуту.", "trait": "procrastination", "reverse": false },
+    { "id": "q18", "number": 18, "text": "Я, как правило, выполняю все запланированные на день дела.", "trait": "procrastination", "reverse": true },
+    { "id": "q19", "number": 19, "text": "Я постоянно говорю: «Я сделаю это завтра».", "trait": "procrastination", "reverse": false },
+    { "id": "q20", "number": 20, "text": "Я обычно проверяю, все ли необходимое я сделал, до того, как вечером устроюсь отдохнуть.", "trait": "procrastination", "reverse": true }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "procrastination",
+    "directItems": [1, 2, 5, 7, 9, 10, 12, 16, 17, 19],
+    "reverseItems": [3, 4, 6, 8, 11, 13, 14, 15, 18, 20],
+    "minScore": 20,
+    "maxScore": 100,
+    "higherMeans": "higher_procrastination"
+  },
+  "resultBands": [
+    {
+      "key": "low",
+      "min": 20,
+      "max": 45,
+      "label": "Низкий уровень прокрастинации"
+    },
+    {
+      "key": "medium",
+      "min": 46,
+      "max": 60,
+      "label": "Средний уровень прокрастинации"
+    },
+    {
+      "key": "high",
+      "min": 61,
+      "max": 100,
+      "label": "Высокий уровень прокрастинации"
+    }
+  ]
+}
