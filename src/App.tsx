@@ -11,6 +11,8 @@ type CalculationResult = {
 };
 
 function App() {
+  const [startedAt, setStartedAt] = useState<number | null>(null);
+  const [finishedAt, setFinishedAt] = useState<number | null>(null);
   const [selectedQuestionnaire, setSelectedQuestionnaire] =
     useState<Questionnaire | null>(null);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -28,11 +30,13 @@ function App() {
 
   // ===== handlers =====
 
-  const handleSelectQuestionnaire = (questionnaire: Questionnaire) => {
+  const handleSelectQuestionnaire = (questionnaire: Questionnaire) => { 
     setSelectedQuestionnaire(questionnaire);
     setAnswers({});
     setCurrentIndex(0);
     setResult(null);
+	setStartedAt(Date.now());
+    setFinishedAt(null);
   };
 
   const handleSelectAnswer = (value: number) => {
@@ -49,6 +53,7 @@ function App() {
 
     if (isLastQuestion) {
       const finalResult = calculateResult(answers, selectedQuestionnaire);
+	  setFinishedAt(Date.now());
       setResult(finalResult);
       return;
     }
@@ -93,6 +98,21 @@ function App() {
       total: result.total,
       level: result.level,
     });
+  };
+
+  const formatDateTime = (timestamp: number | null) => {
+    if (!timestamp) return "-";
+    return new Date(timestamp).toLocaleString();
+  };
+
+  const formatDuration = (start: number | null, end: number | null) => {
+    if (!start || !end) return "-";
+
+    const seconds = Math.floor((end - start) / 1000);
+    const min = Math.floor(seconds / 60);
+    const sec = seconds % 60;
+
+    return `${min} мин ${sec} сек`;
   };
 
   // ===== список тестов =====
@@ -146,16 +166,32 @@ function App() {
           <h1 className="title">{selectedQuestionnaire.title}</h1>
           <h2 className="subtitle">Результат</h2>
 
-          <p className="result-text">
-            Ваш результат: <strong>{result.total}</strong>
-          </p>
+          <div className="result-info">
+            <div><strong>ID:</strong> {selectedQuestionnaire.id}</div>
+            {selectedQuestionnaire.author && (
+              <div><strong>Автор:</strong> {selectedQuestionnaire.author}</div>
+            )}
+            <div>
+              <strong>Вопросов:</strong> {selectedQuestionnaire.questions.length}
+            </div>
+          </div>
 
-          <p className="result-badge">
-            {result.level?.label ?? "Не определено"}
-          </p>
+          <div className="result-info">
+            <div><strong>Дата:</strong> {formatDateTime(finishedAt)}</div>
+            <div>
+              <strong>Время прохождения:</strong>{" "}
+              {formatDuration(startedAt, finishedAt)}
+            </div>
+          </div>
 
-          <div className="report-meta">
-            <strong>ID:</strong> {selectedQuestionnaire.id}
+          <div className="result-main">
+            <div className="result-score">
+              {result.total} баллов
+            </div>
+
+            <div className="result-badge">
+              {result.level?.label ?? "Не определено"}
+            </div>
           </div>
 
           <div className="result-actions">
@@ -175,7 +211,7 @@ function App() {
       </div>
     );
   }
-
+  
   if (!currentQuestion) return null;
 
   // ===== экран теста =====
