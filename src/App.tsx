@@ -7,6 +7,7 @@ import "./App.css";
 
 type CalculationResult = {
   total: number;
+  average: number | null;
   level?: ResultBand;
 };
 
@@ -189,9 +190,21 @@ function App() {
               {result.total} баллов
             </div>
 
-            <div className="result-badge">
-              {result.level?.label ?? "Не определено"}
+          {result.average !== null && (
+            <div className="result-average">
+              Средний балл: {result.average}
             </div>
+          )}
+
+          {result.level ? (
+            <div className="result-badge">
+              {result.level.label}
+            </div>
+          ) : (
+            <div className="result-note">
+              Интерпретация по фиксированным диапазонам для этой методики не задана.
+            </div>
+          )}
           </div>
 
           <div className="result-actions">

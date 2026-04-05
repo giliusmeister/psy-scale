@@ -1,45 +1,33 @@
 import type { Questionnaire } from "../types/questionnaire";
-import { validateQuestionnaire } from "../utils/validateQuestionnaire";
 
-type JsonModule = {
-  default: unknown;
-};
-
-function extractIdFromPath(path: string): string {
-  const fileName = path.split("/").pop() || "";
-  return fileName.replace(".json", "");
-}
-
+// автоматически подгружаем все JSON из папки questionnaires
 const modules = import.meta.glob("../questionnaires/*.json", {
   eager: true,
 });
 
-const validQuestionnaires: Questionnaire[] = [];
+const loaded: Questionnaire[] = [];
 
-for (const [path, moduleValue] of Object.entries(modules)) {
-  const module = moduleValue as JsonModule;
-  const data = module.default;
+const seenIds = new Set<string>();
 
-  const validation = validateQuestionnaire(data);
+for (const path in modules) {
+  const mod = modules[path] as any;
 
-  if (!validation.valid) {
-    console.error(`[psy-scale] Questionnaire skipped: ${path}`);
-    validation.errors.forEach((error) => {
-      console.error(`  - ${error}`);
-    });
+  const data = mod.default ?? mod;
+
+  // id = имя файла
+  const id = path.split("/").pop()?.replace(".json", "") ?? "unknown";
+
+  if (seenIds.has(id)) {
+    console.error(`[psy-scale] Duplicate questionnaire id: ${id}`);
     continue;
   }
 
-  const id = extractIdFromPath(path);
+  seenIds.add(id);
 
-  const questionnaire: Questionnaire = {
-    ...(data as Omit<Questionnaire, "id">),
+  loaded.push({
+    ...data,
     id,
-  };
-
-  validQuestionnaires.push(questionnaire);
+  });
 }
 
-export const questionnaires: Questionnaire[] = validQuestionnaires.sort((a, b) =>
-  a.title.localeCompare(b.title, "ru")
-);
+export const questionnaires: Questionnaire[] = loaded;

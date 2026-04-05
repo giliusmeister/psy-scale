@@ -1,9 +1,15 @@
-import type { Questionnaire } from "../types/questionnaire";
+import type { Questionnaire, ResultBand } from "../types/questionnaire";
+
+export type CalculationResult = {
+  total: number;
+  average: number | null;
+  level?: ResultBand;
+};
 
 export function calculateResult(
   answers: Record<string, number>,
   questionnaire: Questionnaire
-) {
+): CalculationResult {
   const reverseMap = questionnaire.scale.reverseScoring;
   let total = 0;
 
@@ -17,12 +23,25 @@ export function calculateResult(
     total += scored;
   }
 
-  const level = questionnaire.resultBands.find(
-    (b) => total >= b.min && total <= b.max
-  );
+  const average =
+    questionnaire.scoring.showAverage
+      ? Number((total / questionnaire.questions.length).toFixed(2))
+      : null;
+
+  let level: ResultBand | undefined = undefined;
+
+  if (
+    questionnaire.scoring.interpretationMode === "bands" &&
+    questionnaire.resultBands?.length
+  ) {
+    level = questionnaire.resultBands.find(
+      (b) => total >= b.min && total <= b.max
+    );
+  }
 
   return {
     total,
-    level
+    average,
+    level,
   };
 }

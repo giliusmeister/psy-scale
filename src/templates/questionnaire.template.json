@@ -6,65 +6,67 @@
   "category": "Категория",
   "estimatedMinutes": 5,
   "instructions": {
-    "title": "Инструкция",
-    "text": "Текст инструкции для прохождения опросника.",
-    "reverseNote": "Если есть обратные вопросы, опишите это здесь."
-  },
-  "scale": {
-    "type": "likert_5",
-    "min": 1,
-    "max": 5,
-    "options": [
-      { "value": 1, "label": "Совершенно не характерно" },
-      { "value": 2, "label": "Скорее не характерно" },
-      { "value": 3, "label": "Нейтрально" },
-      { "value": 4, "label": "Порой да, характерно" },
-      { "value": 5, "label": "Очень характерно" }
-    ],
-    "reverseScoring": {
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1
-    }
-  },
-  "questions": [
-    {
-      "id": "q1",
-      "number": 1,
-      "text": "Текст вопроса",
-      "trait": "trait_name",
-      "reverse": false
-    }
+  "title": "Инструкция",
+  "text": "Текст инструкции для прохождения опросника.",
+  "reverseNote": "Если есть обратные вопросы, опишите это здесь."
+},
+"scale": {
+  "type": "likert_5",
+  "min": 1,
+  "max": 5,
+  "options": [
+    { "value": 1, "label": "Совершенно не характерно" },
+    { "value": 2, "label": "Скорее не характерно" },
+    { "value": 3, "label": "Нейтрально" },
+    { "value": 4, "label": "Порой да, характерно" },
+    { "value": 5, "label": "Очень характерно" }
   ],
-  "scoring": {
-    "method": "sum",
+  "reverseScoring": {
+    "1": 5,
+    "2": 4,
+    "3": 3,
+    "4": 2,
+    "5": 1
+  }
+},
+"questions": [
+  {
+    "id": "q1",
+    "number": 1,
+    "text": "Текст вопроса",
     "trait": "trait_name",
-    "directItems": [1],
-    "reverseItems": [],
-    "minScore": 1,
-    "maxScore": 5,
-    "higherMeans": "higher_trait"
+    "reverse": false
+  }
+],
+"scoring": {
+  "method": "sum",
+  "trait": "trait_name",
+  "directItems": [1],
+  "reverseItems": [],
+  "minScore": 1,
+  "maxScore": 5,
+  "higherMeans": "higher_trait",
+  "showAverage": true,
+  "interpretationMode": "bands"
+},
+"resultBands": [
+  {
+    "key": "low",
+    "min": 1,
+    "max": 2,
+    "label": "Низкий уровень"
   },
-  "resultBands": [
-    {
-      "key": "low",
-      "min": 1,
-      "max": 2,
-      "label": "Низкий уровень"
-    },
-    {
-      "key": "medium",
-      "min": 3,
-      "max": 4,
-      "label": "Средний уровень"
-    },
-    {
-      "key": "high",
-      "min": 5,
-      "max": 5,
-      "label": "Высокий уровень"
-    }
-  ]
+  {
+    "key": "medium",
+    "min": 3,
+    "max": 4,
+    "label": "Средний уровень"
+  },
+  {
+    "key": "high",
+    "min": 5,
+    "max": 5,
+    "label": "Высокий уровень"
+  }
+]
 }

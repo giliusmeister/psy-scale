@@ -25,13 +25,15 @@ export type QuestionnaireInstructions = {
 };
 
 export type QuestionnaireScoring = {
-  method: string;
+  method: "sum";
   trait: string;
   directItems: number[];
   reverseItems: number[];
   minScore: number;
   maxScore: number;
   higherMeans: string;
+  showAverage?: boolean;
+  interpretationMode?: "bands" | "none";
 };
 
 export type Questionnaire = {
@@ -51,5 +53,5 @@ export type Questionnaire = {
   };
   questions: Question[];
   scoring: QuestionnaireScoring;
-  resultBands: ResultBand[];
+  resultBands?: ResultBand[];
 };

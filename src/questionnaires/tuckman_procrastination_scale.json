@@ -1,0 +1,156 @@
+{
+  "title": "Шкала прокрастинации",
+  "author": "Б. Такман",
+  "description": "Методика для определения уровня прокрастинации в повседневной жизни, а также в принятии решений.",
+  "category": "Прокрастинация",
+  "estimatedMinutes": 4,
+  "instructions": {
+    "title": "Инструкция",
+    "text": "Эта шкала сделана так, что вы можете отметить, насколько каждое утверждение, приведенное ниже, описывает вас. Пожалуйста, отвечайте по возможности честно и искренне.",
+    "reverseNote": "Обратные вопросы оцениваются в обратном порядке."
+  },
+  "scale": {
+    "type": "likert_5",
+    "min": 1,
+    "max": 5,
+    "options": [
+      { "value": 1, "label": "Совершенно не характерно" },
+      { "value": 2, "label": "Скорее не характерно" },
+      { "value": 3, "label": "Нейтрально" },
+      { "value": 4, "label": "Скорее характерно" },
+      { "value": 5, "label": "Полностью характерно" }
+    ],
+    "reverseScoring": {
+      "1": 5,
+      "2": 4,
+      "3": 3,
+      "4": 2,
+      "5": 1
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "Я откладываю завершение дел без видимой причины, даже когда это очень важно.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Я переношу на более поздний срок начало каких-либо дел, которые мне не нравятся.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "Если имеется конкретный срок, к которому нужно что-то сделать, я жду до последней минуты.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "Я откладываю принятие трудных решений.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "Я всегда откладываю на будущее совершенствование деловых навыков.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "Я умудряюсь найти оправдание для «ничегонеделания».",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "Я посвящаю необходимое время даже нудным занятиям, таким как учеба.",
+      "trait": "procrastination",
+      "reverse": true
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "text": "Я - неизлечимый растратчик времени впустую.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "text": "Сейчас я растрачиваю время впустую, но ничего не могу с этим поделать.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "text": "Если работа попалась слишком трудная, я уверен, что могу это отложить на потом.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q11",
+      "number": 11,
+      "text": "Я даю себе обещание: если закончу дело, имею право расслабиться.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q12",
+      "number": 12,
+      "text": "Если я планирую что-либо, то всегда следую плану.",
+      "trait": "procrastination",
+      "reverse": true
+    },
+    {
+      "id": "q13",
+      "number": 13,
+      "text": "Даже если я ненавижу себя за то, что еще не начал действовать, это не помогает мне.",
+      "trait": "procrastination",
+      "reverse": false
+    },
+    {
+      "id": "q14",
+      "number": 14,
+      "text": "Я всегда заканчиваю важные дела заранее, с запасом времени.",
+      "trait": "procrastination",
+      "reverse": true
+    },
+    {
+      "id": "q15",
+      "number": 15,
+      "text": "Я остаюсь равнодушным, даже если знаю, как важно начать эту работу.",
+      "trait": "procrastination",
+      "reverse": true
+    },
+    {
+      "id": "q16",
+      "number": 16,
+      "text": "Отложить что-то на завтра - это не решение проблемы.",
+      "trait": "procrastination",
+      "reverse": true
+    }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "procrastination",
+    "directItems": [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 13],
+    "reverseItems": [7, 12, 14, 15, 16],
+    "minScore": 16,
+    "maxScore": 80,
+    "higherMeans": "higher_procrastination",
+    "showAverage": true,
+    "interpretationMode": "none"
+  }
+}

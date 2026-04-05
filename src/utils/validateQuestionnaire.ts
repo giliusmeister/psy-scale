@@ -206,31 +206,86 @@ export function validateQuestionnaire(data: unknown): ValidationResult {
     }
   }
 
-  if (!Array.isArray(data.resultBands) || data.resultBands.length === 0) {
-    errors.push("Поле resultBands обязательно и должно быть непустым массивом.");
+  if (data.resultBands !== undefined) {
+    if (!Array.isArray(data.resultBands) || data.resultBands.length === 0) {
+      errors.push("Поле resultBands должно быть непустым массивом, если указано.");
+    } else {
+      data.resultBands.forEach((band, index) => {
+        if (!isObject(band)) {
+          errors.push(`resultBands[${index}] должен быть объектом.`);
+          return;
+        }
+
+        if (!isNonEmptyString(band.key)) {
+          errors.push(`resultBands[${index}].key должен быть непустой строкой.`);
+        }
+
+        if (!isNumber(band.min)) {
+          errors.push(`resultBands[${index}].min должен быть числом.`);
+        }
+
+        if (!isNumber(band.max)) {
+          errors.push(`resultBands[${index}].max должен быть числом.`);
+        }
+
+        if (!isNonEmptyString(band.label)) {
+          errors.push(`resultBands[${index}].label должен быть непустой строкой.`);
+        }
+      });
+    }
+  } 
+
+  if (!isObject(data.scoring)) {
+    errors.push("Поле scoring обязательно и должно быть объектом.");
   } else {
-    data.resultBands.forEach((band, index) => {
-      if (!isObject(band)) {
-        errors.push(`resultBands[${index}] должен быть объектом.`);
-        return;
-      }
+    const scoring = data.scoring as Record<string, unknown>;
 
-      if (!isNonEmptyString(band.key)) {
-        errors.push(`resultBands[${index}].key должен быть непустой строкой.`);
-      }
+    if (!isNonEmptyString(scoring.method)) {
+      errors.push("Поле scoring.method обязательно и должно быть непустой строкой.");
+    }
 
-      if (!isNumber(band.min)) {
-        errors.push(`resultBands[${index}].min должен быть числом.`);
-      }
+    if (!isNonEmptyString(scoring.trait)) {
+      errors.push("Поле scoring.trait обязательно и должно быть непустой строкой.");
+    }
 
-      if (!isNumber(band.max)) {
-        errors.push(`resultBands[${index}].max должен быть числом.`);
-      }
+    if (!Array.isArray(scoring.directItems)) {
+      errors.push("Поле scoring.directItems обязательно и должно быть массивом.");
+    } else if (scoring.directItems.some((n) => !isNumber(n))) {
+      errors.push("Все элементы scoring.directItems должны быть числами.");
+    }
 
-      if (!isNonEmptyString(band.label)) {
-        errors.push(`resultBands[${index}].label должен быть непустой строкой.`);
-      }
-    });
+    if (!Array.isArray(scoring.reverseItems)) {
+      errors.push("Поле scoring.reverseItems обязательно и должно быть массивом.");
+    } else if (scoring.reverseItems.some((n) => !isNumber(n))) {
+      errors.push("Все элементы scoring.reverseItems должны быть числами.");
+    }
+
+    if (!isNumber(scoring.minScore)) {
+      errors.push("Поле scoring.minScore обязательно и должно быть числом.");
+    }
+
+    if (!isNumber(scoring.maxScore)) {
+      errors.push("Поле scoring.maxScore обязательно и должно быть числом.");
+    }
+
+    if (!isNonEmptyString(scoring.higherMeans)) {
+      errors.push("Поле scoring.higherMeans обязательно и должно быть непустой строкой.");
+    }
+
+    if (
+      scoring.showAverage !== undefined &&
+      !isBoolean(scoring.showAverage)
+    ) {
+      errors.push("Поле scoring.showAverage должно быть boolean, если указано.");
+    }
+
+    if (
+      scoring.interpretationMode !== undefined &&
+      scoring.interpretationMode !== "bands" &&
+      scoring.interpretationMode !== "none"
+    ) {
+      errors.push('Поле scoring.interpretationMode должно быть "bands" или "none".');
+    }
   }
 
   if (errors.length > 0) {

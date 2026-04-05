@@ -2,6 +2,8 @@
   "id": "procrastination_20_ru",
   "title": "Шкала общей прокрастинации",
   "description": "Методика К. Лэй для оценки общего уровня прокрастинации.",
+  "category": "Прокрастинация",
+  "estimatedMinutes": 8,
   "instructions": {
     "title": "Инструкция",
     "text": "Для каждого утверждения выберите степень по шкале от 1 до 5, в которой утверждение является характерным или нехарактерным для вас.",
@@ -51,11 +53,13 @@
   "scoring": {
     "method": "sum",
     "trait": "procrastination",
-    "directItems": [1, 2, 5, 7, 9, 10, 12, 16, 17, 19],
-    "reverseItems": [3, 4, 6, 8, 11, 13, 14, 15, 18, 20],
+    "directItems": [1, 2, 5],
+    "reverseItems": [3, 4],
     "minScore": 20,
     "maxScore": 100,
-    "higherMeans": "higher_procrastination"
+    "higherMeans": "higher_procrastination",
+    "showAverage": true,
+    "interpretationMode": "bands"
   },
   "resultBands": [
     {
