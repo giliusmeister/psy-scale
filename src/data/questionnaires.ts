@@ -1,5 +1,5 @@
 import type { Questionnaire } from "../types/questionnaire";
-import { validateQuestionnaire } from "../questionnaires/validateQuestionnaire";
+import { validateQuestionnaire } from "../utils/validateQuestionnaire";
 
 type JsonModule = {
   default: unknown;
