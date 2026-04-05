@@ -1,0 +1,751 @@
+{
+  "title": "Диагностика типологий психологической защиты",
+  "author": "Р. Плутчик, адаптация Л.И. Вассермана",
+  "description": "Опросник для диагностики выраженности механизмов психологической защиты.",
+  "category": "Психологическая защита",
+  "estimatedMinutes": 12,
+  "instructions": {
+    "title": "Инструкция",
+    "text": "Прочтите следующие утверждения. Если утверждение вам соответствует, выберите «Да». Если утверждение вам не соответствует, выберите «Нет».",
+    "reverseNote": ""
+  },
+  "scale": {
+    "type": "binary_yes_no",
+    "min": 0,
+    "max": 1,
+    "options": [
+      { "value": 1, "label": "Да" },
+      { "value": 0, "label": "Нет" }
+    ],
+    "reverseScoring": {
+      "0": 0,
+      "1": 1
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "Я очень легкий человек и со мной легко ужиться.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Когда я хочу чего-нибудь, то никак не могу дождаться, когда это получу.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "Всегда существовал человек, на которого я хотел бы походить.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "Люди не считают меня эмоциональным человеком.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "Я выхожу из себя, когда смотрю фильмы непристойного содержания.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "Я редко помню свои сны.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "Меня бесят люди, которые всеми вокруг командуют.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "text": "Иногда у меня появляется сильное желание пробить стену кулаком.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "text": "Меня раздражает тот факт, что люди слишком много задаются.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "text": "В мечтах я всегда в центре внимания.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q11",
+      "number": 11,
+      "text": "Я человек, который никогда не плачет.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q12",
+      "number": 12,
+      "text": "Необходимость пользоваться общественным туалетом заставляет меня совершать над собой усилие.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q13",
+      "number": 13,
+      "text": "Я всегда готов выслушать обе стороны во время спора.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q14",
+      "number": 14,
+      "text": "Меня легко вывести из себя.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q15",
+      "number": 15,
+      "text": "Когда кто-нибудь толкает меня в толпе, я чувствую, что готов толкнуть его в ответ.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q16",
+      "number": 16,
+      "text": "Многое во мне восхищает людей.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q17",
+      "number": 17,
+      "text": "Я полагаю, что лучше хорошенько обдумать что-нибудь до конца, чем приходить в ярость.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q18",
+      "number": 18,
+      "text": "Я много болею.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q19",
+      "number": 19,
+      "text": "Я меня плохая память на лица.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q20",
+      "number": 20,
+      "text": "Когда меня отвергают, у меня появляются мысли о самоубийстве.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q21",
+      "number": 21,
+      "text": "Когда я слышу сальность, то очень смущаюсь.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q22",
+      "number": 22,
+      "text": "Я всегда вижу светлую сторону вещей.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q23",
+      "number": 23,
+      "text": "Я ненавижу злобных людей.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q24",
+      "number": 24,
+      "text": "Мне трудно избавиться от чего-либо, что принадлежит мне.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q25",
+      "number": 25,
+      "text": "Я с трудом запоминаю имена.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q26",
+      "number": 26,
+      "text": "У меня склонность к излишней импульсивности.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q27",
+      "number": 27,
+      "text": "Люди, которые добиваются своего криком и воплями, вызывают у меня отвращение.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q28",
+      "number": 28,
+      "text": "Я свободен от предрассудков.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q29",
+      "number": 29,
+      "text": "Мне крайне необходимо, чтобы люди говорили мне о моей сексуальной привлекательности.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q30",
+      "number": 30,
+      "text": "Когда я собираюсь в поездку, то планирую каждую деталь заранее.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q31",
+      "number": 31,
+      "text": "Иногда мне хочется, чтобы атомная бомба разрушила весь мир.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q32",
+      "number": 32,
+      "text": "Порнография отвратительна.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q33",
+      "number": 33,
+      "text": "Когда я чем-нибудь расстроен, то много ем.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q34",
+      "number": 34,
+      "text": "Люди мне никогда не надоедают.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q35",
+      "number": 35,
+      "text": "Многое из своего детства я не могу вспомнить.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q36",
+      "number": 36,
+      "text": "Когда я собираюсь в отпуск, то обычно беру с собой работу.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q37",
+      "number": 37,
+      "text": "В своих фантазиях я совершаю великие поступки.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q38",
+      "number": 38,
+      "text": "В большинстве своем люди раздражают меня, так как они слишком эгоистичны.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q39",
+      "number": 39,
+      "text": "Прикосновение к чему-нибудь осклизлому, скользкому, вызывает у меня отвращение.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q40",
+      "number": 40,
+      "text": "Если кто-нибудь надоедает мне, я не говорю ему это, а стремлюсь выразить свое недовольство кому-нибудь другому.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q41",
+      "number": 41,
+      "text": "Я полагаю, что люди обведут вас вокруг пальца, если вы не будете осторожны.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q42",
+      "number": 42,
+      "text": "Мне требуется много времени, чтобы разглядеть плохие качества в других людях.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q43",
+      "number": 43,
+      "text": "Я никогда не волнуюсь, когда слышу о какой-либо трагедии.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q44",
+      "number": 44,
+      "text": "В споре я обычно более логичен, чем другой человек.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q45",
+      "number": 45,
+      "text": "Мне совершенно необходимо слышать комплименты.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q46",
+      "number": 46,
+      "text": "Беспорядочность отвратительна.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q47",
+      "number": 47,
+      "text": "Кода я веду машину, у меня иногда появляется сильное желание толкнуть другую машину.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q48",
+      "number": 48,
+      "text": "Иногда, когда у меня что-нибудь не получается, я злюсь.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q49",
+      "number": 49,
+      "text": "Когда я вижу кого-нибудь в крови, это меня почти не беспокоит.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q50",
+      "number": 50,
+      "text": "У меня портится настроение, и я раздражаюсь, когда на меня не обращают внимания.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q51",
+      "number": 51,
+      "text": "Люди говорят мне, что я всему верю.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q52",
+      "number": 52,
+      "text": "Я ношу одежду, которая скрывает мои недостатки.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q53",
+      "number": 53,
+      "text": "Мне очень трудно пользоваться неприличными словами.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q54",
+      "number": 54,
+      "text": "Мне кажется, я много спорю с людьми.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q55",
+      "number": 55,
+      "text": "Меня отталкивает от людей то, что они неискренни.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q56",
+      "number": 56,
+      "text": "Люди говорят мне, что я слишком беспристрастен во всем.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q57",
+      "number": 57,
+      "text": "Я знаю, что мои моральные стандарты выше, чем у большинства других людей.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q58",
+      "number": 58,
+      "text": "Когда я не могу справиться с чем-либо, я готов заплакать.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q59",
+      "number": 59,
+      "text": "Мне кажется, что я не могу выражать свои эмоции.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q60",
+      "number": 60,
+      "text": "Когда кто-нибудь толкает меня, я прихожу в ярость.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q61",
+      "number": 61,
+      "text": "То, что мне не нравится, я выбрасываю из головы.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q62",
+      "number": 62,
+      "text": "Я очень редко испытываю чувство привязанности.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q63",
+      "number": 63,
+      "text": "Я терпеть не могу людей, которые всегда стараются быть в центре внимания.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q64",
+      "number": 64,
+      "text": "Я многое коллекционирую.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q65",
+      "number": 65,
+      "text": "Я работаю более упорно, чем большинство людей, для того чтобы добиться результатов в области, которая меня интересует.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q66",
+      "number": 66,
+      "text": "Звуки детского плача не беспокоят меня.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q67",
+      "number": 67,
+      "text": "Я бываю так сердит, что мне хочется крушить все вокруг.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q68",
+      "number": 68,
+      "text": "Я всегда оптимистичен.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q69",
+      "number": 69,
+      "text": "Я много лгу.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q70",
+      "number": 70,
+      "text": "Я больше привязан к самому процессу работы, чем к отношениям, которые складываются вокруг нее.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q71",
+      "number": 71,
+      "text": "В основном люди несносны.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q72",
+      "number": 72,
+      "text": "Я бы ни за что не пошел на фильм, в котором слишком много сексуальных сцен.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q73",
+      "number": 73,
+      "text": "Меня раздражает то, что людям нельзя доверять.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q74",
+      "number": 74,
+      "text": "Я буду делать все, чтобы произвести хорошее впечатление.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q75",
+      "number": 75,
+      "text": "Я не понимаю некоторых своих поступков.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q76",
+      "number": 76,
+      "text": "Я через силу смотрю кинокартины, в которых много насилия.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q77",
+      "number": 77,
+      "text": "Я думаю, что ситуация в мире намного лучше, чем думает большинство людей.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q78",
+      "number": 78,
+      "text": "Когда у меня неудача, я не могу скрыть плохого настроения.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q79",
+      "number": 79,
+      "text": "То, как люди одеваются сейчас на пляже, неприлично.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q80",
+      "number": 80,
+      "text": "Я не позволяю своим эмоциям захватывать меня.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q81",
+      "number": 81,
+      "text": "Я всегда планирую наихудшее, чтобы не быть застигнутым врасплох.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q82",
+      "number": 82,
+      "text": "Я живу так хорошо, что многие люди хотели бы оказаться в моем положении.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q83",
+      "number": 83,
+      "text": "Когда-то я был так сердит, что сильно саданул по чему-то и случайно поранил себя.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q84",
+      "number": 84,
+      "text": "Я испытываю отвращение, когда сталкиваюсь с людьми низкого морального уровня.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q85",
+      "number": 85,
+      "text": "Я почти ничего не помню о своих первых годах в школе.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q86",
+      "number": 86,
+      "text": "Когда я расстроен, я невольно поступаю как ребенок.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q87",
+      "number": 87,
+      "text": "Я предпочитаю больше говорить о своих мыслях, чем о своих чувствах.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q88",
+      "number": 88,
+      "text": "Мне кажется, что я не смог закончить ничего из того, что начал.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q89",
+      "number": 89,
+      "text": "Когда слышу о жестокостях, это не трогает меня.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q90",
+      "number": 90,
+      "text": "В моей семье почти никогда не противоречат друг другу.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q91",
+      "number": 91,
+      "text": "Я много кричу на людей.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q92",
+      "number": 92,
+      "text": "Ненавижу людей, которые топчут других, чтобы продвинуться вперед.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q93",
+      "number": 93,
+      "text": "Кода расстроен, я часто напиваюсь.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q94",
+      "number": 94,
+      "text": "Я счастлив, что у меня меньше проблем, чем у большинства людей.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q95",
+      "number": 95,
+      "text": "Когда что-нибудь расстраивает меня, я сплю больше, чем обычно.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q96",
+      "number": 96,
+      "text": "Я нахожу отвратительным, что большинство людей лгут, для того чтобы добиться успеха.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    },
+    {
+      "id": "q97",
+      "number": 97,
+      "text": "Я говорю много неприличных слов.",
+      "trait": "defense_mechanisms",
+      "reverse": false
+    }
+  ],
+  "scoring": {
+    "method": "subscales_sum",
+    "subscales": [
+      {
+        "key": "denial",
+        "label": "Отрицание",
+        "items": [1, 16, 22, 28, 34, 42, 51, 61, 68, 77, 82, 90, 94]
+      },
+      {
+        "key": "repression",
+        "label": "Подавление",
+        "items": [6, 11, 19, 25, 35, 43, 49, 59, 66, 75, 85, 89]
+      },
+      {
+        "key": "regression",
+        "label": "Регрессия",
+        "items": [2, 14, 18, 26, 33, 48, 50, 58, 69, 78, 86, 88, 93, 95]
+      },
+      {
+        "key": "compensation",
+        "label": "Компенсация",
+        "items": [3, 10, 24, 29, 37, 45, 52, 64, 65, 74]
+      },
+      {
+        "key": "projection",
+        "label": "Проекция",
+        "items": [7, 9, 23, 27, 38, 41, 55, 63, 71, 73, 84, 92, 96]
+      },
+      {
+        "key": "displacement",
+        "label": "Замещение",
+        "items": [8, 15, 20, 31, 40, 47, 54, 60, 67, 76, 83, 91, 97]
+      },
+      {
+        "key": "intellectualization",
+        "label": "Интеллектуализация",
+        "items": [4, 13, 17, 30, 36, 44, 56, 62, 70, 80, 81, 87]
+      },
+      {
+        "key": "reaction_formation",
+        "label": "Реактивное образование",
+        "items": [5, 12, 21, 32, 39, 46, 53, 57, 72, 79]
+      }
+    ]
+  }
+}

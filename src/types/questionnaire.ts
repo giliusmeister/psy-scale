@@ -24,17 +24,26 @@ export type QuestionnaireInstructions = {
   reverseNote?: string;
 };
 
-export type QuestionnaireScoring = {
-  method: "sum";
-  trait: string;
-  directItems: number[];
-  reverseItems: number[];
-  minScore: number;
-  maxScore: number;
-  higherMeans: string;
-  showAverage?: boolean;
-  interpretationMode?: "bands" | "none";
-};
+export type QuestionnaireScoring =
+  | {
+      method: "sum";
+      trait: string;
+      directItems: number[];
+      reverseItems: number[];
+      minScore: number;
+      maxScore: number;
+      higherMeans: string;
+      showAverage?: boolean;
+      interpretationMode?: "bands" | "none";
+    }
+  | {
+      method: "subscales_sum";
+      subscales: {
+        key: string;
+        label: string;
+        items: number[];
+      }[];
+    };
 
 export type Questionnaire = {
   id: string;

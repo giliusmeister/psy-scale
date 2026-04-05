@@ -1,119 +1,113 @@
 import type { Questionnaire } from "../types/questionnaire";
-import type { ResultBand } from "../types/questionnaire";
+import type { CalculationResult } from "./scoring";
 
-type DebugRow = {
-  questionNumber: number;
-  questionId: string;
-  questionText: string;
-  reverse: boolean;
-  rawAnswer: number;
-  scoredAnswer: number;
-};
+export function buildDebugResult(
+  questionnaire: Questionnaire,
+  answers: Record<string, number>,
+  result: CalculationResult,
+  startedAt: number | null,
+  finishedAt: number | null
+) {
+  const timestamp = new Date().toISOString();
 
-type BuildDebugResultParams = {
-  questionnaire: Questionnaire;
-  answers: Record<string, number>;
-  total: number;
-  level?: ResultBand;
-};
-
-function formatDateParts(date: Date) {
-  const pad = (n: number) => String(n).padStart(2, "0");
-
-  const yyyy = date.getFullYear();
-  const mm = pad(date.getMonth() + 1);
-  const dd = pad(date.getDate());
-  const hh = pad(date.getHours());
-  const min = pad(date.getMinutes());
-  const ss = pad(date.getSeconds());
-
-  return {
-    isoDate: `${yyyy}-${mm}-${dd}`,
-    isoDateTime: `${yyyy}-${mm}-${dd}_${hh}-${min}-${ss}`,
+  const base = {
+    questionnaireId: questionnaire.id,
+    title: questionnaire.title,
+    timestamp,
+    startedAt,
+    finishedAt,
+    durationMs:
+    startedAt && finishedAt ? finishedAt - startedAt : null,
+    answers
   };
-}
 
-function sanitizeFilePart(value: string) {
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, "_")
-    .replace(/[^a-zа-я0-9_-]/gi, "");
-}
-
-export function buildDebugResult({
-  questionnaire,
-  answers,
-  total,
-  level,
-}: BuildDebugResultParams) {
-  const reverseMap = questionnaire.scale.reverseScoring;
-
-  const rows: DebugRow[] = questionnaire.questions.map((question) => {
-    const rawAnswer = Number(answers[question.id] ?? 0);
-    const scoredAnswer = question.reverse
-      ? Number(reverseMap[String(rawAnswer)])
-      : rawAnswer;
-
+  // ===== SUM (Лэй, Такман) =====
+  if (result.type === "sum") {
     return {
-      questionNumber: question.number,
-      questionId: question.id,
-      questionText: question.text,
-      reverse: question.reverse,
-      rawAnswer,
-      scoredAnswer,
+      ...base,
+      result: {
+        type: "sum",
+        total: result.total,
+        average: result.average,
+        level: result.level
+          ? {
+              label: result.level.label,
+              min: result.level.min,
+              max: result.level.max,
+            }
+          : null,
+      },
     };
-  });
+  }
 
-  const directRows = rows.filter((row) => !row.reverse);
-  const reverseRows = rows.filter((row) => row.reverse);
+  // ===== SUBSCALES (Плутчик) =====
+  if (result.type === "subscales") {
+    return {
+      ...base,
+      result: {
+        type: "subscales",
+        subscales: result.subscales.map((s) => ({
+          key: s.key,
+          label: s.label,
+          value: s.value,
+        })),
+      },
+    };
+  }
 
-  const directSum = directRows.reduce((sum, row) => sum + row.scoredAnswer, 0);
-  const reverseSum = reverseRows.reduce((sum, row) => sum + row.scoredAnswer, 0);
-
-  const now = new Date();
-  const { isoDate, isoDateTime } = formatDateParts(now);
-
+  // ===== FALLBACK =====
   return {
-    meta: {
-      questionnaireId: questionnaire.id,
-      questionnaireTitle: questionnaire.title,
-      anonymous: true,
-      calculatedAt: now.toISOString(),
-      calculatedAtLocal: isoDateTime,
+    ...base,
+    result: {
+      type: "unknown",
     },
-    summary: {
-      questionsCount: questionnaire.questions.length,
-      directSum,
-      reverseSum,
-      total,
-      level: level?.label ?? null,
-    },
-    rows,
-    answers,
-    exportedOn: isoDate,
   };
 }
 
-export function downloadDebugResult(params: BuildDebugResultParams) {
-  const debugData = buildDebugResult(params);
+// ===== Утилита для скачивания =====
 
-  const now = new Date();
-  const { isoDateTime } = formatDateParts(now);
-
-  const questionnaireName = sanitizeFilePart(params.questionnaire.id);
-  const fileName = `${questionnaireName}_anonymous_${isoDateTime}.json`;
-
-  const blob = new Blob([JSON.stringify(debugData, null, 2)], {
-    type: "application/json;charset=utf-8",
+export function downloadDebugJson(data: unknown, filename: string) {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: "application/json",
   });
 
   const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = fileName;
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+export function downloadDebugResult(
+  questionnaire: Questionnaire,
+  answers: Record<string, number>,
+  result: CalculationResult,
+  startedAt: number | null,
+  finishedAt: number | null
+) {
+  const debugData = buildDebugResult(
+    questionnaire,
+    answers,
+    result,
+    startedAt,
+    finishedAt
+  );
+
+  const filename = `${questionnaire.id}_${Date.now()}.json`;
+
+  const blob = new Blob([JSON.stringify(debugData, null, 2)], {
+    type: "application/json",
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+
   URL.revokeObjectURL(url);
 }

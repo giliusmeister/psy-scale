@@ -5,11 +5,21 @@ import { downloadDebugResult } from "./utils/debug";
 import type { Questionnaire, ResultBand } from "./types/questionnaire";
 import "./App.css";
 
-type CalculationResult = {
-  total: number;
-  average: number | null;
-  level?: ResultBand;
-};
+type CalculationResult =
+  | {
+      type: "sum";
+      total: number;
+      average: number | null;
+      level?: ResultBand;
+    }
+  | {
+      type: "subscales";
+      subscales: {
+        key: string;
+        label: string;
+        value: number;
+      }[];
+    };
 
 function App() {
   const [startedAt, setStartedAt] = useState<number | null>(null);
@@ -71,6 +81,8 @@ function App() {
     setAnswers({});
     setCurrentIndex(0);
     setResult(null);
+	setStartedAt(Date.now());
+    setFinishedAt(null);
   };
 
   const handleBackToList = () => {
@@ -93,12 +105,13 @@ function App() {
   const handleDownloadDebug = () => {
     if (!selectedQuestionnaire || !result) return;
 
-    downloadDebugResult({
-      questionnaire: selectedQuestionnaire,
+    downloadDebugResult(
+      selectedQuestionnaire,
       answers,
-      total: result.total,
-      level: result.level,
-    });
+      result,
+      startedAt,
+      finishedAt
+    );
   };
 
   const formatDateTime = (timestamp: number | null) => {
@@ -161,69 +174,90 @@ function App() {
   // ===== экран результата =====
 
   if (result) {
-    return (
-      <div className="page">
-        <div className="card">
-          <h1 className="title">{selectedQuestionnaire.title}</h1>
-          <h2 className="subtitle">Результат</h2>
+  return (
+    <div className="page">
+      <div className="card">
+        <h1 className="title">{selectedQuestionnaire.title}</h1>
+        <h2 className="subtitle">Результат</h2>
 
-          <div className="result-info">
-            <div><strong>ID:</strong> {selectedQuestionnaire.id}</div>
-            {selectedQuestionnaire.author && (
-              <div><strong>Автор:</strong> {selectedQuestionnaire.author}</div>
-            )}
-            <div>
-              <strong>Вопросов:</strong> {selectedQuestionnaire.questions.length}
-            </div>
+        <div className="result-info">
+          <div>
+            <strong>ID:</strong> {selectedQuestionnaire.id}
           </div>
-
-          <div className="result-info">
-            <div><strong>Дата:</strong> {formatDateTime(finishedAt)}</div>
+          {selectedQuestionnaire.author && (
             <div>
-              <strong>Время прохождения:</strong>{" "}
-              {formatDuration(startedAt, finishedAt)}
+              <strong>Автор:</strong> {selectedQuestionnaire.author}
             </div>
+          )}
+          <div>
+            <strong>Вопросов:</strong> {selectedQuestionnaire.questions.length}
           </div>
+		
+		{startedAt && finishedAt && (
+		<>
+          <div>
+            <strong>Начало:</strong> {formatDateTime(startedAt)}
+          </div>
+          <div>
+            <strong>Завершение:</strong> {formatDateTime(finishedAt)}
+          </div>
+          <div>
+          <strong>Время прохождения:</strong>{" "}
+            {formatDuration(startedAt, finishedAt)}
+          </div>
+		</>
+        )}
+		</div>
 
+        {result.type === "sum" ? (
           <div className="result-main">
-            <div className="result-score">
-              {result.total} баллов
-            </div>
+            <div className="result-score">{result.total} баллов</div>
 
-          {result.average !== null && (
-            <div className="result-average">
-              Средний балл: {result.average}
-            </div>
-          )}
+            {result.average !== null && (
+              <div className="result-average">
+                Средний балл: {result.average}
+              </div>
+            )}
 
-          {result.level ? (
-            <div className="result-badge">
-              {result.level.label}
-            </div>
-          ) : (
-            <div className="result-note">
-              Интерпретация по фиксированным диапазонам для этой методики не задана.
-            </div>
-          )}
+            {result.level ? (
+              <div className="result-badge">{result.level.label}</div>
+            ) : (
+              <div className="result-note">
+                Интерпретация по фиксированным диапазонам для этой методики не
+                задана.
+              </div>
+            )}
           </div>
-
-          <div className="result-actions">
-            <button className="secondary-button" onClick={handleDownloadDebug}>
-              Скачать JSON
-            </button>
-
-            <button className="secondary-button" onClick={handleBackToList}>
-              К списку
-            </button>
-
-            <button className="primary-button" onClick={handleRestart}>
-              Пройти заново
-            </button>
+        ) : (
+          <div className="result-main">
+            <div className="result-subscales">
+              {result.subscales.map((subscale) => (
+                <div key={subscale.key} className="subscale-row">
+                  <span className="subscale-label">{subscale.label}</span>
+                  <span className="subscale-value">{subscale.value}</span>
+                </div>
+              ))}
+            </div>
           </div>
+        )}
+
+        <div className="result-actions">
+          <button className="secondary-button" onClick={handleDownloadDebug}>
+            Скачать JSON
+          </button>
+
+          <button className="secondary-button" onClick={handleBackToList}>
+            К списку
+          </button>
+
+          <button className="primary-button" onClick={handleRestart}>
+            Пройти заново
+          </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
   
   if (!currentQuestion) return null;
 
