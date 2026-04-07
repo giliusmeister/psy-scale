@@ -1,20 +1,27 @@
 import type { Questionnaire, ResultBand } from "../types/questionnaire";
 
+export type SumCalculationResult = {
+  type: "sum";
+  total: number;
+  average: number | null;
+  level?: ResultBand;
+};
+
+export type SubscaleCalculationResultItem = {
+  key: string;
+  label: string;
+  value: number;
+  percentile: number | null;
+};
+
+export type SubscalesCalculationResult = {
+  type: "subscales";
+  subscales: SubscaleCalculationResultItem[];
+};
+
 export type CalculationResult =
-  | {
-      type: "sum";
-      total: number;
-      average: number | null;
-      level?: ResultBand;
-    }
-  | {
-      type: "subscales";
-      subscales: {
-        key: string;
-        label: string;
-        value: number;
-      }[];
-    };
+  | SumCalculationResult
+  | SubscalesCalculationResult;
 
 export function calculateResult(
   answers: Record<string, number>,
@@ -22,17 +29,18 @@ export function calculateResult(
 ): CalculationResult {
   const scoring = questionnaire.scoring;
 
-  // ===== SUM (старые тесты) =====
+  // ===== 1. Обычная сумма =====
   if (scoring.method === "sum") {
-    const reverseMap = questionnaire.scale.reverseScoring || {};
+    const reverseMap = questionnaire.scale.reverseScoring ?? {};
     let total = 0;
 
     for (const question of questionnaire.questions) {
       const raw = answers[question.id] ?? 0;
 
-      const scored = question.reverse
-        ? reverseMap[String(raw)]
-        : raw;
+      const scored =
+        question.reverse === true
+          ? Number(reverseMap[String(raw)] ?? raw)
+          : raw;
 
       total += scored;
     }
@@ -48,7 +56,7 @@ export function calculateResult(
       questionnaire.resultBands?.length
     ) {
       level = questionnaire.resultBands.find(
-        (b) => total >= b.min && total <= b.max
+        (band) => total >= band.min && total <= band.max
       );
     }
 
@@ -60,26 +68,31 @@ export function calculateResult(
     };
   }
 
-  // ===== SUBSCALES (Плутчик) =====
+  // ===== 2. Подсчет по субшкалам =====
   if (scoring.method === "subscales_sum") {
-    const subscales = scoring.subscales.map((sub) => {
-      let sum = 0;
+    const subscales = scoring.subscales.map((subscale) => {
+      let value = 0;
 
-      for (const num of sub.items) {
-        const q = questionnaire.questions.find(
-          (qq) => qq.number === num
+      for (const itemNumber of subscale.items) {
+        const question = questionnaire.questions.find(
+          (q) => q.number === itemNumber
         );
 
-        if (!q) continue;
+        if (!question) continue;
 
-        const value = answers[q.id] ?? 0;
-        sum += value;
+        value += answers[question.id] ?? 0;
       }
 
+      const percentile =
+        questionnaire.norms?.type === "percentiles"
+          ? questionnaire.norms.subscales[subscale.key]?.[String(value)] ?? null
+          : null;
+
       return {
-        key: sub.key,
-        label: sub.label,
-        value: sum,
+        key: subscale.key,
+        label: subscale.label,
+        value,
+        percentile,
       };
     });
 
@@ -89,5 +102,5 @@ export function calculateResult(
     };
   }
 
-  throw new Error("Unknown scoring method");
+  throw new Error("Unsupported scoring method");
 }

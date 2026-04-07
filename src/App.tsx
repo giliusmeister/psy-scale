@@ -1,25 +1,10 @@
 import { useMemo, useState } from "react";
 import { questionnaires } from "./data/questionnaires";
+import type { CalculationResult } from "./utils/scoring";
 import { calculateResult } from "./utils/scoring";
 import { downloadDebugResult } from "./utils/debug";
-import type { Questionnaire, ResultBand } from "./types/questionnaire";
+import type { Questionnaire} from "./types/questionnaire";
 import "./App.css";
-
-type CalculationResult =
-  | {
-      type: "sum";
-      total: number;
-      average: number | null;
-      level?: ResultBand;
-    }
-  | {
-      type: "subscales";
-      subscales: {
-        key: string;
-        label: string;
-        value: number;
-      }[];
-    };
 
 function App() {
   const [startedAt, setStartedAt] = useState<number | null>(null);
@@ -60,7 +45,7 @@ function App() {
   };
 
   const handleNext = () => {
-    if (!selectedQuestionnaire || !currentQuestion || !currentAnswer) return;
+    if (!selectedQuestionnaire || !currentQuestion || currentAnswer === undefined) return;
 
     if (isLastQuestion) {
       const finalResult = calculateResult(answers, selectedQuestionnaire);
@@ -210,7 +195,7 @@ function App() {
 		</div>
 
         {result.type === "sum" ? (
-          <div className="result-main">
+        <div className="result-main">
             <div className="result-score">{result.total} баллов</div>
 
             {result.average !== null && (
@@ -227,19 +212,21 @@ function App() {
                 задана.
               </div>
             )}
-          </div>
+        </div>
         ) : (
-          <div className="result-main">
-            <div className="result-subscales">
-              {result.subscales.map((subscale) => (
-                <div key={subscale.key} className="subscale-row">
-                  <span className="subscale-label">{subscale.label}</span>
-                  <span className="subscale-value">{subscale.value}</span>
-                </div>
-              ))}
+        result.type === "subscales" && (
+        <div className="result-subscales">
+            {result.subscales.map((subscale) => (
+            <div key={subscale.key} className="subscale-row">
+                <span className="subscale-label">{subscale.label}</span>
+                <span className="subscale-value">
+                    {subscale.value}
+                    {subscale.percentile !== null ? ` (${subscale.percentile} перцентиль)` : ""}
+                </span>
             </div>
-          </div>
-        )}
+            ))}
+        </div>
+        ))}
 
         <div className="result-actions">
           <button className="secondary-button" onClick={handleDownloadDebug}>
@@ -370,7 +357,7 @@ function App() {
 
             <button
               onClick={handleNext}
-              disabled={!currentAnswer}
+              disabled={currentAnswer === undefined}
               className="primary-button"
             >
               {isLastQuestion ? "Завершить" : "Далее"}

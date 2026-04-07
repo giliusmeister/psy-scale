@@ -7,8 +7,8 @@ export type Question = {
   id: string;
   number: number;
   text: string;
-  trait: string;
-  reverse: boolean;
+  trait?: string;
+  reverse?: boolean;
 };
 
 export type ResultBand = {
@@ -24,26 +24,35 @@ export type QuestionnaireInstructions = {
   reverseNote?: string;
 };
 
-export type QuestionnaireScoring =
-  | {
-      method: "sum";
-      trait: string;
-      directItems: number[];
-      reverseItems: number[];
-      minScore: number;
-      maxScore: number;
-      higherMeans: string;
-      showAverage?: boolean;
-      interpretationMode?: "bands" | "none";
-    }
-  | {
-      method: "subscales_sum";
-      subscales: {
-        key: string;
-        label: string;
-        items: number[];
-      }[];
-    };
+export type SumScoring = {
+  method: "sum";
+  trait: string;
+  directItems: number[];
+  reverseItems: number[];
+  minScore: number;
+  maxScore: number;
+  higherMeans: string;
+  showAverage?: boolean;
+  interpretationMode?: "bands" | "none";
+};
+
+export type SubscaleDefinition = {
+  key: string;
+  label: string;
+  items: number[];
+};
+
+export type SubscalesSumScoring = {
+  method: "subscales_sum";
+  subscales: SubscaleDefinition[];
+};
+
+export type QuestionnaireScoring = SumScoring | SubscalesSumScoring;
+
+export type PercentileNorms = {
+  type: "percentiles";
+  subscales: Record<string, Record<string, number>>;
+};
 
 export type Questionnaire = {
   id: string;
@@ -55,12 +64,13 @@ export type Questionnaire = {
   instructions?: QuestionnaireInstructions;
   scale: {
     type: string;
-    min: number;
-    max: number;
+    min?: number;
+    max?: number;
     options: ScaleOption[];
-    reverseScoring: Record<string, number>;
+    reverseScoring?: Record<string, number>;
   };
   questions: Question[];
   scoring: QuestionnaireScoring;
   resultBands?: ResultBand[];
+  norms?: PercentileNorms;
 };
