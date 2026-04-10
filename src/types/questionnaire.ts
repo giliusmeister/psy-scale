@@ -25,10 +25,9 @@ export type Question = {
   text: string;
   trait?: string;
   reverse?: boolean;
-
-  // Новое:
   visibility?: VisibilityRule;
   scorable?: boolean; // по умолчанию true
+  options?: ScaleOption[];
 };
 
 export type ResultBand = {

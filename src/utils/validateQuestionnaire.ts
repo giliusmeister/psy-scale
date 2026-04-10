@@ -136,6 +136,26 @@ export function validateQuestionnaire(data: unknown): ValidationResult {
             if (question.scorable !== undefined && !isBoolean(question.scorable)) {
                 errors.push(`questions[${index}].scorable должен быть boolean, если указан.`);
             }
+            if (question.options !== undefined) {
+                if (!Array.isArray(question.options) || question.options.length === 0) {
+                    errors.push(`questions[${index}].options должен быть непустым массивом, если указан.`);
+                } else {
+                    question.options.forEach((option, optionIndex) => {
+                        if (!isObject(option)) {
+                            errors.push(`questions[${index}].options[${optionIndex}] должен быть объектом.`);
+                            return;
+                        }
+
+                        if (!isNumber(option.value)) {
+                            errors.push(`questions[${index}].options[${optionIndex}].value должен быть числом.`);
+                        }
+
+                        if (!isNonEmptyString(option.label)) {
+                            errors.push(`questions[${index}].options[${optionIndex}].label должен быть непустой строкой.`);
+                        }
+                    });
+                }
+            }
             if (question.visibility !== undefined) {
                 if (!isObject(question.visibility)) {
                     errors.push(`questions[${index}].visibility должен быть объектом.`);

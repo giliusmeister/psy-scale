@@ -106,6 +106,9 @@ function App() {
                     text: q.text,
                     dependsOn: q.visibility?.dependsOn,
                     operator: q.visibility?.operator,
+                    options: q.options,
+                    dependsOn: q.visibility?.dependsOn,
+                    operator: q.visibility?.operator,
                     value: q.visibility?.value,
                 })));
 
@@ -113,6 +116,11 @@ function App() {
     }, [selectedQuestionnaire, answers]);
     const currentQuestion = visibleQuestions[currentIndex];
     const currentAnswer = currentQuestion ? answers[currentQuestion.id] : undefined;
+    const answerOptions =
+        currentQuestion?.options ?? selectedQuestionnaire?.scale.options ?? [];
+    debugLog("currentQuestion", currentQuestion);
+    debugLog("currentQuestion.options", currentQuestion?.options);
+    debugLog("answerOptions", answerOptions);
     const isLastQuestion = visibleQuestions.length > 0 && currentIndex === visibleQuestions.length - 1;
     const answeredCount = useMemo(() => {
         return visibleQuestions.filter((q) => answers[q.id] !== undefined).length;
@@ -190,7 +198,7 @@ function App() {
         return `${min} мин ${sec} сек`;
     };
     if (!selectedQuestionnaire) {
-        return ( < div className = "page" >  < div className = "card" >  < h1 className = "title" > psy - scale <  / h1 >  < p className = "instructions-text" > Выберите опросник из списка:  <  / p > {
+        return ( < div className = "page" >  < div className = "card" >  < h1 className = "title" > Psy - Scale <  / h1 >  < p className = "instructions-text" > Выберите опросник из списка:  <  / p > {
                 questionnaires.length === 0 ? ( < div className = "empty-state" > Не найдено ни одного валидного опросника.Проверьте JSON и консоль. <  / div > ) : ( < div className = "questionnaire-list" > {
                         questionnaires.map((q) => ( < button
                                 key = {
@@ -301,7 +309,7 @@ function App() {
                         }
                     }
                     />
-                                                                                                          </div >
+                     </div >
 
                      < div className = "percentile-scale-labels" >
                          < span > 0 <  / span >
@@ -366,7 +374,7 @@ function App() {
                                         }
                                     }
                                     />
-                                </div > )
+                                 </div > )
                             }
                                  <  / div > ))
                     }
@@ -417,7 +425,7 @@ function App() {
                                     }
                                 }
                                 />
-                                </div > )
+                             </div > )
                         }
                              <  / div > ))
                 }
@@ -436,6 +444,8 @@ function App() {
     }
     if (!currentQuestion)
         return null;
+    const scaleOptionsForDisplay =
+        currentQuestion?.options ?? selectedQuestionnaire.scale.options;
     return ( < div className = "page" >  < div className = "card card--test" >  < div className = "test-header" >  < div className = "top-bar" >  < button className = "top-button" onClick = {
             handleBackToList
         }
@@ -458,21 +468,21 @@ function App() {
             }
              <  / p > )
     }
-         < div className = "scale-box" >  < div className = "scale-title" > {
-            selectedQuestionnaire.instructions?.title ?? "Шкала"
+         < div className = "scale-box" >
+             < div className = "scale-title" >
+            Варианты ответа
+             <  / div > {
+            answerOptions.map((option) => ( < div key = {
+                        option.value
+                    }
+                    className = "scale-item" > {
+                        option.value
+                    }
+                    — {
+                    option.label
+                }
+                     <  / div > ))
         }
-         <  / div > {
-        selectedQuestionnaire.scale.options.map((option) => ( < div key = {
-                    option.value
-                }
-                className = "scale-item" > {
-                    option.value
-                }
-                — {
-                option.label
-            }
-                 <  / div > ))
-    }
          <  / div >  <  / div >  < div className = "test-content" >  < div className = "progress-text" >
             Вопрос {
             currentIndex + 1
@@ -495,15 +505,14 @@ function App() {
             }
         }
         />
-
-                                                                                                                                                                                                                                                         </div >  < div className = "question-block" >  < div className = "question-number" > {
+                </div >  < div className = "question-block" >  < div className = "question-number" > {
             currentQuestion.number
         }
          <  / div >  < p className = "question-text" > {
             currentQuestion.text
         }
          <  / p >  <  / div >  < div className = "answers-block" > {
-            selectedQuestionnaire.scale.options.map((option) => {
+            answerOptions.map((option) => {
                 const selected = currentAnswer === option.value;
                 return ( < button
                     key = {
@@ -539,7 +548,7 @@ function App() {
             answeredCount
         }
         / {visibleQuestions.length}
-                                                                                                                                                                                                                                                                        </div >  < button
+        </div >  < button
         onClick = {
             handleNext
         }

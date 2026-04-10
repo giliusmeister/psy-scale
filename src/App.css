@@ -34,6 +34,7 @@ button {
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
 .title {
@@ -274,44 +275,6 @@ button {
   gap: 8px;
 }
 
-/*
-.questionnaire-card {
-  width: 100%;
-  text-align: left;
-  border: 1px solid #d7deea;
-  border-radius: 14px;
-  padding: 18px;
-  background: #ffffff;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.questionnaire-card:hover {
-  border-color: #4f46e5;
-  transform: translateY(-1px);
-  background: #f8faff;
-}
-
-.questionnaire-card-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #111827;
-  margin-bottom: 8px;
-}
-
-.questionnaire-card-description {
-  color: #4b5563;
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.questionnaire-card-meta {
-  font-size: 14px;
-  font-weight: 600;
-  color: #6b7280;
-}
-*/
-
 .questionnaire-card {
   padding: 10px 12px;
   border-radius: 12px;
@@ -361,6 +324,7 @@ button {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .empty-state {
@@ -376,15 +340,6 @@ button {
   color: #4b5563;
   display: grid;
   gap: 4px;
-}
-
-.questionnaire-card-meta {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  font-size: 14px;
-  font-weight: 600;
-  color: #6b7280;
 }
 
 .top-bar {
