@@ -1,0 +1,124 @@
+{
+  "id": "template_questionnaire_id",
+  "title": "Название методики",
+  "description": "Краткое описание методики.",
+  "author": "Автор",
+  "category": "Категория",
+  "estimatedMinutes": 5,
+  "instructions": {
+    "title": "Инструкция",
+    "text": "Текст инструкции для прохождения опросника.",
+    "reverseNote": "Если есть обратные вопросы, опишите это здесь."
+  },
+  "scale": {
+    "type": "likert_5",
+    "min": 1,
+    "max": 5,
+    "options": [
+      { "value": 1, "label": "Совершенно не характерно" },
+      { "value": 2, "label": "Скорее не характерно" },
+      { "value": 3, "label": "Нейтрально" },
+      { "value": 4, "label": "Скорее характерно" },
+      { "value": 5, "label": "Очень характерно" }
+    ],
+    "reverseScoring": {
+      "1": 5,
+      "2": 4,
+      "3": 3,
+      "4": 2,
+      "5": 1
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "Текст вопроса 1",
+      "trait": "trait_name",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Текст вопроса 2 (обратный)",
+      "trait": "trait_name",
+      "reverse": true
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "Текст вопроса с условием",
+      "trait": "trait_name",
+      "reverse": false,
+      "visibility": {
+        "dependsOn": "q1",
+        "operator": "equals",
+        "value": 5
+      }
+    },
+    {
+      "id": "q4a",
+      "number": "4a",
+      "text": "Служебный вопрос (не учитывается в подсчете)",
+      "trait": "trait_name",
+      "reverse": false,
+      "scorable": false
+    }
+  ],
+  "scoring": {
+    "method": "sum_with_subscales",
+    "trait": "trait_name",
+    "directItems": [1, 2, 3],
+    "reverseItems": [],
+    "minScore": 3,
+    "maxScore": 15,
+    "higherMeans": "более выраженное значение признака",
+    "showAverage": true,
+    "interpretationMode": "bands",
+    "percentileBasis": "total",
+    "subscales": [
+      {
+        "key": "subscale_a",
+        "label": "Подшкала A",
+        "items": [1, 2]
+      },
+      {
+        "key": "subscale_b",
+        "label": "Подшкала B",
+        "items": [3]
+      }
+    ]
+  },
+  "resultBands": [
+    {
+      "key": "low",
+      "min": 3,
+      "max": 6,
+      "label": "Низкий уровень"
+    },
+    {
+      "key": "medium",
+      "min": 7,
+      "max": 11,
+      "label": "Средний уровень"
+    },
+    {
+      "key": "high",
+      "min": 12,
+      "max": 15,
+      "label": "Высокий уровень"
+    }
+  ],
+  "norms": {
+    "type": "percentiles",
+    "subscales": {
+      "total": {
+        "3": 5,
+        "6": 25,
+        "9": 50,
+        "12": 75,
+        "15": 95
+      }
+    }
+  }
+}
