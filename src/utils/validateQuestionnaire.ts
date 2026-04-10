@@ -251,6 +251,13 @@ export function validateQuestionnaire(data: unknown): ValidationResult {
                             errors.push(`Все элементы scoring.subscales[${index}].items должны быть числами.`);
                         }
                     });
+
+                    if (
+                        subscale.aggregation !== undefined &&
+                        subscale.aggregation !== "sum" &&
+                        subscale.aggregation !== "mean") {
+                        errors.push(`scoring.subscales[${index}].aggregation должно быть "sum" или "mean".`);
+                    }
                 }
             }
         }
@@ -280,6 +287,13 @@ export function validateQuestionnaire(data: unknown): ValidationResult {
                         errors.push(`Все элементы scoring.subscales[${index}].items должны быть числами.`);
                     }
                 });
+
+                if (
+                    subscale.aggregation !== undefined &&
+                    subscale.aggregation !== "sum" &&
+                    subscale.aggregation !== "mean") {
+                    errors.push(`scoring.subscales[${index}].aggregation должно быть "sum" или "mean".`);
+                }
             }
         }
     }
@@ -335,6 +349,12 @@ export function validateQuestionnaire(data: unknown): ValidationResult {
                 }
             }
         }
+    }
+    if (
+        questionnaire.resultDescription !== undefined &&
+        (typeof questionnaire.resultDescription !== "string" ||
+            questionnaire.resultDescription.trim().length === 0)) {
+        errors.push("resultDescription должно быть непустой строкой.");
     }
     if (errors.length > 0) {
         return {

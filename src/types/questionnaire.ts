@@ -91,6 +91,7 @@ export type SubscaleDefinition = {
   key: string;
   label: string;
   items: number[];
+  aggregation?: "sum" | "mean";
 };
 
 export type SubscalesSumScoring = {
@@ -124,4 +125,5 @@ export type Questionnaire = {
   scoring: QuestionnaireScoring;
   resultBands?: ResultBand[];
   norms?: PercentileNorms;
+  resultDescription?: string;
 };

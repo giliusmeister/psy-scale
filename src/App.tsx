@@ -301,7 +301,7 @@ function App() {
                         }
                     }
                     />
-                                              </div >
+                                                                                                          </div >
 
                      < div className = "percentile-scale-labels" >
                          < span > 0 <  / span >
@@ -315,12 +315,13 @@ function App() {
             } {
                 !result.level &&
                 (result.percentile === null || result.percentile === undefined) && (
-                     < div className = "result-note" >
-                        Интерпретация по фиксированным диапазонам для этой методики не задана.
-                         <  / div > )
+                     < div className = "result-note" > {
+                        selectedQuestionnaire.resultDescription ??
+                        "Интерпретация по фиксированным диапазонам для этой методики не задана."
+                    }
+                     <  / div > )
             } { /* ПОДШКАЛЫ */
-            }
-            {
+            }{
                 result.subscales && result.subscales.length > 0 && (
                      < div className = "result-subscales" >
                          < div className = "subscales-title" > Подшкалы:  <  / div > {
@@ -346,7 +347,9 @@ function App() {
                                     subscale.value
                                 } {
                                 subscale.max !== null && subscale.max !== undefined
-                                 ? ` из ${subscale.max}`
+                                 ? subscale.aggregation === "mean"
+                                 ? ` / ${subscale.max}`
+                                 : ` из ${subscale.max}`
                                  : ""
                             } {
                                 subscale.percentile !== null
@@ -363,7 +366,7 @@ function App() {
                                         }
                                     }
                                     />
-                                                                                                                                                                                                                                                                </div > )
+                                </div > )
                             }
                                  <  / div > ))
                     }
@@ -395,7 +398,9 @@ function App() {
                                 subscale.value
                             } {
                             subscale.max !== null && subscale.max !== undefined
-                             ? ` из ${subscale.max}`
+                             ? subscale.aggregation === "mean"
+                             ? ` / ${subscale.max}`
+                             : ` из ${subscale.max}`
                              : ""
                         } {
                             subscale.percentile !== null
@@ -412,7 +417,7 @@ function App() {
                                     }
                                 }
                                 />
-                                                                                                                                                                                                    </div > )
+                                </div > )
                         }
                              <  / div > ))
                 }
@@ -491,7 +496,7 @@ function App() {
         }
         />
 
-                                                                                                                                                                                                                                 </div >  < div className = "question-block" >  < div className = "question-number" > {
+                                                                                                                                                                                                                                                         </div >  < div className = "question-block" >  < div className = "question-number" > {
             currentQuestion.number
         }
          <  / div >  < p className = "question-text" > {
@@ -534,7 +539,7 @@ function App() {
             answeredCount
         }
         / {visibleQuestions.length}
-                                                                                                                                                                                                                                                </div >  < button
+                                                                                                                                                                                                                                                                        </div >  < button
         onClick = {
             handleNext
         }

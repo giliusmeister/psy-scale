@@ -139,7 +139,8 @@ function calculateSubscales(
     }
 
     return questionnaire.scoring.subscales.map((subscale) => {
-        let value = 0;
+        let sumValue = 0;
+        let answeredCount = 0;
 
         for (const itemNumber of subscale.items) {
             const question = questionnaire.questions.find(
@@ -162,8 +163,19 @@ function calculateSubscales(
                  ? Number(reverseMap[String(raw)] ?? raw)
                  : raw;
 
-            value += scored;
+            sumValue += scored;
+            answeredCount += 1;
         }
+
+        const aggregation = subscale.aggregation ?? "sum";
+		const isMean = aggregation === "mean";
+
+        const value =
+            aggregation === "mean"
+             ? answeredCount > 0
+             ? Number((sumValue / answeredCount).toFixed(2))
+             : 0
+             : sumValue;
 
         const percentile =
             questionnaire.norms?.type === "percentiles"
@@ -174,21 +186,17 @@ function calculateSubscales(
         const scaleMin = questionnaire.scale.min ?? 1;
         const scaleMax = questionnaire.scale.max ?? questionnaire.scale.options.length;
 
-        const minValue = itemCount * scaleMin;
-        const maxValue = itemCount * scaleMax;
+        const minValue =
+            aggregation === "mean" ? scaleMin : itemCount * scaleMin;
+
+        const maxValue =
+            aggregation === "mean" ? scaleMax : itemCount * scaleMax;
 
         const percent =
             maxValue > minValue
              ? Math.round(((value - minValue) / (maxValue - minValue)) * 100)
              : null;
-        /*
-        console.log("subscale result", {
-        key: subscale.key,
-        value,
-        percentile,
-        percent,
-        });
-         */
+
         return {
             key: subscale.key,
             label: subscale.label,
@@ -197,6 +205,7 @@ function calculateSubscales(
             percent,
             min: minValue,
             max: maxValue,
+			aggregation
         };
     });
 }
