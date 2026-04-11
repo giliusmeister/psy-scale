@@ -1,6 +1,18 @@
+export type QuestionnaireUI = {
+  inputMode?: "buttons" | "slider" | "mixed";
+};
+
 export type ScaleOption = {
   value: number;
   label: string;
+};
+
+export type Scale = {
+  type: string;
+  min?: number;
+  max?: number;
+  options: ScaleOption[];
+  reverseScoring?: Record<string, number>;
 };
 
 export type VisibilityOperator =
@@ -26,7 +38,7 @@ export type Question = {
   trait?: string;
   reverse?: boolean;
   visibility?: VisibilityRule;
-  scorable?: boolean; // по умолчанию true
+  scorable?: boolean; // default true
   options?: ScaleOption[];
 };
 
@@ -43,6 +55,13 @@ export type QuestionnaireInstructions = {
   reverseNote?: string;
 };
 
+export type SubscaleDefinition = {
+  key: string;
+  label: string;
+  items: number[];
+  aggregation?: "sum" | "mean";
+};
+
 export type SumScoring = {
   method: "sum";
   trait: string;
@@ -54,12 +73,6 @@ export type SumScoring = {
   showAverage?: boolean;
   interpretationMode?: "bands" | "none";
   percentileBasis?: "total" | "average";
-};
-
-export type SubscaleDefinition = {
-  key: string;
-  label: string;
-  items: number[];
 };
 
 export type SubscalesSumScoring = {
@@ -86,20 +99,6 @@ export type QuestionnaireScoring =
   | SubscalesSumScoring
   | SumWithSubscalesScoring;
 
-export type SubscaleDefinition = {
-  key: string;
-  label: string;
-  items: number[];
-  aggregation?: "sum" | "mean";
-};
-
-export type SubscalesSumScoring = {
-  method: "subscales_sum";
-  subscales: SubscaleDefinition[];
-};
-
-export type QuestionnaireScoring = SumScoring | SubscalesSumScoring;
-
 export type PercentileNorms = {
   type: "percentiles";
   subscales: Record<string, Record<string, number>>;
@@ -113,13 +112,8 @@ export type Questionnaire = {
   category?: string;
   estimatedMinutes?: number;
   instructions?: QuestionnaireInstructions;
-  scale: {
-    type: string;
-    min?: number;
-    max?: number;
-    options: ScaleOption[];
-    reverseScoring?: Record<string, number>;
-  };
+  ui?: QuestionnaireUI;
+  scale: Scale;
   questions: Question[];
   scoring: QuestionnaireScoring;
   resultBands?: ResultBand[];

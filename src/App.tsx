@@ -104,8 +104,6 @@ function App() {
                     id: q.id,
                     number: q.number,
                     text: q.text,
-                    dependsOn: q.visibility?.dependsOn,
-                    operator: q.visibility?.operator,
                     options: q.options,
                     dependsOn: q.visibility?.dependsOn,
                     operator: q.visibility?.operator,
@@ -114,17 +112,7 @@ function App() {
 
         return visible;
     }, [selectedQuestionnaire, answers]);
-    const currentQuestion = visibleQuestions[currentIndex];
-    const currentAnswer = currentQuestion ? answers[currentQuestion.id] : undefined;
-    const answerOptions =
-        currentQuestion?.options ?? selectedQuestionnaire?.scale.options ?? [];
-    debugLog("currentQuestion", currentQuestion);
-    debugLog("currentQuestion.options", currentQuestion?.options);
-    debugLog("answerOptions", answerOptions);
-    const isLastQuestion = visibleQuestions.length > 0 && currentIndex === visibleQuestions.length - 1;
-    const answeredCount = useMemo(() => {
-        return visibleQuestions.filter((q) => answers[q.id] !== undefined).length;
-    }, [visibleQuestions, answers]);
+
     const handleSelectQuestionnaire = (questionnaire: Questionnaire) => {
         setSelectedQuestionnaire(questionnaire);
         setAnswers({});
@@ -145,19 +133,33 @@ function App() {
         });
     };
     const handleNext = () => {
-        if (!selectedQuestionnaire || !currentQuestion || currentAnswer === undefined)
+        if (!selectedQuestionnaire || !currentQuestion || effectiveAnswer === undefined) {
             return;
+        }
+        const nextAnswers =
+            answers[currentQuestion.id] !== undefined
+             ? answers
+             : pruneHiddenAnswers(selectedQuestionnaire.questions, {
+                ...answers,
+                [currentQuestion.id]: effectiveAnswer,
+            });
+
         debugLog("method", selectedQuestionnaire.scoring.method);
         debugLog("questionnaire id", selectedQuestionnaire.id);
         debugLog("scoring", selectedQuestionnaire.scoring);
+
         if (isLastQuestion) {
-            const finalResult = calculateResult(answers, selectedQuestionnaire);
+            const finalResult = calculateResult(nextAnswers, selectedQuestionnaire);
             setFinishedAt(Date.now());
             debugLog("finalResult", finalResult);
             debugLog("resultBands", selectedQuestionnaire.resultBands);
             debugLog("interpretationMode", selectedQuestionnaire.scoring.interpretationMode);
+            setAnswers(nextAnswers);
             setResult(finalResult);
             return;
+        }
+        if (nextAnswers !== answers) {
+            setAnswers(nextAnswers);
         }
         setCurrentIndex((prev) => prev + 1);
     };
@@ -197,6 +199,42 @@ function App() {
         const sec = seconds % 60;
         return `${min} мин ${sec} сек`;
     };
+
+    const currentQuestion = visibleQuestions[currentIndex];
+    const rawAnswer = currentQuestion ? answers[currentQuestion.id] : undefined;
+    const inputMode = selectedQuestionnaire?.ui?.inputMode ?? "buttons";
+    const showSlider = inputMode === "slider" || inputMode === "mixed";
+    const showButtons = inputMode === "buttons" || inputMode === "mixed";
+    const showAnswerLegend = inputMode === "buttons";
+
+    let effectiveAnswer = rawAnswer;
+
+    if (effectiveAnswer === undefined && showSlider) {
+        effectiveAnswer =
+            currentQuestion?.options?.[0]?.value ??
+            selectedQuestionnaire?.scale.min;
+    }
+    const answerOptions =
+        currentQuestion?.options ?? selectedQuestionnaire?.scale.options ?? [];
+    const selectedOption =
+        answerOptions.find((option) => option.value === effectiveAnswer) ?? null;
+
+    const answeredCount = useMemo(() => {
+        return visibleQuestions.filter((q) => {
+            if (answers[q.id] !== undefined) {
+                return true;
+            }
+
+            return q.id === currentQuestion?.id && effectiveAnswer !== undefined;
+        }).length;
+    }, [visibleQuestions, answers, currentQuestion, effectiveAnswer]);
+
+    debugLog("currentQuestion", currentQuestion);
+    debugLog("currentQuestion.options", currentQuestion?.options);
+    debugLog("answerOptions", answerOptions);
+    const isLastQuestion = visibleQuestions.length > 0 && currentIndex === visibleQuestions.length - 1;
+    const scaleMin = selectedQuestionnaire?.scale.min ?? 0;
+
     if (!selectedQuestionnaire) {
         return ( < div className = "page" >  < div className = "card" >  < h1 className = "title" > Psy - Scale <  / h1 >  < p className = "instructions-text" > Выберите опросник из списка:  <  / p > {
                 questionnaires.length === 0 ? ( < div className = "empty-state" > Не найдено ни одного валидного опросника.Проверьте JSON и консоль. <  / div > ) : ( < div className = "questionnaire-list" > {
@@ -238,6 +276,11 @@ function App() {
             }
              <  / div >  <  / div > );
     }
+
+    if (!currentQuestion) {
+        return null;
+    }
+
     if (result) {
         debugLog("render result", result);
         return ( < div className = "page" >  < div className = "card" >  < h1 className = "title" > {
@@ -309,7 +352,7 @@ function App() {
                         }
                     }
                     />
-                     </div >
+                                                                                                                                                                                                                                                                                                                                 </div >
 
                      < div className = "percentile-scale-labels" >
                          < span > 0 <  / span >
@@ -329,7 +372,8 @@ function App() {
                     }
                      <  / div > )
             } { /* ПОДШКАЛЫ */
-            }{
+            }
+            {
                 result.subscales && result.subscales.length > 0 && (
                      < div className = "result-subscales" >
                          < div className = "subscales-title" > Подшкалы:  <  / div > {
@@ -374,7 +418,7 @@ function App() {
                                         }
                                     }
                                     />
-                                 </div > )
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </div > )
                             }
                                  <  / div > ))
                     }
@@ -425,7 +469,7 @@ function App() {
                                     }
                                 }
                                 />
-                             </div > )
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </div > )
                         }
                              <  / div > ))
                 }
@@ -442,10 +486,10 @@ function App() {
             }
              > Пройти заново <  / button >  <  / div >  <  / div >  <  / div > );
     }
+
     if (!currentQuestion)
         return null;
-    const scaleOptionsForDisplay =
-        currentQuestion?.options ?? selectedQuestionnaire.scale.options;
+
     return ( < div className = "page" >  < div className = "card card--test" >  < div className = "test-header" >  < div className = "top-bar" >  < button className = "top-button" onClick = {
             handleBackToList
         }
@@ -467,23 +511,27 @@ function App() {
                 selectedQuestionnaire.instructions.text
             }
              <  / p > )
+    } {
+        showAnswerLegend && (
+             < div className = "scale-box" >
+                 < div className = "scale-title" >
+                Варианты ответа
+                 <  / div > {
+                answerOptions.map((option) => (
+                         < div key = {
+                            option.value
+                        }
+                        className = "scale-item" > {
+                            option.value
+                        }
+                        — {
+                        option.label
+                    }
+                         <  / div > ))
+            }
+             <  / div > )
     }
-         < div className = "scale-box" >
-             < div className = "scale-title" >
-            Варианты ответа
-             <  / div > {
-            answerOptions.map((option) => ( < div key = {
-                        option.value
-                    }
-                    className = "scale-item" > {
-                        option.value
-                    }
-                    — {
-                    option.label
-                }
-                     <  / div > ))
-        }
-         <  / div >  <  / div >  < div className = "test-content" >  < div className = "progress-text" >
+         <  / div >  < div className = "test-content" >  < div className = "progress-text" >
             Вопрос {
             currentIndex + 1
         } {
@@ -505,39 +553,77 @@ function App() {
             }
         }
         />
-                </div >  < div className = "question-block" >  < div className = "question-number" > {
+                                                                                                                                        </div >  < div className = "question-block" >  < div className = "question-number" > {
             currentQuestion.number
         }
          <  / div >  < p className = "question-text" > {
             currentQuestion.text
         }
-         <  / p >  <  / div >  < div className = "answers-block" > {
-            answerOptions.map((option) => {
-                const selected = currentAnswer === option.value;
-                return ( < button
-                    key = {
-                        option.value
-                    }
-                    onClick = {
-                        () => handleSelectAnswer(option.value)
-                    }
-                    className = {
+         <  / p >  <  / div > {
+        showSlider && (
+             < div className = "answer-slider" >
+                 < input
+                className = "answer-slider-input"
+                type = "range"
+                min = {
+                selectedQuestionnaire.scale.min
+            }
+            max = {
+                selectedQuestionnaire.scale.max
+            }
+            step = {
+                1
+            }
+            value = {
+                scaleMin
+            }
+            onChange = {
+                (e) => handleSelectAnswer(Number(e.target.value))
+            }
+
+            />
+                                                                                                                                                                <div className="answer-slider-value">
+                                                                                                                                                                  {scaleMin}
+                                                                                                                                                                </div >
+             <  / div > )
+    } {
+        showSlider && (
+             < div className = "answer-slider-label" > {
+                selectedOption?.label ?? "\u00A0"
+            }
+             <  / div > )
+    } {
+        showButtons && (
+             < div className = "answers-block" > {
+                answerOptions.map((option) => {
+                    const selected = effectiveAnswer === option.value;
+                    return ( < button
+                        key = {
+                            option.value
+                        }
+                        onClick = {
+                            () => handleSelectAnswer(option.value)
+                        }
+                        className = {
 `answer-button ${
 
-                        selected ? "answer-button-selected" : ""
+                            selected ? "answer-button-selected" : ""
 
 }`
-                    }
-                     >  < div className = "answer-value" > {
-                        option.value
-                    }
-                     <  / div >  < div className = "answer-label" > {
-                        option.label
-                    }
-                     <  / div >  <  / button > );
-            })
-        }
-         <  / div >  < div className = "footer" >  < button
+                        }
+                         >  < div className = "answer-value" > {
+                            option.value
+                        }
+                         <  / div >  < div className = "answer-label" > {
+                            option.label
+                        }
+                         <  / div >  <  / button > );
+                })
+            }
+             <  / div > )
+    }
+
+         < div className = "footer" >  < button
             onClick = {
             handleBack
         }
@@ -548,12 +634,12 @@ function App() {
             answeredCount
         }
         / {visibleQuestions.length}
-        </div >  < button
+                                                                                                                                </div >  < button
         onClick = {
             handleNext
         }
         disabled = {
-            currentAnswer === undefined
+            effectiveAnswer === undefined
         }
         className = "primary-button" > {
             isLastQuestion ? "Завершить" : "Далее"
