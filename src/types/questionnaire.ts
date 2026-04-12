@@ -35,7 +35,7 @@ export type Question = {
   id: string;
   number: number | string;
   text: string;
-  trait?: string;
+  trait?: string; // legacy / reserved for future use (not used in scoring)
   reverse?: boolean;
   visibility?: VisibilityRule;
   scorable?: boolean; // default true

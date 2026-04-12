@@ -1,0 +1,57 @@
+{
+  "id": "pswq_en",
+  "title": "Penn State Worry Questionnaire (PSWQ)",
+  "description": "A questionnaire measuring the tendency to engage in excessive and uncontrollable worry.",
+  "language": "en",
+  "category": "anxiety",
+  "estimatedMinutes": 4,
+  "ui": {
+    "inputMode": "mixed"
+  },
+  "instructions": {
+    "title": "Instructions",
+    "text": "Indicate how typical each statement is of you."
+  },
+  "scale": {
+    "type": "likert",
+    "min": 1,
+    "max": 5,
+    "options": [
+      { "value": 1, "label": "Not at all typical of me" },
+      { "value": 2, "label": "Slightly typical of me" },
+      { "value": 3, "label": "Moderately typical of me" },
+      { "value": 4, "label": "Very typical of me" },
+      { "value": 5, "label": "Extremely typical of me" }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "number": 1, "text": "If I do not have enough time to do everything, I do not worry about it.", "reverse": true },
+    { "id": "q2", "number": 2, "text": "My worries overwhelm me." },
+    { "id": "q3", "number": 3, "text": "I do not tend to worry about things.", "reverse": true },
+    { "id": "q4", "number": 4, "text": "Many situations make me worry." },
+    { "id": "q5", "number": 5, "text": "I know I should not worry about things, but I just cannot help it." },
+    { "id": "q6", "number": 6, "text": "When I am under pressure, I worry a lot." },
+    { "id": "q7", "number": 7, "text": "I am always worrying about something." },
+    { "id": "q8", "number": 8, "text": "I find it easy to dismiss worrisome thoughts.", "reverse": true },
+    { "id": "q9", "number": 9, "text": "As soon as I finish one task, I start to worry about everything else I have to do." },
+    { "id": "q10", "number": 10, "text": "I never worry about anything.", "reverse": true },
+    { "id": "q11", "number": 11, "text": "When there is nothing more I can do about a concern, I do not worry about it anymore.", "reverse": true },
+    { "id": "q12", "number": 12, "text": "I have been a worrier all my life." },
+    { "id": "q13", "number": 13, "text": "I notice that I have been worrying about things." },
+    { "id": "q14", "number": 14, "text": "Once I start worrying, I cannot stop." },
+    { "id": "q15", "number": 15, "text": "I worry all the time." },
+    { "id": "q16", "number": 16, "text": "I worry about projects until they are all done." }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "worry",
+    "directItems": [2,4,5,6,7,9,12,13,14,15,16],
+    "reverseItems": [1,3,8,10,11],
+    "minScore": 16,
+    "maxScore": 80,
+    "higherMeans": "higher_worry",
+    "showAverage": true,
+    "interpretationMode": "none"
+  },
+  "resultDescription": "This questionnaire measures your general tendency to worry. Higher scores indicate a stronger tendency toward excessive and uncontrollable worry. This is not a diagnosis, but it can help you better understand your thinking patterns."
+}

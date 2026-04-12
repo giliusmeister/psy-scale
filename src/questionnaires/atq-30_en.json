@@ -1,0 +1,102 @@
+{
+  "id": "atq-30_en",
+  "language": "en",
+  "title": "Automatic Thoughts Questionnaire (ATQ-30)",
+  "description": "Questionnaire for assessing the frequency of negative automatic thoughts.",
+  "category": "cognitive",
+  "estimatedMinutes": 5,
+  "ui": {
+    "inputMode": "mixed"
+  },
+  "instructions": {
+    "title": "Instructions",
+    "text": "Please indicate how frequently each thought occurred to you over the past week."
+  },
+  "scale": {
+    "type": "likert",
+    "min": 1,
+    "max": 5,
+    "options": [
+      { "value": 1, "label": "Not at all" },
+      { "value": 2, "label": "Sometimes" },
+      { "value": 3, "label": "Moderately often" },
+      { "value": 4, "label": "Often" },
+      { "value": 5, "label": "All the time" }
+    ]
+  },
+
+ "questions": [
+    { "id": "q1", "number": 1, "text": "I feel like I’m up against the world." },
+    { "id": "q2", "number": 2, "text": "I’m no good." },
+    { "id": "q3", "number": 3, "text": "Why can’t I ever succeed?" },
+    { "id": "q4", "number": 4, "text": "No one understands me." },
+    { "id": "q5", "number": 5, "text": "I’ve let people down." },
+    { "id": "q6", "number": 6, "text": "I don’t think I can go on." },
+    { "id": "q7", "number": 7, "text": "I wish I were a better person." },
+    { "id": "q8", "number": 8, "text": "I’m so weak." },
+    { "id": "q9", "number": 9, "text": "My life is not going the way I want it to." },
+    { "id": "q10", "number": 10, "text": "I’m so disappointed in myself." },
+    { "id": "q11", "number": 11, "text": "Nothing feels good anymore." },
+    { "id": "q12", "number": 12, "text": "I can’t understand this anymore." },
+    { "id": "q13", "number": 13, "text": "I can’t get started." },
+    { "id": "q14", "number": 14, "text": "What’s wrong with me?" },
+    { "id": "q15", "number": 15, "text": "I wish I were somewhere else." },
+    { "id": "q16", "number": 16, "text": "I can’t get things together." },
+    { "id": "q17", "number": 17, "text": "I hate myself." },
+    { "id": "q18", "number": 18, "text": "I’m worthless." },
+    { "id": "q19", "number": 19, "text": "I wish I could just disappear." },
+    { "id": "q20", "number": 20, "text": "What’s the matter with me?" },
+    { "id": "q21", "number": 21, "text": "I’m a loser." },
+    { "id": "q22", "number": 22, "text": "My life is a mess." },
+    { "id": "q23", "number": 23, "text": "I’m a failure." },
+    { "id": "q24", "number": 24, "text": "I’ll never make it." },
+    { "id": "q25", "number": 25, "text": "I feel so helpless." },
+    { "id": "q26", "number": 26, "text": "Something has to change." },
+    { "id": "q27", "number": 27, "text": "There must be something wrong with me." },
+    { "id": "q28", "number": 28, "text": "My future is bleak." },
+    { "id": "q29", "number": 29, "text": "It’s just not worth it." },
+    { "id": "q30", "number": 30, "text": "I can’t finish anything." }
+  ],
+
+  "scoring": {
+    "method": "sum_with_subscales",
+    "trait": "automatic_negative_thoughts",
+    "directItems": [
+      1,2,3,4,5,6,7,8,9,10,
+      11,12,13,14,15,16,17,18,19,20,
+      21,22,23,24,25,26,27,28,29,30
+    ],
+    "reverseItems": [],
+    "minScore": 30,
+    "maxScore": 150,
+    "higherMeans": "more_frequent_negative_automatic_thoughts",
+    "showAverage": true,
+    "interpretationMode": "none",
+    "percentileBasis": "average",
+
+    "subscales": [
+      {
+        "key": "pmdc",
+        "label": "Personal maladjustment / desire for change",
+        "items": [7, 10, 14, 20, 26]
+      },
+      {
+        "key": "nsne",
+        "label": "Negative self & expectations",
+        "items": [2, 3, 9, 21, 23, 24, 28]
+      },
+      {
+        "key": "lse",
+        "label": "Low self-esteem",
+        "items": [17, 18]
+      },
+      {
+        "key": "helplessness",
+        "label": "Helplessness",
+        "items": [29, 30]
+      }
+    ]
+  },
+
+  "resultDescription": "This questionnaire assesses the frequency of negative automatic thoughts. It also highlights different patterns of thinking, such as self-criticism, negative expectations, low self-esteem, and helplessness. Higher scores indicate more frequent negative thoughts."
+}

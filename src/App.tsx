@@ -193,14 +193,16 @@ function App() {
         switch (category) {
         case "clinical":
             return "Клинические";
-	    case "depression":
-		    return "Депрессия";
+        case "depression":
+            return "Депрессия";
         case "personality":
             return "Личностные";
+        case "anxiety":
+            return "Тревожность";
         case "screening":
             return "Скрининговые";
-		case "gender":
-		    return "Гендерная идентичность";
+        case "gender":
+            return "Гендерная идентичность";
         case "other":
             return "Прочее";
         default:
@@ -476,8 +478,7 @@ function App() {
                                      < div className = "questionnaire-group-title" > {
                                     getLanguageLabel(language)
                                 }
-                                 <  / div >
-                                {
+                                 <  / div > {
                                 Object.entries(categories).map(([category, items]) => (
                                          < div key = {
                                             category
@@ -610,8 +611,10 @@ function App() {
                  < div className = "result-main" >
                      < div className = "result-score" > {
                     result.total
-                }
-                 {"\u00A0"} баллов <  / div > {
+                } {
+                "\u00A0"
+            }
+                баллов <  / div > {
                 result.average !== null && (
                      < div className = "result-average" >
                         Средний балл: {
@@ -643,7 +646,7 @@ function App() {
                         }
                     }
                     />
-                                                                                                                            </div >
+                                                                                                                                                                    </div >
 
                      < div className = "percentile-scale-labels" >
                          < span > 0 <  / span >
@@ -713,7 +716,7 @@ function App() {
                                         }
                                     }
                                     />
-                                                                                                                                                                                                    </div > )
+                                                                                                                                                                                                                                                                            </div > )
                             }
                                  <  / div > ))
                     }
@@ -767,9 +770,15 @@ function App() {
                                     }
                                 }
                                 />
-                                                                                                                                                                            </div > )
+                                                                                                                                                                                                                                            </div > )
                         }
                              <  / div > ))
+                }
+                 <  / div > )
+        }{
+            result.type !== "sum" && selectedQuestionnaire.resultDescription && (
+                 < div className = "result-description" > {
+                    selectedQuestionnaire.resultDescription
                 }
                  <  / div > )
         }
@@ -862,8 +871,12 @@ function App() {
              < div className = "progress-text" >
             Вопрос {
             currentIndex + 1
-        }
-         {"\u00A0"} из {"\u00A0"} {
+        } {
+        "\u00A0"
+    }
+        из {
+        "\u00A0"
+    } {
         visibleQuestions.length
     }
          <  / div >
@@ -880,7 +893,7 @@ function App() {
             }
         }
         />
-                                                    </div >
+                                                                    </div >
 
          < div className = "question-block" >
              < div className = "question-number" > {
@@ -914,9 +927,9 @@ function App() {
                 handleSelectAnswer(Number(e.target.value))
             }
             />
-                                                                            <div className="answer-slider-value">
-                                                                                {effectiveAnswer ?? sliderMin}
-                                                                            </div >
+                                                                                                    <div className="answer-slider-value">
+                                                                                                        {effectiveAnswer ?? sliderMin}
+                                                                                                    </div >
              <  / div > )
     } {
         sliderAllowed && (
@@ -978,7 +991,7 @@ function App() {
             answeredCount
         }
         /{visibleQuestions.length}
-                                                        </div >
+                                                                        </div >
 
          < button
         onClick = {

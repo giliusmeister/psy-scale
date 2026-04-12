@@ -1,0 +1,102 @@
+{
+  "id": "gad-7_en",
+  "title": "Generalized Anxiety Disorder-7 (GAD-7)",
+  "description": "Questionnaire for screening and measuring the severity of generalized anxiety symptoms over the past two weeks.",
+  "language": "en",
+  "category": "anxiety",
+  "estimatedMinutes": 2,
+  "ui": {
+    "inputMode": "buttons"
+  },
+  "instructions": {
+    "title": "Instructions",
+    "text": "Over the last 2 weeks, how often have you been bothered by the following problems?"
+  },
+  "scale": {
+    "type": "likert",
+    "min": 0,
+    "max": 3,
+    "options": [
+      { "value": 0, "label": "Not at all" },
+      { "value": 1, "label": "Several days" },
+      { "value": 2, "label": "More than half the days" },
+      { "value": 3, "label": "Nearly every day" }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "Feeling nervous, anxious, or on edge"
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Not being able to stop or control worrying"
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "Worrying too much about different things"
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "Trouble relaxing"
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "Being so restless that it is hard to sit still"
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "Becoming easily annoyed or irritable"
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "Feeling afraid as if something awful might happen"
+    }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "anxiety",
+    "directItems": [1, 2, 3, 4, 5, 6, 7],
+    "reverseItems": [],
+    "minScore": 0,
+    "maxScore": 21,
+    "higherMeans": "higher_anxiety",
+    "showAverage": false,
+    "interpretationMode": "bands",
+    "percentileBasis": "total"
+  },
+  "resultBands": [
+    {
+      "key": "minimal",
+      "min": 0,
+      "max": 4,
+      "label": "Minimal anxiety"
+    },
+    {
+      "key": "mild",
+      "min": 5,
+      "max": 9,
+      "label": "Mild anxiety"
+    },
+    {
+      "key": "moderate",
+      "min": 10,
+      "max": 14,
+      "label": "Moderate anxiety"
+    },
+    {
+      "key": "severe",
+      "min": 15,
+      "max": 21,
+      "label": "Severe anxiety"
+    }
+  ],
+  "resultDescription": "This questionnaire assesses the severity of anxiety symptoms over the past two weeks. A higher total score indicates more pronounced anxiety. The result is not a diagnosis, but it can help you better understand your current state and consider seeking professional support if needed."
+}

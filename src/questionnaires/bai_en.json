@@ -1,0 +1,69 @@
+{
+  "id": "bai_en",
+  "title": "Beck Anxiety Inventory (BAI)",
+  "description": "21-item questionnaire measuring the severity of anxiety symptoms, especially physical symptoms.",
+  "language": "en",
+  "author": "Aaron T. Beck",
+  "category": "anxiety",
+  "estimatedMinutes": 5,
+  "ui": {
+    "inputMode": "mixed"
+  },
+  "instructions": {
+    "title": "Instructions",
+    "text": "Below is a list of common symptoms of anxiety. Please indicate how much you have been bothered by each symptom during the past week, including today."
+  },
+  "scale": {
+    "type": "likert",
+    "min": 0,
+    "max": 3,
+    "options": [
+      { "value": 0, "label": "Not at all" },
+      { "value": 1, "label": "Mildly (it did not bother me much)" },
+      { "value": 2, "label": "Moderately (it was very unpleasant, but I could stand it)" },
+      { "value": 3, "label": "Severely (I could barely stand it)" }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "number": 1, "text": "Numbness or tingling" },
+    { "id": "q2", "number": 2, "text": "Feeling hot" },
+    { "id": "q3", "number": 3, "text": "Wobbliness in legs" },
+    { "id": "q4", "number": 4, "text": "Unable to relax" },
+    { "id": "q5", "number": 5, "text": "Fear of worst happening" },
+    { "id": "q6", "number": 6, "text": "Dizzy or lightheaded" },
+    { "id": "q7", "number": 7, "text": "Heart pounding / racing" },
+    { "id": "q8", "number": 8, "text": "Unsteady" },
+    { "id": "q9", "number": 9, "text": "Terrified or afraid" },
+    { "id": "q10", "number": 10, "text": "Nervous" },
+    { "id": "q11", "number": 11, "text": "Feeling of choking" },
+    { "id": "q12", "number": 12, "text": "Hands trembling" },
+    { "id": "q13", "number": 13, "text": "Shaky / unsteady" },
+    { "id": "q14", "number": 14, "text": "Fear of losing control" },
+    { "id": "q15", "number": 15, "text": "Difficulty in breathing" },
+    { "id": "q16", "number": 16, "text": "Fear of dying" },
+    { "id": "q17", "number": 17, "text": "Scared" },
+    { "id": "q18", "number": 18, "text": "Indigestion or discomfort in abdomen" },
+    { "id": "q19", "number": 19, "text": "Faint / lightheaded" },
+    { "id": "q20", "number": 20, "text": "Face flushed" },
+    { "id": "q21", "number": 21, "text": "Sweating (not due to heat)" }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "anxiety",
+    "directItems": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21],
+    "reverseItems": [],
+    "minScore": 0,
+    "maxScore": 63,
+    "higherMeans": "higher_anxiety",
+    "showAverage": false,
+    "interpretationMode": "bands",
+    "percentileBasis": "total"
+  },
+  "resultBands": [
+    { "key": "minimal", "min": 0, "max": 7, "label": "Minimal anxiety" },
+    { "key": "mild", "min": 8, "max": 15, "label": "Mild anxiety" },
+    { "key": "moderate", "min": 16, "max": 25, "label": "Moderate anxiety" },
+    { "key": "severe", "min": 26, "max": 63, "label": "Severe anxiety" }
+  ],
+  "resultDescription": "This questionnaire measures the severity of anxiety symptoms, particularly physical and somatic symptoms. Higher scores indicate more pronounced anxiety. The result is not a diagnosis, but it can help you better understand your current state and consider seeking professional support if needed."
+}

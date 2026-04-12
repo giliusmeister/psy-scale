@@ -1,0 +1,70 @@
+{
+  "id": "dass-21_en",
+  "title": "Depression Anxiety Stress Scales (DASS-21)",
+  "description": "A 21-item questionnaire measuring depression, anxiety, and stress over the past week.",
+  "language": "en",
+  "category": "mental_health",
+  "estimatedMinutes": 5,
+  "ui": {
+    "inputMode": "mixed"
+  },
+  "instructions": {
+    "title": "Instructions",
+    "text": "Please read each statement and indicate how much it applied to you over the past week."
+  },
+  "scale": {
+    "type": "likert",
+    "min": 0,
+    "max": 3,
+    "options": [
+      { "value": 0, "label": "Did not apply to me at all" },
+      { "value": 1, "label": "Applied to me to some degree, or some of the time" },
+      { "value": 2, "label": "Applied to me to a considerable degree, or a good part of time" },
+      { "value": 3, "label": "Applied to me very much, or most of the time" }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "number": 1, "text": "I found it hard to wind down" },
+    { "id": "q2", "number": 2, "text": "I was aware of dryness of my mouth" },
+    { "id": "q3", "number": 3, "text": "I couldn't seem to experience any positive feeling at all" },
+    { "id": "q4", "number": 4, "text": "I experienced breathing difficulty (e.g. excessively rapid breathing, breathlessness in the absence of physical exertion)" },
+    { "id": "q5", "number": 5, "text": "I found it difficult to work up the initiative to do things" },
+    { "id": "q6", "number": 6, "text": "I tended to over-react to situations" },
+    { "id": "q7", "number": 7, "text": "I experienced trembling (e.g. in the hands)" },
+    { "id": "q8", "number": 8, "text": "I felt that I was using a lot of nervous energy" },
+    { "id": "q9", "number": 9, "text": "I was worried about situations in which I might panic and make a fool of myself" },
+    { "id": "q10", "number": 10, "text": "I felt that I had nothing to look forward to" },
+    { "id": "q11", "number": 11, "text": "I found myself getting agitated" },
+    { "id": "q12", "number": 12, "text": "I found it difficult to relax" },
+    { "id": "q13", "number": 13, "text": "I felt down-hearted and blue" },
+    { "id": "q14", "number": 14, "text": "I was intolerant of anything that kept me from getting on with what I was doing" },
+    { "id": "q15", "number": 15, "text": "I felt I was close to panic" },
+    { "id": "q16", "number": 16, "text": "I was unable to become enthusiastic about anything" },
+    { "id": "q17", "number": 17, "text": "I felt I wasn't worth much as a person" },
+    { "id": "q18", "number": 18, "text": "I felt that I was rather touchy" },
+    { "id": "q19", "number": 19, "text": "I was aware of the action of my heart in the absence of physical exertion (e.g. sense of heart rate increase, heart missing a beat)" },
+    { "id": "q20", "number": 20, "text": "I felt scared without any good reason" },
+    { "id": "q21", "number": 21, "text": "I felt that life was meaningless" }
+  ],
+  "scoring": {
+    "method": "subscales_sum",
+    "subscales": [
+      {
+        "key": "depression",
+        "label": "Depression",
+        "items": [3, 5, 10, 13, 16, 17, 21]
+      },
+      {
+        "key": "anxiety",
+        "label": "Anxiety",
+        "items": [2, 4, 7, 9, 15, 19, 20]
+      },
+      {
+        "key": "stress",
+        "label": "Stress",
+        "items": [1, 6, 8, 11, 12, 14, 18]
+      }
+    ]
+  },
+  "resultDescription": "Each subscale has its own interpretation ranges:\n\nDepression: 0–4 normal, 5–6 mild, 7–10 moderate, 11–13 severe, 14+ extremely severe.\nAnxiety: 0–3 normal, 4–5 mild, 6–7 moderate, 8–9 severe, 10+ extremely severe.\nStress: 0–7 normal, 8–9 mild, 10–12 moderate, 13–16 severe, 17+ extremely severe."
+}

@@ -743,3 +743,10 @@ button {
   margin-bottom: 8px;
   opacity: 0.8;
 }
+
+.result-description {
+  white-space: pre-line;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #555; /* если у тебя есть secondary text */
+}
