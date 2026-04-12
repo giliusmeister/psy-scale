@@ -2,6 +2,7 @@
   "id": "template_questionnaire_id",
   "title": "Название методики",
   "description": "Краткое описание методики.",
+  "language": "ru",
   "author": "Автор",
   "category": "Категория",
   "estimatedMinutes": 5,
