@@ -1,0 +1,66 @@
+{
+  "id": "ugds_gs",
+  "title": "Utrecht Gender Dysphoria Scale – Gender Spectrum (UGDS-GS)",
+  "description": "A measure of gender dysphoria and gender affirmation across gender identities.",
+  "language": "en",
+  "author": "McGuire et al. (2019)",
+  "category": "gender",
+  "estimatedMinutes": 5,
+  "instructions": {
+    "title": "Instructions",
+    "text": "Please indicate the extent to which you agree with each statement. “Assigned sex” refers to the sex assigned at birth. “Affirmed gender” refers to the gender you identify with."
+  },
+   "ui": {
+    "inputMode": "mixed"
+  },
+  "scale": {
+    "type": "likert_5_agreement",
+    "min": 1,
+    "max": 5,
+    "options": [
+      { "value": 1, "label": "Strongly disagree" },
+      { "value": 2, "label": "Disagree" },
+      { "value": 3, "label": "Neither agree nor disagree" },
+      { "value": 4, "label": "Agree" },
+      { "value": 5, "label": "Strongly agree" }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "number": 1, "text": "I prefer to behave in ways that are typical of my affirmed gender." },
+    { "id": "q2", "number": 2, "text": "When I am treated as my assigned sex, I feel distressed." },
+    { "id": "q3", "number": 3, "text": "I feel good when I live as my affirmed gender." },
+    { "id": "q4", "number": 4, "text": "I want others to treat me as my affirmed gender." },
+    { "id": "q5", "number": 5, "text": "Living as my affirmed gender feels more natural than living as my assigned sex." },
+
+    { "id": "q6", "number": 6, "text": "I feel unhappy when I have to behave as my assigned sex." },
+    { "id": "q7", "number": 7, "text": "I feel uncomfortable experiencing sexual feelings in relation to my assigned sex." },
+    { "id": "q8", "number": 8, "text": "Going through puberty felt like a betrayal to me." },
+    { "id": "q9", "number": 9, "text": "My physical development during puberty was distressing." },
+    { "id": "q10", "number": 10, "text": "I wish I had been born as my affirmed gender." },
+    { "id": "q11", "number": 11, "text": "Physical characteristics of my assigned sex cause me distress." },
+    { "id": "q12", "number": 12, "text": "My life would feel meaningless if I had to live as my assigned sex." },
+    { "id": "q13", "number": 13, "text": "I feel hopeless about having to live as my assigned sex." },
+    { "id": "q14", "number": 14, "text": "I feel upset when others use the wrong gendered terms for me." },
+    { "id": "q15", "number": 15, "text": "I feel unhappy because my body reflects my assigned sex." },
+    { "id": "q16", "number": 16, "text": "I feel strong dislike toward my assigned sex." },
+    { "id": "q17", "number": 17, "text": "I feel uncomfortable behaving as my assigned sex." },
+    { "id": "q18", "number": 18, "text": "I sometimes feel that it would be better not to live than to live as my assigned sex." }
+  ],
+  "scoring": {
+    "method": "sum_with_subscales",
+    "subscales": [
+      {
+        "key": "GA",
+        "label": "Gender Affirmation",
+        "items": [1, 3, 4, 5],
+        "aggregation": "mean"
+      },
+      {
+        "key": "GD",
+        "label": "Gender Dysphoria",
+        "items": [2, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+        "aggregation": "mean"
+      }
+    ]
+  }
+}

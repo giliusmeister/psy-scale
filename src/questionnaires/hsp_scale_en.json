@@ -1,0 +1,97 @@
+{
+  "id": "hsp_scale_en",
+  "title": "Highly Sensitive Person Scale (HSP)",
+  "description": "Sensory-processing sensitivity scale by Aron & Aron, 27 items.",
+  "language": "en",
+  "author": "Aron & Aron",
+  "category": "Sensitivity",
+  "estimatedMinutes": 8,
+  "instructions": {
+    "title": "Instructions",
+    "text": "For each statement, indicate how much it applies to you on a scale from 1 to 7.",
+    "reverseNote": "There are no reverse-scored items."
+  },
+  "ui": {
+    "inputMode": "mixed"
+  },
+  "scale": {
+    "type": "likert_7",
+    "min": 1,
+    "max": 7,
+    "options": [
+      { "value": 1, "label": "Not at all" },
+      { "value": 2, "label": "Very slightly" },
+      { "value": 3, "label": "Slightly" },
+      { "value": 4, "label": "Moderately" },
+      { "value": 5, "label": "Quite a bit" },
+      { "value": 6, "label": "Very much" },
+      { "value": 7, "label": "Extremely" }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "number": 1, "text": "I am easily overwhelmed by strong sensory input (e.g., loud noises, bright lights, strong smells).", "trait": "sensitivity", "reverse": false },
+    { "id": "q2", "number": 2, "text": "I seem to be aware of subtle things in my environment.", "trait": "sensitivity", "reverse": false },
+    { "id": "q3", "number": 3, "text": "Other people's moods affect me.", "trait": "sensitivity", "reverse": false },
+    { "id": "q4", "number": 4, "text": "I tend to be more sensitive to pain.", "trait": "sensitivity", "reverse": false },
+    { "id": "q5", "number": 5, "text": "During busy days, I find myself needing to withdraw into bed or into a darkened room where I can have some privacy and relief from stimulation.", "trait": "sensitivity", "reverse": false },
+    { "id": "q6", "number": 6, "text": "I am particularly sensitive to the effects of caffeine.", "trait": "sensitivity", "reverse": false },
+    { "id": "q7", "number": 7, "text": "I am easily overwhelmed by things like bright lights, strong smells, coarse fabrics, or sirens close by.", "trait": "sensitivity", "reverse": false },
+    { "id": "q8", "number": 8, "text": "I have a rich, complex inner life.", "trait": "sensitivity", "reverse": false },
+    { "id": "q9", "number": 9, "text": "I am made uncomfortable by loud noises.", "trait": "sensitivity", "reverse": false },
+    { "id": "q10", "number": 10, "text": "I am deeply moved by the arts or music.", "trait": "sensitivity", "reverse": false },
+    { "id": "q11", "number": 11, "text": "My nervous system sometimes feels so frazzled that I just have to go off by myself.", "trait": "sensitivity", "reverse": false },
+    { "id": "q12", "number": 12, "text": "I am conscientious.", "trait": "sensitivity", "reverse": false },
+    { "id": "q13", "number": 13, "text": "I startle easily.", "trait": "sensitivity", "reverse": false },
+    { "id": "q14", "number": 14, "text": "I get rattled when I have a lot to do in a short amount of time.", "trait": "sensitivity", "reverse": false },
+    { "id": "q15", "number": 15, "text": "When people are uncomfortable in a physical environment, I tend to know what needs to be done to make it more comfortable (like changing the lighting or the seating).", "trait": "sensitivity", "reverse": false },
+    { "id": "q16", "number": 16, "text": "I get annoyed when people try to get me to do too many things at once.", "trait": "sensitivity", "reverse": false },
+    { "id": "q17", "number": 17, "text": "I try hard to avoid making mistakes or forgetting things.", "trait": "sensitivity", "reverse": false },
+    { "id": "q18", "number": 18, "text": "I make it a point to avoid violent movies and TV shows.", "trait": "sensitivity", "reverse": false },
+    { "id": "q19", "number": 19, "text": "I become unpleasantly aroused when a lot is going on around me.", "trait": "sensitivity", "reverse": false },
+    { "id": "q20", "number": 20, "text": "Being very hungry creates a strong reaction in me, disrupting my concentration or mood.", "trait": "sensitivity", "reverse": false },
+    { "id": "q21", "number": 21, "text": "Changes in my life shake me up.", "trait": "sensitivity", "reverse": false },
+    { "id": "q22", "number": 22, "text": "I notice and enjoy delicate or fine scents, tastes, sounds, or works of art.", "trait": "sensitivity", "reverse": false },
+    { "id": "q23", "number": 23, "text": "I find it unpleasant to have a lot going on at once.", "trait": "sensitivity", "reverse": false },
+    { "id": "q24", "number": 24, "text": "I make it a priority to arrange my life to avoid upsetting or overwhelming situations.", "trait": "sensitivity", "reverse": false },
+    { "id": "q25", "number": 25, "text": "I am bothered by intense stimuli, like loud noises or chaotic scenes.", "trait": "sensitivity", "reverse": false },
+    { "id": "q26", "number": 26, "text": "When I must compete or be observed while performing a task, I become so nervous or shaky that I do much worse than I otherwise would.", "trait": "sensitivity", "reverse": false },
+    { "id": "q27", "number": 27, "text": "As a child, my parents or teachers seemed to see me as sensitive or shy.", "trait": "sensitivity", "reverse": false }
+  ],
+  "scoring": {
+    "method": "sum_with_subscales",
+    "trait": "sensitivity",
+    "directItems": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
+    "reverseItems": [],
+    "minScore": 27,
+    "maxScore": 189,
+    "higherMeans": "higher sensitivity",
+    "showAverage": true,
+    "interpretationMode": "bands",
+    "percentileBasis": "total",
+    "subscales": [
+      { "key": "EOE", "label": "Ease of Excitation", "items": [1,4,5,7,9,11,13,14,16,19,20,21,23,24,25,26] },
+      { "key": "LST", "label": "Low Sensory Threshold", "items": [1,4,6,7,9,13,14,19,20,25] },
+      { "key": "AES", "label": "Aesthetic Sensitivity", "items": [2,8,10,15,22] }
+    ]
+  },
+  "resultBands": [
+    { "key": "very_low", "min": 27, "max": 72, "label": "Very low sensitivity" },
+    { "key": "below_average", "min": 73, "max": 95, "label": "Below average" },
+    { "key": "average", "min": 96, "max": 118, "label": "Average" },
+    { "key": "above_average", "min": 119, "max": 140, "label": "Above average" },
+    { "key": "high", "min": 141, "max": 162, "label": "High (HSP)" },
+    { "key": "very_high", "min": 163, "max": 189, "label": "Very high (HSP)" }
+  ],
+  "norms": {
+    "type": "percentiles",
+    "subscales": {
+      "total": {
+        "72": 15,
+        "95": 35,
+        "118": 65,
+        "140": 85,
+        "162": 97
+      }
+    }
+  }
+}

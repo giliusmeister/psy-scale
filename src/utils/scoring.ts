@@ -131,10 +131,12 @@ function isScorable(question: Question): boolean {
 
 function calculateSubscales(
     questionnaire: Questionnaire,
-    answers: Record < string, number > ): SubscaleCalculationResultItem[]{
+    answers: Record<string, number>
+): SubscaleCalculationResultItem[] {
     if (
         questionnaire.scoring.method !== "subscales_sum" &&
-        questionnaire.scoring.method !== "sum_with_subscales") {
+        questionnaire.scoring.method !== "sum_with_subscales"
+    ) {
         return [];
     }
 
@@ -142,60 +144,102 @@ function calculateSubscales(
         let sumValue = 0;
         let answeredCount = 0;
 
-        for (const itemNumber of subscale.items) {
-            const question = questionnaire.questions.find(
-                    (q) => q.number === itemNumber);
+        const reverseMap = questionnaire.scale?.reverseScoring ?? {};
 
-            if (!question)
-                continue;
-            if (!isVisible(question, answers))
-                continue;
-            if (!isScorable(question))
-                continue;
+        const subscaleQuestions = subscale.items
+            .map((itemNumber) =>
+                questionnaire.questions.find((q) => q.number === itemNumber)
+            )
+            .filter((q): q is Question => Boolean(q));
+
+        for (const question of subscaleQuestions) {
+            if (!isVisible(question, answers)) continue;
+            if (!isScorable(question)) continue;
 
             const raw = answers[question.id];
-            if (typeof raw !== "number")
-                continue;
+            if (typeof raw !== "number") continue;
 
-            const reverseMap = questionnaire.scale.reverseScoring ?? {};
             const scored =
                 question.reverse === true
-                 ? Number(reverseMap[String(raw)] ?? raw)
-                 : raw;
+                    ? Number(reverseMap[String(raw)] ?? raw)
+                    : raw;
 
             sumValue += scored;
             answeredCount += 1;
         }
 
         const aggregation = subscale.aggregation ?? "sum";
-		const isMean = aggregation === "mean";
 
         const value =
             aggregation === "mean"
-             ? answeredCount > 0
-             ? Number((sumValue / answeredCount).toFixed(2))
-             : 0
-             : sumValue;
+                ? answeredCount > 0
+                    ? Number((sumValue / answeredCount).toFixed(2))
+                    : 0
+                : sumValue;
 
         const percentile =
             questionnaire.norms?.type === "percentiles"
-             ? questionnaire.norms.subscales[subscale.key]?.[String(value)] ?? null
-             : null;
+                ? questionnaire.norms.subscales?.[subscale.key]?.[String(value)] ?? null
+                : null;
 
-        const itemCount = subscale.items.length;
-        const scaleMin = questionnaire.scale.min ?? 1;
-        const scaleMax = questionnaire.scale.max ?? questionnaire.scale.options.length;
+        const fallbackScaleMin = questionnaire.scale?.min ?? 1;
+        const fallbackOptionCount = questionnaire.scale?.options?.length;
+        const fallbackScaleMax =
+            questionnaire.scale?.max ??
+            (typeof fallbackOptionCount === "number" && fallbackOptionCount > 0
+                ? fallbackScaleMin + fallbackOptionCount - 1
+                : 5);
 
-        const minValue =
-            aggregation === "mean" ? scaleMin : itemCount * scaleMin;
+        const perQuestionRanges = subscaleQuestions.map((question) => {
+            const optionValues = question.options
+                ?.map((opt) => opt.value)
+                .filter((v): v is number => typeof v === "number");
 
-        const maxValue =
-            aggregation === "mean" ? scaleMax : itemCount * scaleMax;
+            if (optionValues && optionValues.length > 0) {
+                return {
+                    min: Math.min(...optionValues),
+                    max: Math.max(...optionValues),
+                };
+            }
+
+            return {
+                min: fallbackScaleMin,
+                max: fallbackScaleMax,
+            };
+        });
+
+        const sumMin = perQuestionRanges.reduce((acc, r) => acc + r.min, 0);
+        const sumMax = perQuestionRanges.reduce((acc, r) => acc + r.max, 0);
+
+        const meanMin =
+            perQuestionRanges.length > 0
+                ? Number(
+                      (
+                          perQuestionRanges.reduce((acc, r) => acc + r.min, 0) /
+                          perQuestionRanges.length
+                      ).toFixed(2)
+                  )
+                : fallbackScaleMin;
+
+        const meanMax =
+            perQuestionRanges.length > 0
+                ? Number(
+                      (
+                          perQuestionRanges.reduce((acc, r) => acc + r.max, 0) /
+                          perQuestionRanges.length
+                      ).toFixed(2)
+                  )
+                : fallbackScaleMax;
+
+        const minValue = aggregation === "mean" ? meanMin : sumMin;
+        const maxValue = aggregation === "mean" ? meanMax : sumMax;
 
         const percent =
+            Number.isFinite(minValue) &&
+            Number.isFinite(maxValue) &&
             maxValue > minValue
-             ? Math.round(((value - minValue) / (maxValue - minValue)) * 100)
-             : null;
+                ? Math.round(((value - minValue) / (maxValue - minValue)) * 100)
+                : null;
 
         return {
             key: subscale.key,
@@ -205,35 +249,33 @@ function calculateSubscales(
             percent,
             min: minValue,
             max: maxValue,
-			aggregation
         };
     });
 }
 
 export function calculateResult(
-    answers: Record < string, number > ,
-    questionnaire: Questionnaire): CalculationResult {
+    answers: Record<string, number>,
+    questionnaire: Questionnaire
+): CalculationResult {
     const scoring = questionnaire.scoring;
 
     if (scoring.method === "sum" || scoring.method === "sum_with_subscales") {
-        const reverseMap = questionnaire.scale.reverseScoring ?? {};
+        const reverseMap = questionnaire.scale?.reverseScoring ?? {};
         let total = 0;
         let answeredCount = 0;
 
-        for (const question of questionnaire.questions) {
-            if (!isVisible(question, answers))
-                continue;
-            if (!isScorable(question))
-                continue;
+        const scoredQuestions = questionnaire.questions.filter(
+            (question) => isVisible(question, answers) && isScorable(question)
+        );
 
+        for (const question of scoredQuestions) {
             const raw = answers[question.id];
-            if (typeof raw !== "number")
-                continue;
+            if (typeof raw !== "number") continue;
 
             const scored =
                 question.reverse === true
-                 ? Number(reverseMap[String(raw)] ?? raw)
-                 : raw;
+                    ? Number(reverseMap[String(raw)] ?? raw)
+                    : raw;
 
             total += scored;
             answeredCount += 1;
@@ -241,20 +283,21 @@ export function calculateResult(
 
         const average =
             scoring.showAverage && answeredCount > 0
-             ? Number((total / answeredCount).toFixed(2))
-             : null;
+                ? Number((total / answeredCount).toFixed(2))
+                : null;
 
         const percentileValue =
             scoring.percentileBasis === "average"
-             ? average
-             : total;
+                ? average
+                : total;
 
         const percentile =
             questionnaire.norms?.type === "percentiles" && percentileValue !== null
-             ? interpolatePercentile(
-                percentileValue,
-                questionnaire.norms.subscales?.["total"])
-             : null;
+                ? interpolatePercentile(
+                      percentileValue,
+                      questionnaire.norms.subscales?.["total"]
+                  )
+                : null;
 
         const percentileText = getPercentileText(percentile);
 
@@ -262,24 +305,17 @@ export function calculateResult(
 
         if (
             scoring.interpretationMode === "bands" &&
-            questionnaire.resultBands?.length) {
+            questionnaire.resultBands?.length
+        ) {
             level = questionnaire.resultBands.find(
-                    (band) => total >= band.min && total <= band.max);
+                (band) => total >= band.min && total <= band.max
+            );
         }
 
         const subscales =
             scoring.method === "sum_with_subscales"
-             ? calculateSubscales(questionnaire, answers)
-             : undefined;
-
-        console.log("sum result debug", {
-            questionnaireId: questionnaire.id,
-            method: scoring.method,
-            interpretationMode: scoring.interpretationMode,
-            total,
-            resultBands: questionnaire.resultBands,
-            level,
-        });
+                ? calculateSubscales(questionnaire, answers)
+                : undefined;
 
         return {
             type: "sum",
@@ -299,7 +335,9 @@ export function calculateResult(
         };
     }
 
-    throw new Error(`Unsupported scoring method: ${String((scoring as {
-                method ?  : unknown
-            }).method)}`);
+    throw new Error(
+        `Unsupported scoring method: ${String(
+            (scoring as { method?: unknown }).method
+        )}`
+    );
 }

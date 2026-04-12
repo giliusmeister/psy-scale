@@ -1,0 +1,133 @@
+{
+  "id": "phq-9_en",
+  "title": "PHQ-9",
+  "description": "Questionnaire for screening and assessing the severity of depressive symptoms over the past 2 weeks.",
+  "language": "en",
+  "author": "Kroenke, Spitzer, Williams",
+  "category": "clinical",
+  "estimatedMinutes": 3,
+  "instructions": {
+    "title": "Instructions",
+    "text": "Over the last 2 weeks, how often have you been bothered by any of the following problems?"
+  },
+  "scale": {
+    "type": "likert_4_frequency",
+    "min": 0,
+    "max": 3,
+    "options": [
+      { "value": 0, "label": "Not at all" },
+      { "value": 1, "label": "Several days" },
+      { "value": 2, "label": "More than half the days" },
+      { "value": 3, "label": "Nearly every day" }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "Little interest or pleasure in doing things",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Feeling down, depressed, or hopeless",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "Trouble falling or staying asleep, or sleeping too much",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "Feeling tired or having little energy",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "Poor appetite or overeating",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "Feeling bad about yourself — or that you are a failure or have let yourself or your family down",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "Trouble concentrating on things, such as reading the newspaper or watching television",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "text": "Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "text": "Thoughts that you would be better off dead, or thoughts of hurting yourself in some way",
+      "trait": "depression",
+      "reverse": false
+    }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "depression",
+    "directItems": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "reverseItems": [],
+    "minScore": 0,
+    "maxScore": 27,
+    "higherMeans": "more severe depressive symptoms",
+    "showAverage": false,
+    "interpretationMode": "bands"
+  },
+  "resultBands": [
+    {
+      "key": "minimal",
+      "min": 0,
+      "max": 4,
+      "label": "Minimal depression"
+    },
+    {
+      "key": "mild",
+      "min": 5,
+      "max": 9,
+      "label": "Mild depression"
+    },
+    {
+      "key": "moderate",
+      "min": 10,
+      "max": 14,
+      "label": "Moderate depression"
+    },
+    {
+      "key": "moderately_severe",
+      "min": 15,
+      "max": 19,
+      "label": "Moderately severe depression"
+    },
+    {
+      "key": "severe",
+      "min": 20,
+      "max": 27,
+      "label": "Severe depression"
+    }
+  ],
+  "resultDescription": "The PHQ-9 is used to screen for and monitor the severity of depression. Scores should be interpreted in conjunction with clinical judgment and are not a substitute for a formal diagnosis."
+}

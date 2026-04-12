@@ -1,0 +1,70 @@
+{
+  "id": "lay_general_procrastination_scale_ru",
+  "title": "General Procrastination Scale",
+  "description": "C. Lay’s measure of general procrastination tendencies.",
+  "language": "en",
+  "category": "Procrastination",
+  "estimatedMinutes": 8,
+  "instructions": {
+    "title": "Instructions",
+    "text": "For each statement, indicate the extent to which it is characteristic or uncharacteristic of you, using a scale from 1 to 5.",
+    "reverseNote": "Reverse-scored items are scored in the opposite direction: 1->5, 2->4, 3->3, 4->2, 5->1."
+  },
+  "scale": {
+    "type": "likert_5",
+    "min": 1,
+    "max": 5,
+    "options": [
+      { "value": 1, "label": "Extremely uncharacteristic" },
+      { "value": 2, "label": "Moderately uncharacteristic" },
+      { "value": 3, "label": "Neutral" },
+      { "value": 4, "label": "Moderately characteristic" },
+      { "value": 5, "label": "Extremely characteristic" }
+    ],
+    "reverseScoring": {
+      "1": 5,
+      "2": 4,
+      "3": 3,
+      "4": 2,
+      "5": 1
+    }
+  },
+  "questions": [
+    { "id": "q1", "number": 1, "text": "I often find myself performing tasks that I had intended to do several days before.", "trait": "procrastination", "reverse": false },
+    { "id": "q2", "number": 2, "text": "I do not do assignments until just before they are to be handed in.", "trait": "procrastination", "reverse": false },
+    { "id": "q3", "number": 3, "text": "When I finish reading a library book, I return it right away regardless of the due date.", "trait": "procrastination", "reverse": true },
+    { "id": "q4", "number": 4, "text": "When it is time to get up in the morning, I most often get right out of bed.", "trait": "procrastination", "reverse": true },
+    { "id": "q5", "number": 5, "text": "A letter may sit for days after I write it before mailing it.", "trait": "procrastination", "reverse": false },
+    { "id": "q6", "number": 6, "text": "I generally return phone calls promptly.", "trait": "procrastination", "reverse": true },
+    { "id": "q7", "number": 7, "text": "Even jobs that require little effort, I rarely get them done on time.", "trait": "procrastination", "reverse": false },
+    { "id": "q8", "number": 8, "text": "I generally make decisions as soon as possible.", "trait": "procrastination", "reverse": true },
+    { "id": "q9", "number": 9, "text": "I generally delay before starting on work I have to do.", "trait": "procrastination", "reverse": false },
+    { "id": "q10", "number": 10, "text": "I usually have to rush to complete a task on time.", "trait": "procrastination", "reverse": false },
+    { "id": "q11", "number": 11, "text": "When preparing to go out, I rarely have to do things at the last minute.", "trait": "procrastination", "reverse": true },
+    { "id": "q12", "number": 12, "text": "When deadlines are near, I often waste time doing other things.", "trait": "procrastination", "reverse": false },
+    { "id": "q13", "number": 13, "text": "I prefer to leave early for appointments.", "trait": "procrastination", "reverse": true },
+    { "id": "q14", "number": 14, "text": "I usually start an assignment as soon as it is given.", "trait": "procrastination", "reverse": true },
+    { "id": "q15", "number": 15, "text": "I often complete tasks ahead of time.", "trait": "procrastination", "reverse": true },
+    { "id": "q16", "number": 16, "text": "I often buy birthday or holiday gifts at the last minute.", "trait": "procrastination", "reverse": false },
+    { "id": "q17", "number": 17, "text": "Even important purchases are often made at the last minute.", "trait": "procrastination", "reverse": false },
+    { "id": "q18", "number": 18, "text": "I usually accomplish all the things I plan to do in a day.", "trait": "procrastination", "reverse": true },
+    { "id": "q19", "number": 19, "text": "I am continually saying \"I'll do it tomorrow.\"", "trait": "procrastination", "reverse": false },
+    { "id": "q20", "number": 20, "text": "I usually check to make sure everything is done before I settle down for the evening.", "trait": "procrastination", "reverse": true }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "procrastination",
+    "directItems": [1, 2, 5, 7, 9, 10, 12, 16, 17, 19],
+    "reverseItems": [3, 4, 6, 8, 11, 13, 14, 15, 18, 20],
+    "minScore": 20,
+    "maxScore": 100,
+    "higherMeans": "higher procrastination",
+    "showAverage": true,
+    "interpretationMode": "bands"
+  },
+  "resultBands": [
+    { "key": "low", "min": 20, "max": 45, "label": "Low procrastination" },
+    { "key": "medium", "min": 46, "max": 60, "label": "Moderate procrastination" },
+    { "key": "high", "min": 61, "max": 100, "label": "High procrastination" }
+  ]
+}

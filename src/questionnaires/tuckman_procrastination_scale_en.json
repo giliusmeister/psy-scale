@@ -1,0 +1,79 @@
+{
+  "id": "tuckman_procrastination_scale_en",
+  "title": "Tuckman Procrastination Scale (Adapted)",
+  "author": "B. Tuckman",
+  "description": "A measure of procrastination tendencies in everyday life and decision-making.",
+  "language": "en",
+  "category": "Procrastination",
+  "estimatedMinutes": 4,
+  "instructions": {
+    "title": "Instructions",
+    "text": "This scale is designed to assess how well each statement describes you. Please answer as honestly as possible.",
+    "reverseNote": "There are no reverse-scored items."
+  },
+  "ui": {
+    "inputMode": "mixed"
+  },
+  "scale": {
+    "type": "likert_5",
+    "min": 1,
+    "max": 5,
+    "options": [
+      { "value": 1, "label": "Extremely uncharacteristic" },
+      { "value": 2, "label": "Moderately uncharacteristic" },
+      { "value": 3, "label": "Neutral" },
+      { "value": 4, "label": "Moderately characteristic" },
+      { "value": 5, "label": "Extremely characteristic" }
+    ]
+  },
+  "questions": [
+    { "id": "q1", "number": 1, "text": "I put off finishing things without a good reason, even when they are important.", "trait": "procrastination" },
+    { "id": "q2", "number": 2, "text": "I delay starting tasks that I do not like.", "trait": "procrastination" },
+    { "id": "q3", "number": 3, "text": "If there is a deadline, I wait until the last minute.", "trait": "procrastination" },
+    { "id": "q4", "number": 4, "text": "I postpone making difficult decisions.", "trait": "procrastination" },
+    { "id": "q5", "number": 5, "text": "I put off improving my work-related skills.", "trait": "procrastination" },
+    { "id": "q6", "number": 6, "text": "I find excuses for doing nothing.", "trait": "procrastination" },
+    { "id": "q7", "number": 7, "text": "I avoid spending time on tasks that feel boring or tedious.", "trait": "procrastination" },
+    { "id": "q8", "number": 8, "text": "I consider myself a time waster.", "trait": "procrastination" },
+    { "id": "q9", "number": 9, "text": "I waste time even when I know I should be working.", "trait": "procrastination" },
+    { "id": "q10", "number": 10, "text": "If a task is too difficult, I tend to postpone it.", "trait": "procrastination" },
+    { "id": "q11", "number": 11, "text": "I delay tasks by telling myself I will relax first.", "trait": "procrastination" },
+    { "id": "q12", "number": 12, "text": "I fail to follow through on plans I make.", "trait": "procrastination" },
+    { "id": "q13", "number": 13, "text": "Even when I feel bad about not starting something, I still delay.", "trait": "procrastination" },
+    { "id": "q14", "number": 14, "text": "I leave important tasks until there is little time left.", "trait": "procrastination" },
+    { "id": "q15", "number": 15, "text": "Even when I know it is important, I delay getting started.", "trait": "procrastination" },
+    { "id": "q16", "number": 16, "text": "I put things off unnecessarily.", "trait": "procrastination" }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "procrastination",
+    "directItems": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+    "reverseItems": [],
+    "minScore": 16,
+    "maxScore": 80,
+    "higherMeans": "higher procrastination",
+    "showAverage": true,
+    "interpretationMode": "bands"
+  },
+  "resultBands": [
+    {
+      "key": "low",
+      "min": 16,
+      "max": 31,
+      "label": "Low procrastination"
+    },
+    {
+      "key": "moderate",
+      "min": 32,
+      "max": 47,
+      "label": "Moderate procrastination"
+    },
+    {
+      "key": "high",
+      "min": 48,
+      "max": 80,
+      "label": "High procrastination"
+    }
+  ],
+  "resultDescription": "These score bands are provisional interpretive groupings for product use. The Tuckman Procrastination Scale does not have universally established clinical cutoffs, so results should be interpreted as relative indicators of procrastination tendency rather than diagnostic categories."
+}
