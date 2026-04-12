@@ -1,0 +1,133 @@
+{
+  "id": "phq_9_ru",
+  "title": "PHQ-9",
+  "description": "Опросник для скрининга и оценки выраженности депрессивных симптомов за последние 2 недели.",
+  "language": "ru",
+  "author": "Kroenke, Spitzer, Williams",
+  "category": "clinical",
+  "estimatedMinutes": 3,
+  "instructions": {
+    "title": "Инструкция",
+    "text": "Как часто за последние 2 недели вас беспокоили следующие проблемы?"
+  },
+  "scale": {
+    "type": "likert_4_frequency",
+    "min": 0,
+    "max": 3,
+    "options": [
+      { "value": 0, "label": "Совсем не беспокоили" },
+      { "value": 1, "label": "Несколько дней" },
+      { "value": 2, "label": "Более половины дней" },
+      { "value": 3, "label": "Почти каждый день" }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "Сниженный интерес или отсутствие удовольствия от выполнения дел",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Подавленное настроение, тоска или чувство безнадежности",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "Трудности с засыпанием, беспокойный сон или, наоборот, слишком долгий сон",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "Чувство усталости или упадок сил",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "Плохой аппетит или переедание",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "Плохое мнение о себе — ощущение, что вы неудачник(-ца), подвели себя или свою семью",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "Трудности с концентрацией внимания, например, при чтении газеты или просмотре телевизора",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "text": "Двигательная заторможенность или, наоборот, заметная для окружающих суетливость и беспокойство",
+      "trait": "depression",
+      "reverse": false
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "text": "Мысли о том, что лучше было бы умереть, или мысли о причинении себе вреда",
+      "trait": "depression",
+      "reverse": false
+    }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "depression",
+    "directItems": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "reverseItems": [],
+    "minScore": 0,
+    "maxScore": 27,
+    "higherMeans": "более выраженные депрессивные симптомы",
+    "showAverage": false,
+    "interpretationMode": "bands"
+  },
+  "resultBands": [
+    {
+      "key": "minimal",
+      "min": 0,
+      "max": 4,
+      "label": "Минимальные симптомы"
+    },
+    {
+      "key": "mild",
+      "min": 5,
+      "max": 9,
+      "label": "Легкие симптомы"
+    },
+    {
+      "key": "moderate",
+      "min": 10,
+      "max": 14,
+      "label": "Умеренные симптомы"
+    },
+    {
+      "key": "moderately_severe",
+      "min": 15,
+      "max": 19,
+      "label": "Выраженные симптомы"
+    },
+    {
+      "key": "severe",
+      "min": 20,
+      "max": 27,
+      "label": "Тяжелые симптомы"
+    }
+  ],
+  "resultDescription": "PHQ-9 используется для скрининга и отслеживания выраженности депрессивных симптомов. Результат не заменяет клиническую диагностику и должен интерпретироваться в контексте жалоб, анамнеза и оценки специалиста."
+}

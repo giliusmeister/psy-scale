@@ -2,6 +2,7 @@
     "id": "wsas_ru",
     "title": "Шкала трудовой и социальной адаптации (WSAS)",
     "description": "Оценка влияния психологических проблем на повседневную деятельность и социальную адаптацию.",
+	"language": "ru",
     "author": "Mundt et al.",
     "category": "clinical",
     "estimatedMinutes": 2,

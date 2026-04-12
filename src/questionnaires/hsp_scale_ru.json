@@ -2,6 +2,7 @@
   "id": "hsp_scale_ru",
   "title": "Шкала высокочувствительной личности (HSP)",
   "description": "Шкала сенсорной чувствительности по Aron & Aron, 27 пунктов.",
+  "language": "ru",
   "author": "Aron & Aron",
   "category": "Чувствительность",
   "estimatedMinutes": 8,
@@ -9,6 +10,9 @@
     "title": "Инструкция",
     "text": "Для каждого утверждения выберите, насколько оно вас описывает, по шкале от 1 до 7.",
     "reverseNote": "Обратных вопросов нет."
+  },
+  "ui": {
+        "inputMode": "mixed"
   },
   "scale": {
     "type": "likert_7",

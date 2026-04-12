@@ -1,6 +1,8 @@
 {
-    "category": "Гендерная идентичность",
+    "id": "gidyq_aa_female_adult_ru",
+	"category": "gender",
     "description": "Русская адаптация GIDYQ-AA (Male Assigned at Birth – Adult). Итог рекомендуется интерпретировать по среднему баллу, рассчитанному по отвеченным диагностическим пунктам.",
+	"language": "ru",
     "estimatedMinutes": 8,
     "id": "gidyq_aa_male_adult_ru",
     "instructions": {

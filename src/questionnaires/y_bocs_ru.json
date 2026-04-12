@@ -2,6 +2,7 @@
   "id": "y_bocs_ru",
   "title": "Шкала Йеля-Брауна (Y-BOCS)",
   "description": "Оценка выраженности обсессивно-компульсивных симптомов.",
+  "language": "ru",
   "author": "Goodman et al.",
   "category": "clinical",
   "estimatedMinutes": 5,

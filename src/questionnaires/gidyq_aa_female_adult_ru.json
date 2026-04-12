@@ -1,6 +1,8 @@
 {
-    "category": "Гендерная идентичность",
+    "id": "gidyq_aa_female_adult_ru",
+	"category": "gender",
     "description": "Русская адаптация GIDYQ-AA (Female Assigned at Birth - Adult). Более высокий средний балл указывает на меньшую выраженность гендерной дисфории.",
+	"language": "ru",
     "estimatedMinutes": 8,
     "id": "gidyq_aa_female_adult_ru",
     "instructions": {

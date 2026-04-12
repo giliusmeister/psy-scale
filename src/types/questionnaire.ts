@@ -108,6 +108,7 @@ export type Questionnaire = {
   id: string;
   title: string;
   description: string;
+  language: string;
   author?: string;
   category?: string;
   estimatedMinutes?: number;

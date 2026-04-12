@@ -1,7 +1,9 @@
 {
+  "id": "tuckman_procrastination_scale_ru",
   "title": "Шкала прокрастинации",
   "author": "Б. Такман",
   "description": "Методика для определения уровня прокрастинации в повседневной жизни, а также в принятии решений.",
+  "language": "ru",
   "category": "Прокрастинация",
   "estimatedMinutes": 4,
   "instructions": {

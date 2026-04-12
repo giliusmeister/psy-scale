@@ -2,6 +2,7 @@
   "id": "procrastination_20_ru",
   "title": "Шкала общей прокрастинации",
   "description": "Методика К. Лэй для оценки общего уровня прокрастинации.",
+  "language": "ru",
   "category": "Прокрастинация",
   "estimatedMinutes": 8,
   "instructions": {

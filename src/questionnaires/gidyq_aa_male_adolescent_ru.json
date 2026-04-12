@@ -1,6 +1,8 @@
 {
-    "category": "Гендерная идентичность",
+    "id": "gidyq_aa_male_adolescent_ru",
+	"category": "gender",
     "description": "Русская адаптация GIDYQ-AA (Male Assigned at Birth - Adolescent). Для этой методики более высокий средний балл указывает на меньшую выраженность переживаний, связанных с гендерной дисфорией.",
+	"language": "ru",
     "estimatedMinutes": 8,
     "id": "gidyq_aa_male_adolescent_ru",
     "instructions": {

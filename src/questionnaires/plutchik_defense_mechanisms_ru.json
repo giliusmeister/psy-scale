@@ -1,7 +1,9 @@
 {
+  "id": "plutchik_defense_mechanisms_ru",
   "title": "Диагностика типологий психологической защиты",
   "author": "Р. Плутчик, адаптация Л.И. Вассермана",
   "description": "Опросник для диагностики выраженности механизмов психологической защиты.",
+  "language": "ru",
   "category": "Психологическая защита",
   "estimatedMinutes": 12,
   "instructions": {

@@ -732,3 +732,14 @@ button {
   color: #374151;
   min-height: 20px;
 }
+
+.questionnaire-subgroup {
+  margin-top: 16px;
+}
+
+.questionnaire-subgroup-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
