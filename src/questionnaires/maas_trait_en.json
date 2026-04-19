@@ -1,0 +1,170 @@
+{
+    "id": "maas_trait_en",
+    "title": "Mindful Attention Awareness Scale (MAAS)",
+    "description": "Assessment of dispositional mindfulness, specifically attention and awareness of present-moment experience.",
+    "language": "en",
+    "author": "Brown & Ryan (2003)",
+    "category": "mindfulness",
+    "estimatedMinutes": 3,
+    "instructions": {
+        "title": "Instructions",
+        "text": "Below is a collection of statements about your everyday experience. Using the scale below, indicate how frequently you have each experience. Please answer based on your actual experience rather than what you think it should be.",
+        "reverseNote": "All items are reverse-scored (higher scores indicate higher mindfulness)."
+    },
+    "ui": {
+        "inputMode": "mixed"
+    },
+    "scale": {
+        "type": "likert_6_frequency",
+        "min": 1,
+        "max": 6,
+        "options": [{
+                "value": 1,
+                "label": "Almost always"
+            }, {
+                "value": 2,
+                "label": "Very frequently"
+            }, {
+                "value": 3,
+                "label": "Somewhat frequently"
+            }, {
+                "value": 4,
+                "label": "Somewhat infrequently"
+            }, {
+                "value": 5,
+                "label": "Very infrequently"
+            }, {
+                "value": 6,
+                "label": "Almost never"
+            }
+        ],
+        "reverseScoring": {
+            "1": 6,
+            "2": 5,
+            "3": 4,
+            "4": 3,
+            "5": 2,
+            "6": 1
+        }
+    },
+    "questions": [{
+            "id": "q1",
+            "number": 1,
+            "text": "I could be experiencing some emotion and not be conscious of it until some time later.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q2",
+            "number": 2,
+            "text": "I break or spill things because of carelessness, not paying attention, or thinking of something else.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q3",
+            "number": 3,
+            "text": "I find it difficult to stay focused on what’s happening in the present.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q4",
+            "number": 4,
+            "text": "I tend to walk quickly to get where I’m going without paying attention to what I experience along the way.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q5",
+            "number": 5,
+            "text": "I tend not to notice feelings of physical tension or discomfort until they really grab my attention.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q6",
+            "number": 6,
+            "text": "I forget a person’s name almost as soon as I’ve been told it for the first time.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q7",
+            "number": 7,
+            "text": "It seems I am running on automatic, without much awareness of what I’m doing.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q8",
+            "number": 8,
+            "text": "I rush through activities without being really attentive to them.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q9",
+            "number": 9,
+            "text": "I get so focused on the goal I want to achieve that I lose touch with what I’m doing right now to get there.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q10",
+            "number": 10,
+            "text": "I do jobs or tasks automatically, without being aware of what I'm doing.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q11",
+            "number": 11,
+            "text": "I find myself listening to someone with one ear while doing something else at the same time.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q12",
+            "number": 12,
+            "text": "I drive places on automatic pilot and then wonder why I went there.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q13",
+            "number": 13,
+            "text": "I find myself preoccupied with the future or the past.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q14",
+            "number": 14,
+            "text": "I find myself doing things without paying attention.",
+            "trait": "mindfulness",
+            "reverse": true
+        }, {
+            "id": "q15",
+            "number": 15,
+            "text": "I snack without being aware that I’m eating.",
+            "trait": "mindfulness",
+            "reverse": true
+        }
+    ],
+    "scoring": {
+        "method": "sum",
+        "trait": "mindfulness",
+        "directItems": [],
+        "reverseItems": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        "minScore": 15,
+        "maxScore": 90,
+        "showAverage": true,
+        "interpretationMode": "bands",
+        "interpretationBasis": "average"
+    },
+    "resultBands": [{
+            "key": "low",
+            "min": 1.0,
+            "max": 3.2,
+            "label": "Low mindfulness"
+        }, {
+            "key": "moderate",
+            "min": 3.21,
+            "max": 4.5,
+            "label": "Moderate mindfulness"
+        }, {
+            "key": "high",
+            "min": 4.51,
+            "max": 6.0,
+            "label": "High mindfulness"
+        }
+    ]
+}

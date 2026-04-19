@@ -557,6 +557,11 @@ function App() {
     if (result) {
         debugLog("render result", result);
 
+        const interpretationBasis =
+            result.type === "sum"
+             ? selectedQuestionnaire.scoring.interpretationBasis ?? "total"
+             : "total";
+
         return (
              < div className = "page" >
                  < div className = "card" >
@@ -610,15 +615,15 @@ function App() {
             result.type === "sum" && (
                  < div className = "result-main" >
                      < div className = "result-score" > {
-                    result.total
-                } {
-                "\u00A0"
-            }
-                баллов <  / div > {
-                result.average !== null && (
+                    interpretationBasis === "average" && result.average !== null
+                     ? `Средний балл: ${result.average.toFixed(2)}`
+                     : `${result.total} баллов`
+                }
+                 <  / div > {
+                result.average !== null && interpretationBasis !== "average" && (
                      < div className = "result-average" >
                         Средний балл: {
-                        result.average
+                        result.average.toFixed(2)
                     }
                      <  / div > )
             } {
@@ -628,8 +633,12 @@ function App() {
                     }
                      <  / div > )
             } {
-                result.percentile !== null &&
-                result.percentile !== undefined && (
+                interpretationBasis === "average" && (
+                     < div className = "result-note" >
+                        Интерпретация основана на среднем балле.
+                         <  / div > )
+            } {
+                result.percentile !== null && result.percentile !== undefined && (
                      < div className = "percentile-block" >
                          < div className = "percentile-scale-title" >
                         Позиция в выборке: {
@@ -646,7 +655,7 @@ function App() {
                         }
                     }
                     />
-                                                                                                                                                                    </div >
+                                                                            </div >
 
                      < div className = "percentile-scale-labels" >
                          < span > 0 <  / span >
@@ -659,8 +668,7 @@ function App() {
                          <  / div > )
             } {
                 !result.level &&
-                (result.percentile === null ||
-                    result.percentile === undefined) && (
+                (result.percentile === null || result.percentile === undefined) && (
                      < div className = "result-note" > {
                         selectedQuestionnaire.resultDescription ??
                         "Интерпретация по фиксированным диапазонам для этой методики не задана."
@@ -671,20 +679,17 @@ function App() {
                      < div className = "result-subscales" >
                          < div className = "subscales-title" > Подшкалы:  <  / div > {
                         result.subscales.map((subscale) => (
-                                 < div
-                                key = {
+                                 < div key = {
                                     subscale.key
                                 }
-                                className = "subscale-row"
-                                     >
+                                className = "subscale-row" >
                                      < div className = "subscale-head" >
                                      < span className = "subscale-label" > {
                                     subscale.label
                                 }
                                  <  / span >
                                  < span className = "subscale-percent" > {
-                                    subscale.percent !== null &&
-                                    subscale.percent !== undefined
+                                    subscale.percent !== null && subscale.percent !== undefined
                                      ? `${subscale.percent}%`
                                      : "—"
                                 }
@@ -694,11 +699,8 @@ function App() {
                                  < div className = "subscale-raw" > {
                                     subscale.value
                                 } {
-                                subscale.max !== null &&
-                                subscale.max !== undefined
-                                 ? subscale.aggregation === "mean"
-                                 ? ` / ${subscale.max}`
-                                 : ` из ${subscale.max}`
+                                subscale.max !== null && subscale.max !== undefined
+                                 ? ` из ${subscale.max}`
                                  : ""
                             } {
                                 subscale.percentile !== null
@@ -706,17 +708,16 @@ function App() {
                                  : ""
                             }
                                  <  / div > {
-                                subscale.percent !== null &&
-                                subscale.percent !== undefined && (
+                                subscale.percent !== null && subscale.percent !== undefined && (
                                      < div className = "subscale-bar" >
                                          < div
                                         className = "subscale-bar-fill"
                                         style = { {
-                                            width: `${subscale.percent}%`,
+                                            width: `${subscale.percent}%`
                                         }
                                     }
                                     />
-                                                                                                                                                                                                                                                                            </div > )
+                                                                                                                                </div > )
                             }
                                  <  / div > ))
                     }
@@ -737,8 +738,7 @@ function App() {
                             }
                              <  / span >
                              < span className = "subscale-percent" > {
-                                subscale.percent !== null &&
-                                subscale.percent !== undefined
+                                subscale.percent !== null && subscale.percent !== undefined
                                  ? `${subscale.percent}%`
                                  : "—"
                             }
@@ -748,11 +748,8 @@ function App() {
                              < div className = "subscale-raw" > {
                                 subscale.value
                             } {
-                            subscale.max !== null &&
-                            subscale.max !== undefined
-                             ? subscale.aggregation === "mean"
-                             ? ` / ${subscale.max}`
-                             : ` из ${subscale.max}`
+                            subscale.max !== null && subscale.max !== undefined
+                             ? ` из ${subscale.max}`
                              : ""
                         } {
                             subscale.percentile !== null
@@ -760,22 +757,21 @@ function App() {
                              : ""
                         }
                              <  / div > {
-                            subscale.percent !== null &&
-                            subscale.percent !== undefined && (
+                            subscale.percent !== null && subscale.percent !== undefined && (
                                  < div className = "subscale-bar" >
                                      < div
                                     className = "subscale-bar-fill"
                                     style = { {
-                                        width: `${subscale.percent}%`,
+                                        width: `${subscale.percent}%`
                                     }
                                 }
                                 />
-                                                                                                                                                                                                                                            </div > )
+                                                                                                                </div > )
                         }
                              <  / div > ))
                 }
                  <  / div > )
-        }{
+        } {
             result.type !== "sum" && selectedQuestionnaire.resultDescription && (
                  < div className = "result-description" > {
                     selectedQuestionnaire.resultDescription
@@ -893,7 +889,7 @@ function App() {
             }
         }
         />
-                                                                    </div >
+                                                                                                                            </div >
 
          < div className = "question-block" >
              < div className = "question-number" > {
@@ -927,9 +923,9 @@ function App() {
                 handleSelectAnswer(Number(e.target.value))
             }
             />
-                                                                                                    <div className="answer-slider-value">
-                                                                                                        {effectiveAnswer ?? sliderMin}
-                                                                                                    </div >
+                                                                                                                                                                                        <div className="answer-slider-value">
+                                                                                                                                                                                            {effectiveAnswer ?? sliderMin}
+                                                                                                                                                                                        </div >
              <  / div > )
     } {
         sliderAllowed && (
@@ -991,7 +987,7 @@ function App() {
             answeredCount
         }
         /{visibleQuestions.length}
-                                                                        </div >
+                                                                                                                                </div >
 
          < button
         onClick = {
