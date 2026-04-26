@@ -58,7 +58,41 @@ After the build, the static frontend files should be here:
 /var/www/psy-scale/current/dist
 ```
 
-## 3. Run The API With systemd
+## 3. Run The API As An Ubuntu Service
+
+The API is started with `npm start`, but in production it should run under
+`systemd` so it starts automatically after reboot and restarts after crashes.
+
+First, check the exact npm path on the server:
+
+```bash
+which npm
+```
+
+Most Ubuntu installs return:
+
+```text
+/usr/bin/npm
+```
+
+If your server uses `nvm`, `which npm` may return a path inside the user's home
+directory. In that case, use that full path in `ExecStart` below, or install
+Node.js system-wide for the service user.
+
+Before creating the service, test the API manually from the project directory:
+
+```bash
+cd /var/www/psy-scale/current
+HOST=127.0.0.1 PORT=3000 QUESTIONNAIRES_DIR=/var/www/psy-scale/current/dist/questionnaires npm start
+```
+
+In another SSH session, check it:
+
+```bash
+curl http://127.0.0.1:3000/api/questionnaires
+```
+
+Stop the manual process with `Ctrl+C`, then create the systemd service.
 
 Create the service file:
 
@@ -66,7 +100,8 @@ Create the service file:
 sudo nano /etc/systemd/system/psy-scale-api.service
 ```
 
-Use this config:
+Use this config. It runs the same `npm start` command as a background Ubuntu
+service:
 
 ```ini
 [Unit]
@@ -90,11 +125,8 @@ Group=www-data
 WantedBy=multi-user.target
 ```
 
-If `npm` is not located at `/usr/bin/npm`, check the path with:
-
-```bash
-which npm
-```
+If `which npm` returned a different path, replace `/usr/bin/npm` in
+`ExecStart=/usr/bin/npm start` with that path.
 
 Make sure `www-data` can read the project files:
 
@@ -102,13 +134,26 @@ Make sure `www-data` can read the project files:
 sudo chown -R www-data:www-data /var/www/psy-scale/current
 ```
 
-Start the API:
+Load and start the service:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable psy-scale-api
+sudo systemctl enable --now psy-scale-api
+```
+
+Useful service commands:
+
+```bash
 sudo systemctl start psy-scale-api
+sudo systemctl stop psy-scale-api
+sudo systemctl restart psy-scale-api
 sudo systemctl status psy-scale-api
+```
+
+View API logs:
+
+```bash
+sudo journalctl -u psy-scale-api -f
 ```
 
 Check the API locally on the server:
@@ -116,6 +161,12 @@ Check the API locally on the server:
 ```bash
 curl http://127.0.0.1:3000/api/questionnaires
 curl http://127.0.0.1:3000/questionnaires/atq-30_en.json
+```
+
+Check that the service is enabled for reboot:
+
+```bash
+systemctl is-enabled psy-scale-api
 ```
 
 ## 4. Configure Nginx
