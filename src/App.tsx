@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { QuestionnaireList } from "./components/QuestionnaireList";
 import { ResultView } from "./components/ResultView";
 import { TestView } from "./components/TestView";
-import { questionnaires } from "./data/questionnaires";
+import { loadQuestionnaires } from "./data/questionnaires";
 import {
   getInitialLanguage,
   getQuestionnaireLanguage,
@@ -30,6 +30,10 @@ function App() {
   const [finishedAt, setFinishedAt] = useState<number | null>(null);
   const [selectedQuestionnaire, setSelectedQuestionnaire] =
     useState<Questionnaire | null>(null);
+  const [questionnaires, setQuestionnaires] = useState<Questionnaire[]>([]);
+  const [questionnairesLoading, setQuestionnairesLoading] = useState(true);
+  const [questionnairesError, setQuestionnairesError] = useState<string | null>(null);
+  const [questionnairesLoadAttempt, setQuestionnairesLoadAttempt] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [selectedOptionKeys, setSelectedOptionKeys] = useState<Record<string, string>>({});
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,6 +44,40 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, selectedLanguage);
   }, [selectedLanguage]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      setQuestionnairesLoading(true);
+      setQuestionnairesError(null);
+
+      try {
+        const loaded = await loadQuestionnaires();
+
+        if (!cancelled) {
+          setQuestionnaires(loaded);
+        }
+      } catch (error) {
+        if (!cancelled) {
+          setQuestionnaires([]);
+          setQuestionnairesError(
+            error instanceof Error ? error.message : "Unknown error",
+          );
+        }
+      } finally {
+        if (!cancelled) {
+          setQuestionnairesLoading(false);
+        }
+      }
+    }
+
+    void load();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [questionnairesLoadAttempt]);
 
   const questionnaireGroups = useMemo(() => {
     const groups = questionnaires.reduce<Record<string, Questionnaire[]>>(
@@ -60,7 +98,7 @@ function App() {
     );
 
     return Object.entries(groups);
-  }, [selectedLanguage]);
+  }, [questionnaires, selectedLanguage]);
 
   const visibleQuestions = useMemo(() => {
     if (!selectedQuestionnaire) {
@@ -256,10 +294,13 @@ function App() {
     return (
       <QuestionnaireList
         groups={questionnaireGroups}
+        isLoading={questionnairesLoading}
+        error={questionnairesError}
         selectedLanguage={selectedLanguage}
         copy={copy}
         onLanguageChange={setSelectedLanguage}
         onSelectQuestionnaire={handleSelectQuestionnaire}
+        onRetry={() => setQuestionnairesLoadAttempt((attempt) => attempt + 1)}
       />
     );
   }

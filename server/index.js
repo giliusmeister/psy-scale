@@ -146,6 +146,12 @@ export function createQuestionnairesServer(options = {}) {
       return;
     }
 
+    if (pathname.startsWith("/api/questionnaires/")) {
+      const routePath = pathname.slice("/api/questionnaires/".length);
+      await serveQuestionnaire(req, res, questionnairesDir, routePath);
+      return;
+    }
+
     if (pathname.startsWith("/questionnaires/")) {
       const routePath = pathname.slice("/questionnaires/".length);
       await serveQuestionnaire(req, res, questionnairesDir, routePath);

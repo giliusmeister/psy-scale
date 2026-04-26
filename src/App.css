@@ -410,6 +410,12 @@ button {
   background: #f8faff;
 }
 
+.empty-state-detail {
+  margin: 8px 0 12px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
 .report-meta {
   margin-bottom: 16px;
   color: #4b5563;

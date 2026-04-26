@@ -8,6 +8,9 @@ export const APP_LANGUAGES: AppLanguage[] = ["ru", "en"];
 export const UI_COPY = {
   ru: {
     chooseQuestionnaire: "Выберите опросник из списка:",
+    loadingQuestionnaires: "Загрузка опросников...",
+    loadQuestionnairesError: "Не удалось загрузить опросники.",
+    retry: "Повторить",
     emptyState: "Не найдено ни одного валидного опросника. Проверьте JSON и консоль.",
     author: "Автор",
     questions: "Вопросов",
@@ -57,6 +60,9 @@ export const UI_COPY = {
   },
   en: {
     chooseQuestionnaire: "Choose a questionnaire from the list:",
+    loadingQuestionnaires: "Loading questionnaires...",
+    loadQuestionnairesError: "Could not load questionnaires.",
+    retry: "Retry",
     emptyState: "No valid questionnaires found. Check JSON files and the console.",
     author: "Author",
     questions: "Questions",

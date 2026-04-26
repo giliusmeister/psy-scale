@@ -10,18 +10,24 @@ type IndexedQuestionnaire = {
 
 type QuestionnaireListProps = {
   groups: Array<[string, Questionnaire[]]>;
+  isLoading: boolean;
+  error: string | null;
   selectedLanguage: AppLanguage;
   copy: UiCopy;
   onLanguageChange: (language: AppLanguage) => void;
   onSelectQuestionnaire: (questionnaire: Questionnaire) => void;
+  onRetry: () => void;
 };
 
 export function QuestionnaireList({
   groups,
+  isLoading,
+  error,
   selectedLanguage,
   copy,
   onLanguageChange,
   onSelectQuestionnaire,
+  onRetry,
 }: QuestionnaireListProps) {
   const indexedGroups = groups.reduce<Array<[string, IndexedQuestionnaire[]]>>(
     (acc, [category, items]) => {
@@ -55,7 +61,17 @@ export function QuestionnaireList({
         />
         <p className="instructions-text">{copy.chooseQuestionnaire}</p>
 
-        {groups.length === 0 ? (
+        {isLoading ? (
+          <div className="empty-state">{copy.loadingQuestionnaires}</div>
+        ) : error ? (
+          <div className="empty-state">
+            <div>{copy.loadQuestionnairesError}</div>
+            <div className="empty-state-detail">{error}</div>
+            <button type="button" className="secondary-button" onClick={onRetry}>
+              {copy.retry}
+            </button>
+          </div>
+        ) : groups.length === 0 ? (
           <div className="empty-state">{copy.emptyState}</div>
         ) : (
           <div className="questionnaire-list">

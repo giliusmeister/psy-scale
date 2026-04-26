@@ -1,35 +1,55 @@
 import type { Questionnaire } from "../types/questionnaire";
 
-// автоматически подгружаем все JSON из папки questionnaires
-type QuestionnaireModule = { default?: Questionnaire } & Partial<Questionnaire>;
+const QUESTIONNAIRES_LIST_URL = "/api/questionnaires";
+const QUESTIONNAIRE_FILE_URL = "/api/questionnaires/";
 
-const modules = import.meta.glob("../questionnaires/*.json", {
-  eager: true,
-}) as Record<string, QuestionnaireModule>;
+async function fetchJson<T>(url: string): Promise<T> {
+  const response = await fetch(url);
 
-const loaded: Questionnaire[] = [];
-
-const seenIds = new Set<string>();
-
-for (const path in modules) {
-  const mod = modules[path];
-
-  const data = (mod.default ?? mod) as Questionnaire;
-
-  // id = имя файла
-  const id = path.split("/").pop()?.replace(".json", "") ?? "unknown";
-
-  if (seenIds.has(id)) {
-    console.error(`[psy-scale] Duplicate questionnaire id: ${id}`);
-    continue;
+  if (!response.ok) {
+    throw new Error(`Request failed: ${response.status} ${response.statusText}`);
   }
 
-  seenIds.add(id);
-
-  loaded.push({
-    ...data,
-    id,
-  });
+  return (await response.json()) as T;
 }
 
-export const questionnaires: Questionnaire[] = loaded;
+function getQuestionnaireId(fileName: string): string {
+  return fileName.replace(/\.json$/i, "");
+}
+
+function assertQuestionnaireFiles(value: unknown): string[] {
+  if (!Array.isArray(value) || !value.every((item) => typeof item === "string")) {
+    throw new Error("Invalid questionnaires list response");
+  }
+
+  return value;
+}
+
+export async function loadQuestionnaires(): Promise<Questionnaire[]> {
+  const files = assertQuestionnaireFiles(
+    await fetchJson<unknown>(QUESTIONNAIRES_LIST_URL),
+  );
+  const seenIds = new Set<string>();
+  const loaded = await Promise.all(
+    files.map(async (fileName) => {
+      const id = getQuestionnaireId(fileName);
+
+      if (seenIds.has(id)) {
+        throw new Error(`Duplicate questionnaire id: ${id}`);
+      }
+
+      seenIds.add(id);
+
+      const data = await fetchJson<Omit<Questionnaire, "id">>(
+        `${QUESTIONNAIRE_FILE_URL}${encodeURIComponent(fileName)}`,
+      );
+
+      return {
+        ...data,
+        id,
+      };
+    }),
+  );
+
+  return loaded;
+}

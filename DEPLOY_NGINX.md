@@ -160,7 +160,7 @@ Check the API locally on the server:
 
 ```bash
 curl http://127.0.0.1:3000/api/questionnaires
-curl http://127.0.0.1:3000/questionnaires/atq-30_en.json
+curl http://127.0.0.1:3000/api/questionnaires/atq-30_en.json
 ```
 
 Check that the service is enabled for reboot:
@@ -223,6 +223,7 @@ Open these URLs in a browser:
 ```text
 http://example.com/
 http://example.com/api/questionnaires
+http://example.com/api/questionnaires/atq-30_en.json
 ```
 
 Or test from the server:
@@ -230,13 +231,15 @@ Or test from the server:
 ```bash
 curl -I http://127.0.0.1/
 curl http://127.0.0.1/api/questionnaires
+curl http://127.0.0.1/api/questionnaires/atq-30_en.json
 curl -I http://127.0.0.1/questionnaires/atq-30_en.json
 ```
 
 The last command should return `404` through Nginx. Raw questionnaire JSON is
-still available locally to the Node.js process through
-`127.0.0.1:3000/questionnaires/<file>.json`, but it is not exposed through the
-public Nginx server.
+still available to the browser through `/api/questionnaires/<file>.json`, which
+is the runtime endpoint used by the frontend. The legacy
+`/questionnaires/<file>.json` path remains local to Node.js and is not exposed
+through the public Nginx server.
 
 ## 6. Enable HTTPS
 
@@ -298,8 +301,8 @@ domain URL does not, check:
 ## Notes On JSON Visibility
 
 With this config, direct requests to `https://example.com/questionnaires/*.json`
-are blocked by Nginx. This is useful when the files should exist on the server
-for local Node.js access but should not be served as public static assets.
+are blocked by Nginx. The frontend loads questionnaire files dynamically through
+`https://example.com/api/questionnaires/<file>.json`.
 
 This does not make data secret if the browser needs to load it. Any JSON
 returned to the browser through an API can still be inspected by the user in
