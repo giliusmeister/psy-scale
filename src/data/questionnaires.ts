@@ -1,18 +1,20 @@
 import type { Questionnaire } from "../types/questionnaire";
 
 // автоматически подгружаем все JSON из папки questionnaires
+type QuestionnaireModule = { default?: Questionnaire } & Partial<Questionnaire>;
+
 const modules = import.meta.glob("../questionnaires/*.json", {
   eager: true,
-});
+}) as Record<string, QuestionnaireModule>;
 
 const loaded: Questionnaire[] = [];
 
 const seenIds = new Set<string>();
 
 for (const path in modules) {
-  const mod = modules[path] as any;
+  const mod = modules[path];
 
-  const data = mod.default ?? mod;
+  const data = (mod.default ?? mod) as Questionnaire;
 
   // id = имя файла
   const id = path.split("/").pop()?.replace(".json", "") ?? "unknown";
