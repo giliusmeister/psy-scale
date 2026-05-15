@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { QuestionnaireList } from "./components/QuestionnaireList";
 import { ResultView } from "./components/ResultView";
 import { TestView } from "./components/TestView";
-import { loadQuestionnaires } from "./data/questionnaires";
+import { loadQuestionnaireById, loadQuestionnaires } from "./data/questionnaires";
 import {
   getInitialLanguage,
   getQuestionnaireLanguage,
@@ -290,6 +290,102 @@ function App() {
     downloadDebugResult(selectedQuestionnaire, answers, result, startedAt, finishedAt);
   }
 
+  async function handleImportAnswersJson(file: File) {
+    if (!selectedQuestionnaire) {
+      return;
+    }
+
+    try {
+      const rawText = await file.text();
+      const parsed = JSON.parse(rawText) as unknown;
+      const parsedObject = (typeof parsed === "object" && parsed !== null)
+        ? (parsed as Record<string, unknown>)
+        : null;
+
+      const importedQuestionnaireIdRaw =
+        parsedObject && typeof parsedObject.questionnaireId === "string"
+          ? parsedObject.questionnaireId
+          : null;
+      const importedQuestionnaireId =
+        importedQuestionnaireIdRaw?.replace(/\.json$/i, "") ?? null;
+
+      if (
+        importedQuestionnaireId !== null &&
+        importedQuestionnaireId !== selectedQuestionnaire.id
+      ) {
+        window.alert(
+          `Questionnaire mismatch: file has "${importedQuestionnaireId}", current is "${selectedQuestionnaire.id}".`,
+        );
+        return;
+      }
+
+      const questionnaireIdToReload = importedQuestionnaireId ?? selectedQuestionnaire.id;
+      let latestQuestionnaire = selectedQuestionnaire;
+      try {
+        latestQuestionnaire = await loadQuestionnaireById(questionnaireIdToReload);
+      } catch (reloadError) {
+        console.warn("Failed to reload questionnaire from API, using currently loaded questionnaire.", reloadError);
+        window.alert(
+          "Warning: could not reload latest questionnaire from API, using currently loaded version.",
+        );
+      }
+
+      const sourceAnswers =
+        parsedObject &&
+        "answers" in parsedObject &&
+        typeof parsedObject.answers === "object" &&
+        parsedObject.answers !== null
+          ? (parsedObject.answers as Record<string, unknown>)
+          : (parsedObject ?? {});
+
+      const allowedQuestionIds = new Set(latestQuestionnaire.questions.map((q) => q.id));
+      const importedAnswers = Object.entries(sourceAnswers).reduce<Record<string, number>>(
+        (acc, [key, value]) => {
+          if (!allowedQuestionIds.has(key)) {
+            return acc;
+          }
+          if (typeof value === "number" && Number.isFinite(value)) {
+            acc[key] = value;
+          }
+          return acc;
+        },
+        {},
+      );
+
+      if (Object.keys(importedAnswers).length === 0) {
+        window.alert(
+          "Import failed: no numeric answers matched current questionnaire question IDs.",
+        );
+        return;
+      }
+
+      const normalizedAnswers = pruneHiddenAnswers(latestQuestionnaire.questions, importedAnswers);
+
+      setSelectedQuestionnaire(latestQuestionnaire);
+      setAnswers(normalizedAnswers);
+      setSelectedOptionKeys({});
+      setCurrentIndex(0);
+      const importedStartedAt =
+        parsedObject && typeof parsedObject.startedAt === "number" && Number.isFinite(parsedObject.startedAt)
+          ? parsedObject.startedAt
+          : null;
+      const importedFinishedAt =
+        parsedObject && typeof parsedObject.finishedAt === "number" && Number.isFinite(parsedObject.finishedAt)
+          ? parsedObject.finishedAt
+          : Date.now();
+      setStartedAt(importedStartedAt);
+      setFinishedAt(importedFinishedAt);
+      setResult(calculateResult(normalizedAnswers, latestQuestionnaire));
+    } catch (error) {
+      console.error("Failed to import answers JSON", error);
+      const message =
+        error instanceof Error && error.message
+          ? error.message
+          : "Unknown import error";
+      window.alert(`Failed to import JSON file: ${message}`);
+    }
+  }
+
   if (!selectedQuestionnaire) {
     return (
       <QuestionnaireList
@@ -315,6 +411,7 @@ function App() {
         language={selectedLanguage}
         copy={copy}
         onDownloadDebug={handleDownloadDebug}
+        onImportAnswersJson={handleImportAnswersJson}
         onBackToList={handleBackToList}
         onRestart={() => resetSession()}
       />
@@ -345,6 +442,7 @@ function App() {
       canProceed={canProceed}
       isLastQuestion={isLastQuestion}
       copy={copy}
+      onImportAnswersJson={handleImportAnswersJson}
       onBackToList={handleBackToList}
       onBack={handleBack}
       onNext={handleNext}

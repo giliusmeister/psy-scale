@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import type { UiCopy } from "../i18n";
 import type { Question, Questionnaire } from "../types/questionnaire";
 import type { AnswerOptionEntry } from "../utils/questionnaireFlow";
@@ -21,6 +22,7 @@ type TestViewProps = {
   canProceed: boolean;
   isLastQuestion: boolean;
   copy: UiCopy;
+  onImportAnswersJson: (file: File) => void;
   onBackToList: () => void;
   onBack: () => void;
   onNext: () => void;
@@ -46,20 +48,47 @@ export function TestView({
   canProceed,
   isLastQuestion,
   copy,
+  onImportAnswersJson,
   onBackToList,
   onBack,
   onNext,
   onSelectAnswer,
 }: TestViewProps) {
+  const importInputRef = useRef<HTMLInputElement | null>(null);
+
+  function handleImportClick() {
+    importInputRef.current?.click();
+  }
+
+  function handleImportFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    onImportAnswersJson(file);
+    event.target.value = "";
+  }
+
   return (
     <div className="page">
       <div className="card card--test">
         <div className="test-header">
           <div className="top-bar">
+            <input
+              ref={importInputRef}
+              type="file"
+              accept="application/json,.json"
+              style={{ display: "none" }}
+              onChange={handleImportFileChange}
+            />
             <button className="top-button" onClick={onBackToList}>
               {copy.backToList}
             </button>
             <div className="top-bar-title">{questionnaire.title}</div>
+            <button className="top-button" onClick={handleImportClick}>
+              {copy.importAnswersJson}
+            </button>
           </div>
 
           <div className="report-meta">

@@ -17,6 +17,18 @@ function getQuestionnaireId(fileName: string): string {
   return fileName.replace(/\.json$/i, "");
 }
 
+export async function loadQuestionnaireById(id: string): Promise<Questionnaire> {
+  const fileName = `${id}.json`;
+  const data = await fetchJson<Omit<Questionnaire, "id">>(
+    `${QUESTIONNAIRE_FILE_URL}${encodeURIComponent(fileName)}`,
+  );
+
+  return {
+    ...data,
+    id,
+  };
+}
+
 function assertQuestionnaireFiles(value: unknown): string[] {
   if (!Array.isArray(value) || !value.every((item) => typeof item === "string")) {
     throw new Error("Invalid questionnaires list response");

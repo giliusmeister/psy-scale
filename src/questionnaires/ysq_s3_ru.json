@@ -1,0 +1,2570 @@
+{
+  "id": "ysq_s3_ru",
+  "title": "Опросник дезадаптивных схем Дж. Янга YSQ-S3",
+  "description": "Методика для первичной диагностики ранних дезадаптивных схем и отслеживания динамики изменений в процессе схемо-фокусированной психотерапии.",
+  "language": "ru",
+  "author": "Дж. Янг, адаптация П.М. Касьяник и Е.В. Романовой",
+  "category": "Схемотерапия",
+  "estimatedMinutes": 25,
+  "instructions": {
+    "title": "Инструкция",
+    "text": "Ниже перечислены утверждения, с помощью которых Вы можете описать себя. Пожалуйста, прочитайте каждое утверждение и решите, насколько точно оно Вас характеризует. Если Вы не уверены, как ответить, основывайте свой ответ на том, как Вы ЧУВСТВУЕТЕ, а не на том, что вы считаете правильным.",
+    "reverseNote": "Обратные вопросы отсутствуют."
+  },
+  "scale": {
+    "type": "likert_6",
+    "min": 1,
+    "max": 6,
+    "options": [
+      {
+        "value": 1,
+        "label": "Абсолютно не соответствует"
+      },
+      {
+        "value": 2,
+        "label": "По большей части не соответствует"
+      },
+      {
+        "value": 3,
+        "label": "Скорее не соответствует"
+      },
+      {
+        "value": 4,
+        "label": "В общем соответствует"
+      },
+      {
+        "value": 5,
+        "label": "По большей части соответствует"
+      },
+      {
+        "value": 6,
+        "label": "Полностью соответствует"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "Рядом со мной не было человека, который бы обо мне заботился, проявлял участие и искренний интерес ко всему, что происходило со мной",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Я «цепляюсь» за близких мне людей, так как боюсь, что они меня покинут",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "Мне кажется, что другие люди меня используют",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "Я не вписываюсь ни в одну из компаний",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "Ни один мужчина (женщина), к которым я испытываю влечение, не могли бы полюбить меня, если бы узнали о моих недостатках",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "Почти всё, что я делаю на работе (в учебе) не так хорошо, как это могли бы сделать другие люди",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "Думаю, что я не способен самостоятельно справляться с повседневными делами",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "text": "Я не могу избавиться от ощущения, что должно случиться что-то плохое",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "text": "Я не смог «отделиться» от своих родителей в той мере, в какой это сделали мои сверстники",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "text": "Я думаю, что если я буду делать только то, что мне хочется, это непременно приведет к неприятностям",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q11",
+      "number": 11,
+      "text": "В конце концов, именно мне приходится заботиться о моих близких",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q12",
+      "number": 12,
+      "text": "Я слишком застенчив, чтобы проявлять свою симпатию (внимание или привязанность) к другим людям",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q13",
+      "number": 13,
+      "text": "Я должен быть лучшим во всем, что я делаю, и не могу быть хуже других",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q14",
+      "number": 14,
+      "text": "Мне очень трудно принять «нет» в качестве ответа, если я чего-нибудь хочу от других людей",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q15",
+      "number": 15,
+      "text": "Я не могу заставить себя выполнять рутинные или скучные задания",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q16",
+      "number": 16,
+      "text": "Знакомство с важными людьми и наличие денег дают мне ощущение собственной значимости",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q17",
+      "number": 17,
+      "text": "Даже когда дела идут хорошо, у меня такое ощущение, что это ненадолго",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q18",
+      "number": 18,
+      "text": "Если я допущу ошибку, то должен быть наказан",
+      "trait": "punitiveness",
+      "reverse": false
+    },
+    {
+      "id": "q19",
+      "number": 19,
+      "text": "Я не знаю таких людей, которые давали бы мне тепло, любовь и заботу",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q20",
+      "number": 20,
+      "text": "Я так сильно нуждаюсь в других людях, что боюсь их потерять",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q21",
+      "number": 21,
+      "text": "Я чувствую, что не могу ослабить свою защиту и вести себя естественно в присутствии других людей, так как они могут причинить мне боль",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q22",
+      "number": 22,
+      "text": "Я очень сильно отличаюсь от других людей",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q23",
+      "number": 23,
+      "text": "Никто, о ком я мечтаю, не захотел бы остаться рядом со мной, если бы узнал, какой я на самом деле",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q24",
+      "number": 24,
+      "text": "Я неспособен добиться успеха",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q25",
+      "number": 25,
+      "text": "В повседневной жизни я во многом завишу от других людей",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q26",
+      "number": 26,
+      "text": "Я полагаю, что в любой момент может произойти нечто ужасное (природная катастрофа, преступление, финансовый кризис или несчастный случай)",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q27",
+      "number": 27,
+      "text": "Я и мои родители склонны (были склонны) принимать излишнее участие в жизни и решении проблем друг друга",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q28",
+      "number": 28,
+      "text": "Я чувствую, что я должен уступать желаниям других людей, иначе они могут отвергнуть меня или как-то отомстить",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q29",
+      "number": 29,
+      "text": "Я — хороший человек, так как думаю о других больше, чем о себе",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q30",
+      "number": 30,
+      "text": "Мне неловко показывать другим свои чувства",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q31",
+      "number": 31,
+      "text": "Я стараюсь делать все как можно лучше и не приемлю, когда говорят «...и так уже достаточно хорошо...»",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q32",
+      "number": 32,
+      "text": "Я особенный человек и не обязан подчиняться многим ограничениям, установленным для других людей",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q33",
+      "number": 33,
+      "text": "Если мне не удается достичь цели, я легко отчаиваюсь и сдаюсь",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q34",
+      "number": 34,
+      "text": "Достижения имеют для меня наибольшую ценность, если их замечают другие люди",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q35",
+      "number": 35,
+      "text": "Когда случается что-то хорошее, я жду, что должно случиться что-то плохое",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q36",
+      "number": 36,
+      "text": "Если я не буду стараться изо всех сил, то у меня обязательно будут неприятности",
+      "trait": "punitiveness",
+      "reverse": false
+    },
+    {
+      "id": "q37",
+      "number": 37,
+      "text": "Я никогда не чувствовал, что я был кем-то особенным для другого человека",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q38",
+      "number": 38,
+      "text": "Я опасаюсь, что мои близкие покинут или «бросят» меня",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q39",
+      "number": 39,
+      "text": "Думаю, что рано или поздно, кто-нибудь меня обязательно предаст",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q40",
+      "number": 40,
+      "text": "Я — одиночка, и не принадлежу ни к какому «кругу»",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q41",
+      "number": 41,
+      "text": "Я недостоин любви, внимания или уважения других людей",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q42",
+      "number": 42,
+      "text": "Большинство людей достигают лучших результатов в работе, чем я",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q43",
+      "number": 43,
+      "text": "Мне не хватает здравого смысла",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q44",
+      "number": 44,
+      "text": "Я боюсь, что на меня могут напасть",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q45",
+      "number": 45,
+      "text": "Мне всегда было очень трудно скрывать от родителей подробности личной жизни, не испытывая при этом чувства вины",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q46",
+      "number": 46,
+      "text": "В отношениях с другими людьми я легко соглашаюсь быть на вторых ролях",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q47",
+      "number": 47,
+      "text": "Я так занят делами моих близких, что у меня не остается времени для себя",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q48",
+      "number": 48,
+      "text": "Мне трудно быть раскованным и непосредственным с другими людьми",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q49",
+      "number": 49,
+      "text": "Я должен выполнять все свои обязательства",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q50",
+      "number": 50,
+      "text": "Я терпеть не могу, когда меня ограничивают или не дают делать то, что я хочу",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q51",
+      "number": 51,
+      "text": "Мне очень трудно отказывать себе в удовлетворении сиюминутных желаний ради достижения отдаленной цели",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q52",
+      "number": 52,
+      "text": "Когда я не получаю повышенного внимания, я чувствую себя недостаточно значимым человеком",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q53",
+      "number": 53,
+      "text": "Невозможно всё предусмотреть — что-нибудь обязательно пойдёт не так",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q54",
+      "number": 54,
+      "text": "Если я не сделаю какую-либо работу как следует, то должен буду отвечать за последствия",
+      "trait": "punitiveness",
+      "reverse": false
+    },
+    {
+      "id": "q55",
+      "number": 55,
+      "text": "У меня никогда не было человека, который бы по-настоящему выслушивал и понимал меня или интересовался моими истинными потребностями и чувствами",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q56",
+      "number": 56,
+      "text": "Когда я чувствую, что близкий человек отдаляется или уходит от меня, я впадаю в отчаяние",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q57",
+      "number": 57,
+      "text": "Я очень подозрительно отношусь к тому, какими мотивами руководствуются другие люди",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q58",
+      "number": 58,
+      "text": "Я чувствую себя отчужденным или изолированным от других людей",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q59",
+      "number": 59,
+      "text": "Мне кажется, что меня нельзя полюбить",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q60",
+      "number": 60,
+      "text": "В работе я не так талантлив, как большинство других людей",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q61",
+      "number": 61,
+      "text": "В житейских ситуациях на мое мнение нельзя полагаться",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q62",
+      "number": 62,
+      "text": "Я боюсь, что потеряю все деньги или останусь без средств к существованию",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q63",
+      "number": 63,
+      "text": "Я чувствую, что живу не собственной жизнью, а так, как хотели бы от меня мои родители",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q64",
+      "number": 64,
+      "text": "Так как решения за меня всегда принимали другие, то теперь я сам не знаю, чего хочу на самом деле",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q65",
+      "number": 65,
+      "text": "Мне всегда приходится выслушивать проблемы других людей",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q66",
+      "number": 66,
+      "text": "Я так сильно контролирую себя, что меня считают неэмоциональным или бесчувственным",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q67",
+      "number": 67,
+      "text": "Я постоянно испытываю давление от того, что нужно что-то сделать или чего-то достичь",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q68",
+      "number": 68,
+      "text": "Считаю, что я не должен следовать общепринятым правилам и договоренностям, как это делают другие люди",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q69",
+      "number": 69,
+      "text": "Я не могу заставить себя делать то, что мне не нравится, даже если я знаю, что это нужно для моего же блага",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q70",
+      "number": 70,
+      "text": "Если меня знакомят с новой компанией или я кому-нибудь что-то рассказываю, то для меня очень важно получить признание и восхищение",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q71",
+      "number": 71,
+      "text": "Независимо от того, насколько усердно я работаю, меня беспокоит, что я могу лишиться денежных средств и остаться ни с чем",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q72",
+      "number": 72,
+      "text": "Не имеет значения, почему я сделал ошибку — если я сделаю что-то не так, то мне придётся за это расплачиваться",
+      "trait": "punitiveness",
+      "reverse": false
+    },
+    {
+      "id": "q73",
+      "number": 73,
+      "text": "В моей жизни не было такого человека, который мог бы дать мне хороший совет или направить меня, когда я не знал, как поступить",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q74",
+      "number": 74,
+      "text": "Иногда я так боюсь, что кто-то покинет меня, что сам первый начинаю отталкивать этого человека",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q75",
+      "number": 75,
+      "text": "Обычно я ищу скрытые мотивы у других людей",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q76",
+      "number": 76,
+      "text": "Я чувствую себя посторонним в любой группе",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q77",
+      "number": 77,
+      "text": "У меня много неприемлемых качеств, из-за которых я не могу открываться перед другими людьми или позволять им узнавать меня получше",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q78",
+      "number": 78,
+      "text": "В том, что касается работы или учебы, я не такой сообразительный как большинство других людей",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q79",
+      "number": 79,
+      "text": "Я не уверен в своей способности справляться с повседневными проблемами, которые постоянно возникают",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q80",
+      "number": 80,
+      "text": "Я беспокоюсь, что у меня развивается тяжелое заболевание, хотя врачи не обнаруживают ничего серьезного",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q81",
+      "number": 81,
+      "text": "Я не чувствую себя целостной личностью отдельно от личности моего партнера или кого-то из родителей",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q82",
+      "number": 82,
+      "text": "Мне очень трудно требовать от других, чтобы они уважали мои права и считались с моими чувствами",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q83",
+      "number": 83,
+      "text": "Люди считают, что я делаю слишком много для других и недостаточно для себя",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q84",
+      "number": 84,
+      "text": "Меня считают эмоционально зажатым и напряженным",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q85",
+      "number": 85,
+      "text": "Мне трудно снять с себя ответственность за что-либо или дать себе право на ошибку",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q86",
+      "number": 86,
+      "text": "То, что я предлагаю и делаю, является более ценным, чем вклад других людей",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q87",
+      "number": 87,
+      "text": "Мне редко удаётся сдерживать обещания, которые я даю самому себе",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q88",
+      "number": 88,
+      "text": "Я чувствую себя по-настоящему ценным человеком, когда меня хвалят или осыпают комплиментами",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q89",
+      "number": 89,
+      "text": "Я боюсь, что любое неправильное решение может привести к катастрофе",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q90",
+      "number": 90,
+      "text": "Я плохой человек, который заслуживает наказания",
+      "trait": "punitiveness",
+      "reverse": false
+    }
+  ],
+  "domains": [
+    {
+      "key": "disconnection_rejection",
+      "label": "Нарушение связи и отвержение",
+      "subscales": [
+        "emotional_deprivation",
+        "abandonment",
+        "mistrust_abuse",
+        "social_isolation",
+        "defectiveness_shame"
+      ]
+    },
+    {
+      "key": "impaired_autonomy_performance",
+      "label": "Нарушение автономии и эффективности",
+      "subscales": [
+        "failure",
+        "dependence_incompetence",
+        "vulnerability",
+        "enmeshment"
+      ]
+    },
+    {
+      "key": "impaired_limits",
+      "label": "Нарушение границ",
+      "subscales": [
+        "entitlement",
+        "insufficient_self_control"
+      ]
+    },
+    {
+      "key": "other_directedness",
+      "label": "Ориентация на других",
+      "subscales": [
+        "subjugation",
+        "self_sacrifice",
+        "approval_seeking"
+      ]
+    },
+    {
+      "key": "overvigilance_inhibition",
+      "label": "Сверхбдительность и запрет чувств",
+      "subscales": [
+        "emotional_inhibition",
+        "unrelenting_standards",
+        "negativity_pessimism",
+        "punitiveness"
+      ]
+    }
+  ],
+  "scoring": {
+    "method": "subscales_sum",
+    "showAverage": true,
+    "interpretationMode": "bands",
+    "subscales": [
+      {
+        "key": "emotional_deprivation",
+        "label": "Эмоциональная депривированность",
+        "items": [
+          1,
+          19,
+          37,
+          55,
+          73
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "abandonment",
+        "label": "Покинутость / Нестабильность",
+        "items": [
+          2,
+          20,
+          38,
+          56,
+          74
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "mistrust_abuse",
+        "label": "Недоверие / Ожидание жестокого обращения",
+        "items": [
+          3,
+          21,
+          39,
+          57,
+          75
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "social_isolation",
+        "label": "Социальная отчужденность",
+        "items": [
+          4,
+          22,
+          40,
+          58,
+          76
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "defectiveness_shame",
+        "label": "Дефективность / Стыд",
+        "items": [
+          5,
+          23,
+          41,
+          59,
+          77
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "failure",
+        "label": "Неуспешность",
+        "items": [
+          6,
+          24,
+          42,
+          60,
+          78
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "dependence_incompetence",
+        "label": "Зависимость / Беспомощность",
+        "items": [
+          7,
+          25,
+          43,
+          61,
+          79
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "vulnerability",
+        "label": "Уязвимость",
+        "items": [
+          8,
+          26,
+          44,
+          62,
+          80
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "enmeshment",
+        "label": "Запутанность / Неразвитая идентичность",
+        "items": [
+          9,
+          27,
+          45,
+          63,
+          81
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "subjugation",
+        "label": "Покорность",
+        "items": [
+          10,
+          28,
+          46,
+          64,
+          82
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "self_sacrifice",
+        "label": "Самопожертвование",
+        "items": [
+          11,
+          29,
+          47,
+          65,
+          83
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "emotional_inhibition",
+        "label": "Подавленность эмоций",
+        "items": [
+          12,
+          30,
+          48,
+          66,
+          84
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "unrelenting_standards",
+        "label": "Жесткие стандарты / Придирчивость",
+        "items": [
+          13,
+          31,
+          49,
+          67,
+          85
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "entitlement",
+        "label": "Привилегированность / Грандиозность",
+        "items": [
+          14,
+          32,
+          50,
+          68,
+          86
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "insufficient_self_control",
+        "label": "Недостаточность самоконтроля",
+        "items": [
+          15,
+          33,
+          51,
+          69,
+          87
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "approval_seeking",
+        "label": "Поиск одобрения",
+        "items": [
+          16,
+          34,
+          52,
+          70,
+          88
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "negativity_pessimism",
+        "label": "Негативизм / Пессимизм",
+        "items": [
+          17,
+          35,
+          53,
+          71,
+          89
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "punitiveness",
+        "label": "Пунитивность",
+        "items": [
+          18,
+          36,
+          54,
+          72,
+          90
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Сумма баллов",
+            "description": "Сумма ответов по пяти вопросам схемы.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Средний балл",
+            "description": "Средний балл по вопросам схемы.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Выраженность схемы (%)",
+            "description": "Нормированная выраженность схемы в процентах по формуле Σ1 = ((Σ - 5) / 25) * 100.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "Количество высоких ответов",
+            "description": "Количество ответов со значениями 5 или 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "Доля высоких ответов (%)",
+            "description": "Процент ответов со значениями 5 или 6 по формуле Σ3 = (count/5)*100.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Уровень выраженности",
+            "description": "Интерпретационный диапазон по сумме баллов схемы.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Очень низкий"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Низкий"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Умеренный"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "Высокий"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Очень высокий"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "flags": [
+    {
+      "id": "elevated_schema",
+      "scope": "subscale",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 60,
+      "severity": "elevated",
+      "title": "Повышенная выраженность схемы",
+      "message": "Схема демонстрирует повышенный уровень активации."
+    },
+    {
+      "id": "high_schema",
+      "scope": "subscale",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 75,
+      "severity": "high",
+      "title": "Высокая выраженность схемы",
+      "message": "Схема имеет высокую степень выраженности."
+    },
+    {
+      "id": "critical_schema",
+      "scope": "subscale",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 85,
+      "severity": "critical",
+      "title": "Критическая выраженность схемы",
+      "message": "Схема имеет критически высокий уровень выраженности."
+    },
+    {
+      "id": "high_schema_endorsement",
+      "scope": "subscale",
+      "metric": "highResponsesPercent",
+      "operator": ">=",
+      "value": 80,
+      "severity": "high",
+      "title": "Высокая активация схемы",
+      "message": "Большинство ответов по данной схеме имеют значения 5 или 6."
+    },
+    {
+      "id": "domain_elevated",
+      "scope": "domain",
+      "metric": "averagePercent",
+      "operator": ">=",
+      "value": 60,
+      "severity": "elevated",
+      "title": "Повышенная активация домена",
+      "message": "Домен схем демонстрирует повышенный уровень активации."
+    },
+    {
+      "id": "domain_high",
+      "scope": "domain",
+      "metric": "averagePercent",
+      "operator": ">=",
+      "value": 75,
+      "severity": "high",
+      "title": "Высокая активация домена",
+      "message": "Домен схем имеет высокую степень выраженности."
+    },
+    {
+      "id": "domain_critical",
+      "scope": "domain",
+      "metric": "averagePercent",
+      "operator": ">=",
+      "value": 85,
+      "severity": "critical",
+      "title": "Критическая активация домена",
+      "message": "Домен схем имеет критически высокий уровень активации."
+    }
+  ]
+}

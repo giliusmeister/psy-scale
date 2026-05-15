@@ -1,6 +1,11 @@
+import { useRef } from "react";
 import type { AppLanguage, UiCopy } from "../i18n";
 import type { Questionnaire } from "../types/questionnaire";
-import type { CalculationResult, SubscaleCalculationResultItem } from "../utils/scoring";
+import type {
+  CalculationResult,
+  DomainCalculationResultItem,
+  SubscaleCalculationResultItem,
+} from "../utils/scoring";
 
 type ResultViewProps = {
   questionnaire: Questionnaire;
@@ -10,6 +15,7 @@ type ResultViewProps = {
   language: AppLanguage;
   copy: UiCopy;
   onDownloadDebug: () => void;
+  onImportAnswersJson: (file: File) => void;
   onBackToList: () => void;
   onRestart: () => void;
 };
@@ -20,6 +26,49 @@ function formatDateTime(timestamp: number | null, language: AppLanguage) {
   }
 
   return new Date(timestamp).toLocaleString(language);
+}
+
+function DomainResults({
+  domains,
+  copy,
+}: {
+  domains: DomainCalculationResultItem[];
+  copy: UiCopy;
+}) {
+  const getFlagClassName = (severity: string) =>
+    `flag-badge flag-badge--${severity}`;
+
+  return (
+    <div className="result-subscales">
+      <div className="subscales-title">{copy.domains}:</div>
+      {domains.map((domain) => (
+        <div key={domain.key} className="subscale-row">
+          <div className="subscale-head">
+            <span className="subscale-label">{domain.label}</span>
+            <span className="subscale-percent">
+              {formatPercentValue(domain.averagePercent)}% •{" "}
+              {getSeverityLabel(domain.averagePercent, copy)}
+            </span>
+          </div>
+          <div className="subscale-raw">
+            {copy.averageIntensity}: {formatPercentValue(domain.averagePercent)}%
+          </div>
+          <div className="subscale-raw">
+            {domain.subscaleCount} {copy.subscalesCount}
+          </div>
+          {domain.flags && domain.flags.length > 0 && (
+            <div className="flag-list">
+              {domain.flags.map((flag) => (
+                <span key={flag.id} className={getFlagClassName(flag.severity)}>
+                  {flag.title}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function formatDuration(
@@ -38,6 +87,103 @@ function formatDuration(
   return `${min} ${copy.minutesShort} ${sec} ${copy.secondsShort}`;
 }
 
+function formatMetricValue(value: number): string {
+  if (!Number.isFinite(value)) {
+    return "0";
+  }
+
+  if (Number.isInteger(value)) {
+    return String(value);
+  }
+
+  return Number(value.toFixed(2)).toString();
+}
+
+function formatPercentValue(value: number): string {
+  if (!Number.isFinite(value)) {
+    return "0";
+  }
+
+  return Number(value.toFixed(1)).toString();
+}
+
+function getSeverityLabel(percent: number, copy: UiCopy): string {
+  if (percent >= 75) return copy.severityVeryHigh;
+  if (percent >= 60) return copy.severityHigh;
+  if (percent >= 40) return copy.severityModerate;
+  return copy.severityLow;
+}
+
+function TopSchemas({
+  domains,
+  copy,
+}: {
+  domains: DomainCalculationResultItem[];
+  copy: UiCopy;
+}) {
+  const top = [...domains]
+    .map((domain) => ({
+      ...domain,
+      resolvedPercent:
+        typeof domain.averagePercent === "number" && Number.isFinite(domain.averagePercent)
+          ? domain.averagePercent
+          : domain.value,
+      displayPercent:
+        typeof domain.averagePercent === "number" && Number.isFinite(domain.averagePercent)
+          ? Number(domain.averagePercent.toFixed(2))
+          : Number(domain.value.toFixed(2)),
+      severityLabel: getSeverityLabel(
+        typeof domain.averagePercent === "number" && Number.isFinite(domain.averagePercent)
+          ? domain.averagePercent
+          : domain.value,
+        copy,
+      ),
+    }))
+    .sort((a, b) => b.displayPercent - a.displayPercent)
+    .slice(0, 3);
+
+  return (
+    <div className="top-schemas">
+      <div className="subscales-title">{copy.topSchemas}:</div>
+      {top.map((domain) => (
+        <div key={domain.key} className="top-schema-row">
+          <span className="top-schema-label">{domain.label}</span>
+          <span className="top-schema-value">{formatPercentValue(domain.displayPercent)}%</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function TopSubscales({
+  subscales,
+  copy,
+}: {
+  subscales: SubscaleCalculationResultItem[];
+  copy: UiCopy;
+}) {
+  const top = [...subscales]
+    .filter((subscale) => subscale.percent !== null && subscale.percent !== undefined)
+    .sort((a, b) => (b.percent ?? 0) - (a.percent ?? 0))
+    .slice(0, 3);
+
+  if (top.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="top-schemas">
+      <div className="subscales-title">{copy.topSubscales}:</div>
+      {top.map((subscale) => (
+        <div key={subscale.key} className="top-schema-row">
+          <span className="top-schema-label">{subscale.label}</span>
+          <span className="top-schema-value">{formatPercentValue(subscale.percent ?? 0)}%</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function SubscaleResults({
   subscales,
   copy,
@@ -47,6 +193,9 @@ function SubscaleResults({
   copy: UiCopy;
   showTitle?: boolean;
 }) {
+  const getFlagClassName = (severity: string) =>
+    `flag-badge flag-badge--${severity}`;
+
   return (
     <div className="result-subscales">
       {showTitle && <div className="subscales-title">{copy.subscales}:</div>}
@@ -79,6 +228,43 @@ function SubscaleResults({
               />
             </div>
           )}
+
+          {subscale.derivedMetrics && subscale.derivedMetrics.length > 0 && (
+            <div className="subscale-derived-metrics">
+              {subscale.derivedMetrics.map((metric) => (
+                <div key={metric.key} className="subscale-derived-row">
+                  <span className="subscale-derived-label">{metric.label}</span>
+                  <span className="subscale-derived-value">
+                    {metric.bandLabel ? (
+                      <>
+                        {metric.bandLabel}
+                        <br />
+                        {copy.rawScore}: {formatMetricValue(metric.value)}
+                        {subscale.max !== null && subscale.max !== undefined
+                          ? `/${formatMetricValue(subscale.max)}`
+                          : ""}
+                      </>
+                    ) : (
+                      <>
+                        {formatMetricValue(metric.value)}
+                        {metric.isPercent ? "%" : ""}
+                      </>
+                    )}
+                    {metric.flagged ? ` ? ${copy.thresholdReached}` : ""}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+          {subscale.flags && subscale.flags.length > 0 && (
+            <div className="flag-list">
+              {subscale.flags.map((flag) => (
+                <span key={flag.id} className={getFlagClassName(flag.severity)}>
+                  {flag.title}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </div>
@@ -93,9 +279,26 @@ export function ResultView({
   language,
   copy,
   onDownloadDebug,
+  onImportAnswersJson,
   onBackToList,
   onRestart,
 }: ResultViewProps) {
+  const importInputRef = useRef<HTMLInputElement | null>(null);
+
+  function handleImportClick() {
+    importInputRef.current?.click();
+  }
+
+  function handleImportFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    onImportAnswersJson(file);
+    event.target.value = "";
+  }
+
   const interpretationBasis =
     result.type === "sum" && "interpretationBasis" in questionnaire.scoring
       ? questionnaire.scoring.interpretationBasis ?? "total"
@@ -103,105 +306,137 @@ export function ResultView({
 
   return (
     <div className="page">
-      <div className="card">
+      <div className="card card--result">
         <h1 className="title">{questionnaire.title}</h1>
         <h2 className="subtitle">{copy.result}</h2>
 
-        <div className="result-info">
-          <div>
-            <strong>ID:</strong> {questionnaire.id}
-          </div>
-          {questionnaire.author && (
+        <div className="result-scroll">
+          <div className="result-info">
             <div>
-              <strong>{copy.author}:</strong> {questionnaire.author}
+              <strong>ID:</strong> {questionnaire.id}
             </div>
-          )}
-          <div>
-            <strong>{copy.questions}:</strong> {questionnaire.questions.length}
+            {questionnaire.author && (
+              <div>
+                <strong>{copy.author}:</strong> {questionnaire.author}
+              </div>
+            )}
+            <div>
+              <strong>{copy.questions}:</strong> {questionnaire.questions.length}
+            </div>
+            {startedAt && finishedAt && (
+              <>
+                <div>
+                  <strong>{copy.startedAt}:</strong> {formatDateTime(startedAt, language)}
+                </div>
+                <div>
+                  <strong>{copy.finishedAt}:</strong> {formatDateTime(finishedAt, language)}
+                </div>
+                <div>
+                  <strong>{copy.duration}:</strong>{" "}
+                  {formatDuration(startedAt, finishedAt, copy)}
+                </div>
+              </>
+            )}
           </div>
-          {startedAt && finishedAt && (
-            <>
-              <div>
-                <strong>{copy.startedAt}:</strong> {formatDateTime(startedAt, language)}
+
+          {result.type === "sum" && (
+            <div className="result-main">
+              <div className="result-score">
+                {interpretationBasis === "average" && result.average !== null
+                  ? `${copy.averageScore}: ${result.average.toFixed(2)}`
+                  : `${result.total} ${copy.points}`}
               </div>
-              <div>
-                <strong>{copy.finishedAt}:</strong> {formatDateTime(finishedAt, language)}
-              </div>
-              <div>
-                <strong>{copy.duration}:</strong>{" "}
-                {formatDuration(startedAt, finishedAt, copy)}
-              </div>
-            </>
-          )}
-        </div>
 
-        {result.type === "sum" && (
-          <div className="result-main">
-            <div className="result-score">
-              {interpretationBasis === "average" && result.average !== null
-                ? `${copy.averageScore}: ${result.average.toFixed(2)}`
-                : `${result.total} ${copy.points}`}
-            </div>
-
-            {result.average !== null && interpretationBasis !== "average" && (
-              <div className="result-average">
-                {copy.averageScore}: {result.average.toFixed(2)}
-              </div>
-            )}
-
-            {result.level && <div className="result-level">{result.level.label}</div>}
-
-            {interpretationBasis === "average" && (
-              <div className="result-note">{copy.averageInterpretation}</div>
-            )}
-
-            {result.percentile !== null && result.percentile !== undefined && (
-              <div className="percentile-block">
-                <div className="percentile-scale-title">
-                  {copy.samplePosition}: {result.percentile}
-                </div>
-
-                <div className="percentile-scale">
-                  <div className="percentile-scale-track">
-                    <div
-                      className="percentile-scale-fill"
-                      style={{ width: `${result.percentile}%` }}
-                    />
-                  </div>
-
-                  <div className="percentile-scale-labels">
-                    <span>0</span>
-                    <span>25</span>
-                    <span>50</span>
-                    <span>75</span>
-                    <span>100</span>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {!result.level &&
-              (result.percentile === null || result.percentile === undefined) && (
-                <div className="result-note">
-                  {questionnaire.resultDescription ?? copy.noFixedBands}
+              {result.average !== null && interpretationBasis !== "average" && (
+                <div className="result-average">
+                  {copy.averageScore}: {result.average.toFixed(2)}
                 </div>
               )}
 
-            {result.subscales && result.subscales.length > 0 && (
-              <SubscaleResults subscales={result.subscales} copy={copy} showTitle />
-            )}
-          </div>
-        )}
+              {result.level && <div className="result-level">{result.level.label}</div>}
 
-        {result.type === "subscales" && (
-          <SubscaleResults subscales={result.subscales} copy={copy} />
-        )}
+              {interpretationBasis === "average" && (
+                <div className="result-note">{copy.averageInterpretation}</div>
+              )}
 
-        {result.type !== "sum" && questionnaire.resultDescription && (
-          <div className="result-description">{questionnaire.resultDescription}</div>
-        )}
+              {result.percentile !== null && result.percentile !== undefined && (
+                <div className="percentile-block">
+                  <div className="percentile-scale-title">
+                    {copy.samplePosition}: {result.percentile}
+                  </div>
+
+                  <div className="percentile-scale">
+                    <div className="percentile-scale-track">
+                      <div
+                        className="percentile-scale-fill"
+                        style={{ width: `${result.percentile}%` }}
+                      />
+                    </div>
+
+                    <div className="percentile-scale-labels">
+                      <span>0</span>
+                      <span>25</span>
+                      <span>50</span>
+                      <span>75</span>
+                      <span>100</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {!result.level &&
+                (result.percentile === null || result.percentile === undefined) && (
+                  <div className="result-note">
+                    {questionnaire.resultDescription ?? copy.noFixedBands}
+                  </div>
+                )}
+
+              {result.domains && result.domains.length > 0 && (
+                <TopSchemas domains={result.domains} copy={copy} />
+              )}
+              {result.subscales && result.subscales.length > 0 && (
+                <TopSubscales subscales={result.subscales} copy={copy} />
+              )}
+              {result.subscales && result.subscales.length > 0 && (
+                <SubscaleResults subscales={result.subscales} copy={copy} showTitle />
+              )}
+              {result.domains && result.domains.length > 0 && (
+                <DomainResults domains={result.domains} copy={copy} />
+              )}
+            </div>
+          )}
+
+          {result.type === "subscales" && (
+            <>
+              {result.domains && result.domains.length > 0 && (
+                <TopSchemas domains={result.domains} copy={copy} />
+              )}
+              {result.subscales && result.subscales.length > 0 && (
+                <TopSubscales subscales={result.subscales} copy={copy} />
+              )}
+              <SubscaleResults subscales={result.subscales} copy={copy} />
+              {result.domains && result.domains.length > 0 && (
+                <DomainResults domains={result.domains} copy={copy} />
+              )}
+            </>
+          )}
+
+          {result.type !== "sum" && questionnaire.resultDescription && (
+            <div className="result-description">{questionnaire.resultDescription}</div>
+          )}
+        </div>
 
         <div className="result-actions">
+          <input
+            ref={importInputRef}
+            type="file"
+            accept="application/json,.json"
+            style={{ display: "none" }}
+            onChange={handleImportFileChange}
+          />
+          <button className="secondary-button" onClick={handleImportClick}>
+            {copy.importAnswersJson}
+          </button>
           <button className="secondary-button" onClick={onDownloadDebug}>
             {copy.downloadJson}
           </button>
@@ -216,3 +451,4 @@ export function ResultView({
     </div>
   );
 }
+

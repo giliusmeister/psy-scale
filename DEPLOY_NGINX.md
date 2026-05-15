@@ -44,9 +44,14 @@ cd /var/www/psy-scale/current
 Install dependencies and build the frontend:
 
 ```bash
-npm ci
+npm ci --include=dev
 npm run build
 ```
+
+The build step requires dev dependencies such as `typescript` and `vite`. If the
+server has `NODE_ENV=production`, plain `npm ci` may skip them and `npm run
+build` can fail with `tsc: not found`; use `npm ci --include=dev` before
+building.
 
 During `npm run build`, questionnaire JSON files are copied from
 `src/questionnaires` to `public/questionnaires`, then emitted by Vite to
@@ -264,7 +269,7 @@ One simple update flow:
 ```bash
 cd /var/www/psy-scale/current
 sudo git pull
-sudo npm ci
+sudo npm ci --include=dev
 sudo npm run build
 sudo chown -R www-data:www-data /var/www/psy-scale/current
 sudo systemctl restart psy-scale-api

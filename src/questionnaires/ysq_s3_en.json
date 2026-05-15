@@ -1,0 +1,2570 @@
+{
+  "id": "ysq_s3_en",
+  "title": "Young Schema Questionnaire YSQ-S3",
+  "description": "Questionnaire for the primary assessment of early maladaptive schemas and monitoring changes during schema-focused psychotherapy.",
+  "language": "en",
+  "author": "Jeffrey Young, adapted by P.M. Kasyanik and E.V. Romanova",
+  "category": "Schema Therapy",
+  "estimatedMinutes": 25,
+  "instructions": {
+    "title": "Instructions",
+    "text": "Below are statements that can be used to describe yourself. Please read each statement and decide how accurately it describes you. If you are unsure how to answer, base your response on how you FEEL rather than on what you think is correct.",
+    "reverseNote": "There are no reverse-scored items."
+  },
+  "scale": {
+    "type": "likert_6",
+    "min": 1,
+    "max": 6,
+    "options": [
+      {
+        "value": 1,
+        "label": "Completely untrue of me"
+      },
+      {
+        "value": 2,
+        "label": "Mostly untrue of me"
+      },
+      {
+        "value": 3,
+        "label": "Slightly more untrue than true"
+      },
+      {
+        "value": 4,
+        "label": "Moderately true of me"
+      },
+      {
+        "value": 5,
+        "label": "Mostly true of me"
+      },
+      {
+        "value": 6,
+        "label": "Describes me perfectly"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "There was no one close to me who truly cared about me, showed concern, and took a sincere interest in what was happening to me.",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "I cling to people close to me because I am afraid they will leave me.",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "I feel that other people use me.",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "I do not fit into any group.",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "No man (woman) I am attracted to could love me if they really knew my flaws.",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "Almost everything I do at work (or school) is not as good as what other people could do.",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "I think I am unable to cope with everyday responsibilities on my own.",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "text": "I cannot shake the feeling that something bad is going to happen.",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "text": "I was unable to separate from my parents to the extent that my peers did.",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "text": "I think that if I only do what I want, it will inevitably lead to trouble.",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q11",
+      "number": 11,
+      "text": "In the end, it is always me who has to take care of my loved ones.",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q12",
+      "number": 12,
+      "text": "I am too shy to show affection, attention, or attachment to other people.",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q13",
+      "number": 13,
+      "text": "I must be the best at everything I do and cannot be worse than others.",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q14",
+      "number": 14,
+      "text": "It is very difficult for me to accept 'no' as an answer when I want something from other people.",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q15",
+      "number": 15,
+      "text": "I cannot force myself to do routine or boring tasks.",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q16",
+      "number": 16,
+      "text": "Knowing important people and having money make me feel significant.",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q17",
+      "number": 17,
+      "text": "Even when things are going well, I feel that it will not last long.",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q18",
+      "number": 18,
+      "text": "If I make a mistake, I should be punished.",
+      "trait": "punitiveness",
+      "reverse": false
+    },
+    {
+      "id": "q19",
+      "number": 19,
+      "text": "I do not know people who would give me warmth, love, and care.",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q20",
+      "number": 20,
+      "text": "I need other people so much that I am afraid of losing them.",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q21",
+      "number": 21,
+      "text": "I feel that I cannot lower my guard and behave naturally around other people because they may hurt me.",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q22",
+      "number": 22,
+      "text": "I feel very different from other people.",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q23",
+      "number": 23,
+      "text": "No one I dream about would want to stay with me if they knew who I really am.",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q24",
+      "number": 24,
+      "text": "I am incapable of achieving success.",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q25",
+      "number": 25,
+      "text": "In everyday life, I depend heavily on other people.",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q26",
+      "number": 26,
+      "text": "I believe that something terrible could happen at any moment.",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q27",
+      "number": 27,
+      "text": "My parents and I tend(ed) to be overly involved in each other's lives and problems.",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q28",
+      "number": 28,
+      "text": "I feel that I must give in to other people's wishes, otherwise they may reject me or retaliate.",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q29",
+      "number": 29,
+      "text": "I am a good person because I think about others more than about myself.",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q30",
+      "number": 30,
+      "text": "I feel uncomfortable showing my feelings to others.",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q31",
+      "number": 31,
+      "text": "I try to do everything as well as possible and cannot accept when people say 'that's good enough already.'",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q32",
+      "number": 32,
+      "text": "I am a special person and should not have to follow many of the rules that apply to others.",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q33",
+      "number": 33,
+      "text": "If I fail to achieve a goal, I easily become discouraged and give up.",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q34",
+      "number": 34,
+      "text": "Achievements are most valuable to me when they are noticed by others.",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q35",
+      "number": 35,
+      "text": "When something good happens, I expect something bad to follow.",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q36",
+      "number": 36,
+      "text": "If I do not try my hardest, I will definitely get into trouble.",
+      "trait": "punitiveness",
+      "reverse": false
+    },
+    {
+      "id": "q37",
+      "number": 37,
+      "text": "I have never felt that I was special to someone else.",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q38",
+      "number": 38,
+      "text": "I fear that people close to me will leave or abandon me.",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q39",
+      "number": 39,
+      "text": "I think that sooner or later someone will betray me.",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q40",
+      "number": 40,
+      "text": "I am a loner and do not belong to any group.",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q41",
+      "number": 41,
+      "text": "I am unworthy of love, attention, or respect from other people.",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q42",
+      "number": 42,
+      "text": "Most people achieve better results at work than I do.",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q43",
+      "number": 43,
+      "text": "I lack common sense.",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q44",
+      "number": 44,
+      "text": "I am afraid that someone may attack me.",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q45",
+      "number": 45,
+      "text": "It has always been very difficult for me to hide details of my personal life from my parents without feeling guilty.",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q46",
+      "number": 46,
+      "text": "In relationships with others, I easily agree to take second place.",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q47",
+      "number": 47,
+      "text": "I am so busy dealing with my loved ones' affairs that I have no time left for myself.",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q48",
+      "number": 48,
+      "text": "It is difficult for me to be relaxed and spontaneous with other people.",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q49",
+      "number": 49,
+      "text": "I must fulfill all my obligations.",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q50",
+      "number": 50,
+      "text": "I cannot stand being restricted or prevented from doing what I want.",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q51",
+      "number": 51,
+      "text": "It is very difficult for me to deny myself immediate pleasures in order to achieve long-term goals.",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q52",
+      "number": 52,
+      "text": "When I do not receive special attention, I feel insignificant.",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q53",
+      "number": 53,
+      "text": "It is impossible to foresee everything — something is bound to go wrong.",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q54",
+      "number": 54,
+      "text": "If I do not do a job properly, I should be held responsible for the consequences.",
+      "trait": "punitiveness",
+      "reverse": false
+    },
+    {
+      "id": "q55",
+      "number": 55,
+      "text": "I have never had someone who truly listened to and understood me or cared about my real needs and feelings.",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q56",
+      "number": 56,
+      "text": "When I feel that someone close to me is pulling away or leaving me, I become desperate.",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q57",
+      "number": 57,
+      "text": "I am very suspicious about other people's motives.",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q58",
+      "number": 58,
+      "text": "I feel alienated or isolated from other people.",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q59",
+      "number": 59,
+      "text": "I feel that I cannot be loved.",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q60",
+      "number": 60,
+      "text": "At work, I am not as talented as most other people.",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q61",
+      "number": 61,
+      "text": "In everyday situations, my judgment cannot be relied upon.",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q62",
+      "number": 62,
+      "text": "I am afraid of losing all my money or being left without means of support.",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q63",
+      "number": 63,
+      "text": "I feel that I am not living my own life, but the life my parents wanted for me.",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q64",
+      "number": 64,
+      "text": "Because others always made decisions for me, I no longer know what I really want.",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q65",
+      "number": 65,
+      "text": "I always have to listen to other people's problems.",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q66",
+      "number": 66,
+      "text": "I control myself so much that people see me as unemotional or insensitive.",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q67",
+      "number": 67,
+      "text": "I constantly feel pressure to achieve or accomplish something.",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q68",
+      "number": 68,
+      "text": "I believe that I should not have to follow the common rules and agreements that other people do.",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q69",
+      "number": 69,
+      "text": "I cannot make myself do things I dislike, even when I know they are for my own good.",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q70",
+      "number": 70,
+      "text": "When I meet a new group of people or tell someone something, it is very important for me to receive recognition and admiration.",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q71",
+      "number": 71,
+      "text": "No matter how hard I work, I worry that I may lose my financial security and end up with nothing.",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q72",
+      "number": 72,
+      "text": "It does not matter why I made a mistake — if I do something wrong, I should pay for it.",
+      "trait": "punitiveness",
+      "reverse": false
+    },
+    {
+      "id": "q73",
+      "number": 73,
+      "text": "There has never been someone in my life who could give me good advice or guide me when I did not know what to do.",
+      "trait": "emotional_deprivation",
+      "reverse": false
+    },
+    {
+      "id": "q74",
+      "number": 74,
+      "text": "Sometimes I am so afraid that someone will leave me that I push them away first.",
+      "trait": "abandonment",
+      "reverse": false
+    },
+    {
+      "id": "q75",
+      "number": 75,
+      "text": "I usually look for hidden motives in other people.",
+      "trait": "mistrust_abuse",
+      "reverse": false
+    },
+    {
+      "id": "q76",
+      "number": 76,
+      "text": "I feel like an outsider in any group.",
+      "trait": "social_isolation",
+      "reverse": false
+    },
+    {
+      "id": "q77",
+      "number": 77,
+      "text": "I have many unacceptable qualities that prevent me from opening up to other people or letting them get to know me better.",
+      "trait": "defectiveness_shame",
+      "reverse": false
+    },
+    {
+      "id": "q78",
+      "number": 78,
+      "text": "In work or studies, I am not as intelligent as most other people.",
+      "trait": "failure",
+      "reverse": false
+    },
+    {
+      "id": "q79",
+      "number": 79,
+      "text": "I am not confident in my ability to cope with everyday problems that constantly arise.",
+      "trait": "dependence_incompetence",
+      "reverse": false
+    },
+    {
+      "id": "q80",
+      "number": 80,
+      "text": "I worry that I am developing a serious illness, even though doctors find nothing serious.",
+      "trait": "vulnerability",
+      "reverse": false
+    },
+    {
+      "id": "q81",
+      "number": 81,
+      "text": "I do not feel like a whole person separate from my partner or one of my parents.",
+      "trait": "enmeshment",
+      "reverse": false
+    },
+    {
+      "id": "q82",
+      "number": 82,
+      "text": "It is very difficult for me to insist that other people respect my rights and feelings.",
+      "trait": "subjugation",
+      "reverse": false
+    },
+    {
+      "id": "q83",
+      "number": 83,
+      "text": "People think that I do too much for others and not enough for myself.",
+      "trait": "self_sacrifice",
+      "reverse": false
+    },
+    {
+      "id": "q84",
+      "number": 84,
+      "text": "People see me as emotionally restrained and tense.",
+      "trait": "emotional_inhibition",
+      "reverse": false
+    },
+    {
+      "id": "q85",
+      "number": 85,
+      "text": "It is difficult for me to let go of responsibility or allow myself to make mistakes.",
+      "trait": "unrelenting_standards",
+      "reverse": false
+    },
+    {
+      "id": "q86",
+      "number": 86,
+      "text": "What I offer and do is more valuable than what other people contribute.",
+      "trait": "entitlement",
+      "reverse": false
+    },
+    {
+      "id": "q87",
+      "number": 87,
+      "text": "I rarely manage to keep the promises I make to myself.",
+      "trait": "insufficient_self_control",
+      "reverse": false
+    },
+    {
+      "id": "q88",
+      "number": 88,
+      "text": "I feel truly valuable when people praise me or compliment me.",
+      "trait": "approval_seeking",
+      "reverse": false
+    },
+    {
+      "id": "q89",
+      "number": 89,
+      "text": "I am afraid that any wrong decision could lead to catastrophe.",
+      "trait": "negativity_pessimism",
+      "reverse": false
+    },
+    {
+      "id": "q90",
+      "number": 90,
+      "text": "I am a bad person who deserves punishment.",
+      "trait": "punitiveness",
+      "reverse": false
+    }
+  ],
+  "domains": [
+    {
+      "key": "disconnection_rejection",
+      "label": "Disconnection and Rejection",
+      "subscales": [
+        "emotional_deprivation",
+        "abandonment",
+        "mistrust_abuse",
+        "social_isolation",
+        "defectiveness_shame"
+      ]
+    },
+    {
+      "key": "impaired_autonomy_performance",
+      "label": "Impaired Autonomy and Performance",
+      "subscales": [
+        "failure",
+        "dependence_incompetence",
+        "vulnerability",
+        "enmeshment"
+      ]
+    },
+    {
+      "key": "impaired_limits",
+      "label": "Impaired Limits",
+      "subscales": [
+        "entitlement",
+        "insufficient_self_control"
+      ]
+    },
+    {
+      "key": "other_directedness",
+      "label": "Other-Directedness",
+      "subscales": [
+        "subjugation",
+        "self_sacrifice",
+        "approval_seeking"
+      ]
+    },
+    {
+      "key": "overvigilance_inhibition",
+      "label": "Overvigilance and Inhibition",
+      "subscales": [
+        "emotional_inhibition",
+        "unrelenting_standards",
+        "negativity_pessimism",
+        "punitiveness"
+      ]
+    }
+  ],
+  "scoring": {
+    "method": "subscales_sum",
+    "showAverage": true,
+    "interpretationMode": "bands",
+    "subscales": [
+      {
+        "key": "emotional_deprivation",
+        "label": "Emotional Deprivation",
+        "items": [
+          1,
+          19,
+          37,
+          55,
+          73
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "abandonment",
+        "label": "Abandonment / Instability",
+        "items": [
+          2,
+          20,
+          38,
+          56,
+          74
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "mistrust_abuse",
+        "label": "Mistrust / Abuse",
+        "items": [
+          3,
+          21,
+          39,
+          57,
+          75
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "social_isolation",
+        "label": "Social Isolation / Alienation",
+        "items": [
+          4,
+          22,
+          40,
+          58,
+          76
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "defectiveness_shame",
+        "label": "Defectiveness / Shame",
+        "items": [
+          5,
+          23,
+          41,
+          59,
+          77
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "failure",
+        "label": "Failure",
+        "items": [
+          6,
+          24,
+          42,
+          60,
+          78
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "dependence_incompetence",
+        "label": "Dependence / Incompetence",
+        "items": [
+          7,
+          25,
+          43,
+          61,
+          79
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "vulnerability",
+        "label": "Vulnerability to Harm or Illness",
+        "items": [
+          8,
+          26,
+          44,
+          62,
+          80
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "enmeshment",
+        "label": "Enmeshment / Undeveloped Self",
+        "items": [
+          9,
+          27,
+          45,
+          63,
+          81
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "subjugation",
+        "label": "Subjugation",
+        "items": [
+          10,
+          28,
+          46,
+          64,
+          82
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "self_sacrifice",
+        "label": "Self-Sacrifice",
+        "items": [
+          11,
+          29,
+          47,
+          65,
+          83
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "emotional_inhibition",
+        "label": "Emotional Inhibition",
+        "items": [
+          12,
+          30,
+          48,
+          66,
+          84
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "unrelenting_standards",
+        "label": "Unrelenting Standards / Hypercriticalness",
+        "items": [
+          13,
+          31,
+          49,
+          67,
+          85
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "entitlement",
+        "label": "Entitlement / Grandiosity",
+        "items": [
+          14,
+          32,
+          50,
+          68,
+          86
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "insufficient_self_control",
+        "label": "Insufficient Self-Control / Self-Discipline",
+        "items": [
+          15,
+          33,
+          51,
+          69,
+          87
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "approval_seeking",
+        "label": "Approval-Seeking / Recognition-Seeking",
+        "items": [
+          16,
+          34,
+          52,
+          70,
+          88
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "negativity_pessimism",
+        "label": "Negativity / Pessimism",
+        "items": [
+          17,
+          35,
+          53,
+          71,
+          89
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "punitiveness",
+        "label": "Punitiveness",
+        "items": [
+          18,
+          36,
+          54,
+          72,
+          90
+        ],
+        "aggregation": "sum",
+        "derivedMetrics": {
+          "rawSum": {
+            "label": "Raw Sum",
+            "description": "Sum of all item scores within the schema.",
+            "type": "sum",
+            "min": 5,
+            "max": 30
+          },
+          "averageScore": {
+            "label": "Average Score",
+            "description": "Mean score across all answered items in the schema.",
+            "type": "mean",
+            "min": 1,
+            "max": 6,
+            "formula": "sum/itemsCount"
+          },
+          "percentIntensity": {
+            "label": "Schema Intensity (%)",
+            "description": "Normalized schema intensity percentage.",
+            "type": "percentage",
+            "min": 0,
+            "max": 100,
+            "formula": "((sum-5)/25)*100"
+          },
+          "highResponseCount": {
+            "label": "High Response Count",
+            "description": "Number of responses rated 5 or 6.",
+            "type": "count",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 5
+          },
+          "highResponsesPercent": {
+            "label": "High Response Percentage",
+            "description": "Percentage of responses rated 5 or 6.",
+            "type": "percentage",
+            "countValues": [
+              5,
+              6
+            ],
+            "min": 0,
+            "max": 100,
+            "formula": "(count/5)*100"
+          },
+          "severityLevel": {
+            "label": "Severity Level",
+            "description": "Interpretation bands for schema severity.",
+            "type": "bands",
+            "source": "rawSum",
+            "bands": [
+              {
+                "key": "very_low",
+                "min": 5,
+                "max": 9,
+                "label": "Very Low"
+              },
+              {
+                "key": "low",
+                "min": 10,
+                "max": 14,
+                "label": "Low"
+              },
+              {
+                "key": "moderate",
+                "min": 15,
+                "max": 19,
+                "label": "Moderate"
+              },
+              {
+                "key": "high",
+                "min": 20,
+                "max": 24,
+                "label": "High"
+              },
+              {
+                "key": "very_high",
+                "min": 25,
+                "max": 30,
+                "label": "Very High"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "flags": [
+    {
+      "id": "elevated_schema",
+      "scope": "subscale",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 60,
+      "severity": "elevated",
+      "title": "Elevated Schema",
+      "message": "This schema shows an elevated level of activation."
+    },
+    {
+      "id": "high_schema",
+      "scope": "subscale",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 75,
+      "severity": "high",
+      "title": "High Schema",
+      "message": "This schema is strongly expressed."
+    },
+    {
+      "id": "critical_schema",
+      "scope": "subscale",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 85,
+      "severity": "critical",
+      "title": "Critical Schema",
+      "message": "This schema has a critically high level of expression."
+    },
+    {
+      "id": "high_schema_endorsement",
+      "scope": "subscale",
+      "metric": "highResponsesPercent",
+      "operator": ">=",
+      "value": 80,
+      "severity": "high",
+      "title": "High Schema Endorsement",
+      "message": "Most responses for this schema were rated 5 or 6."
+    },
+    {
+      "id": "domain_elevated",
+      "scope": "domain",
+      "metric": "averagePercent",
+      "operator": ">=",
+      "value": 60,
+      "severity": "elevated",
+      "title": "Elevated Domain Activation",
+      "message": "This schema domain shows elevated activation."
+    },
+    {
+      "id": "domain_high",
+      "scope": "domain",
+      "metric": "averagePercent",
+      "operator": ">=",
+      "value": 75,
+      "severity": "high",
+      "title": "High Domain Activation",
+      "message": "This schema domain is strongly expressed."
+    },
+    {
+      "id": "domain_critical",
+      "scope": "domain",
+      "metric": "averagePercent",
+      "operator": ">=",
+      "value": 85,
+      "severity": "critical",
+      "title": "Critical Domain Activation",
+      "message": "This schema domain has critically high activation."
+    }
+  ]
+}

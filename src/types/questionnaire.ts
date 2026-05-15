@@ -66,6 +66,61 @@ export type SubscaleDefinition = {
     aggregation ?  : "sum" | "mean";
     min ?  : number;
     max ?  : number;
+    derivedMetrics ?  : SubscaleDerivedMetrics;
+};
+
+export type DomainDefinition = {
+    key: string;
+    label: string;
+    subscales: string[];
+    aggregation ?  : "sum" | "mean";
+};
+
+export type FlagRule = {
+    id: string;
+    scope: "subscale" | "domain";
+    metric: string;
+    operator: ">" | ">=" | "<" | "<=" | "==" | "!=";
+    value: number;
+    severity ?  : "info" | "elevated" | "high" | "critical";
+    title: string;
+    message ?  : string;
+};
+
+export type SubscaleDerivedMetricBand = {
+    key: string;
+    min: number;
+    max: number;
+    label: string;
+};
+
+export type SubscaleDerivedMetricConfig = {
+    type ?  : "sum" | "mean" | "percentage" | "count" | "bands";
+    source ?  : string;
+    formula ?  : string;
+    description ?  : string;
+    countValues ?  : number[];
+    label ?  : string;
+    threshold ?  : number;
+    min ?  : number;
+    max ?  : number;
+    precision ?  : number;
+    flagThreshold ?  : number;
+    bands ?  : SubscaleDerivedMetricBand[];
+};
+
+export type SubscaleDerivedMetrics = Record < string, SubscaleDerivedMetricConfig > ;
+
+export type SubscaleDerivedMetricDefinition = {
+    key: string;
+    label: string;
+    type: "normalized_percent" | "strong_answer_sum" | "strong_answer_share";
+    threshold ?  : number;
+    min ?  : number;
+    max ?  : number;
+    precision ?  : number;
+    flagThreshold ?  : number;
+    bands ?  : SubscaleDerivedMetricBand[];
 };
 
 export type ScoringConfig = {
@@ -99,6 +154,7 @@ export type SumScoring = {
 export type SubscalesSumScoring = {
     method: "subscales_sum";
     subscales: SubscaleDefinition[];
+    subscaleDerivedMetrics ?  : SubscaleDerivedMetricDefinition[];
 };
 
 export type SumWithSubscalesScoring = {
@@ -114,6 +170,7 @@ export type SumWithSubscalesScoring = {
     percentileBasis?: PercentileBasis;
     interpretationBasis?: ScoreBasis;
     subscales: SubscaleDefinition[];
+    subscaleDerivedMetrics ?  : SubscaleDerivedMetricDefinition[];
 };
 
 export type QuestionnaireScoring =
@@ -140,6 +197,8 @@ export type Questionnaire = {
     ui ?  : QuestionnaireUI;
     scale: Scale;
     questions: Question[];
+    domains ?  : DomainDefinition[];
+    flags ?  : FlagRule[];
     scoring: QuestionnaireScoring;
     resultBands ?  : ResultBand[];
     norms ?  : PercentileNorms;
