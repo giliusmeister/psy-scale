@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import type { AppLanguage, UiCopy } from "../i18n";
 import type { Questionnaire } from "../types/questionnaire";
 import type {
@@ -284,6 +284,37 @@ export function ResultView({
   onRestart,
 }: ResultViewProps) {
   const importInputRef = useRef<HTMLInputElement | null>(null);
+  const resultScrollRef = useRef<HTMLDivElement | null>(null);
+  const lastScrollTopRef = useRef(0);
+
+  useEffect(() => {
+    function handleBeforePrint() {
+      if (resultScrollRef.current) {
+        lastScrollTopRef.current = resultScrollRef.current.scrollTop;
+      }
+    }
+
+    function handleAfterPrint() {
+      const container = resultScrollRef.current;
+      if (!container) {
+        return;
+      }
+
+      // Force repaint after print preview to avoid blank top area in some browsers.
+      container.style.overflowY = "hidden";
+      container.offsetHeight;
+      container.style.overflowY = "auto";
+      container.scrollTop = lastScrollTopRef.current;
+    }
+
+    window.addEventListener("beforeprint", handleBeforePrint);
+    window.addEventListener("afterprint", handleAfterPrint);
+
+    return () => {
+      window.removeEventListener("beforeprint", handleBeforePrint);
+      window.removeEventListener("afterprint", handleAfterPrint);
+    };
+  }, []);
 
   function handleImportClick() {
     importInputRef.current?.click();
@@ -310,7 +341,7 @@ export function ResultView({
         <h1 className="title">{questionnaire.title}</h1>
         <h2 className="subtitle">{copy.result}</h2>
 
-        <div className="result-scroll">
+        <div ref={resultScrollRef} className="result-scroll">
           <div className="result-info">
             <div>
               <strong>ID:</strong> {questionnaire.id}
