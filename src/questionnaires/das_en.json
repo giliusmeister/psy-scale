@@ -1,0 +1,516 @@
+{
+  "id": "das_en",
+  "title": "Dysfunctional Attitude Scale",
+  "description": "A questionnaire for assessing the severity of dysfunctional attitudes and cognitive beliefs. The higher the total score, the more pronounced the dysfunctional cognitive characteristics.",
+  "language": "en",
+  "author": "Dysfunctional Attitude Scale",
+  "category": "Cognitive Therapy",
+  "estimatedMinutes": 10,
+  "instructions": {
+    "title": "Instructions",
+    "text": "This questionnaire contains a number of opinions, positions, and principles that people sometimes hold. Please read each item carefully and decide to what extent you agree or disagree with each statement. For each statement, select the option that best matches your opinion. Make sure you give only one answer for each statement. There are no right or wrong answers. When deciding whether a statement is true from your point of view, simply think about what you are like or how you usually or most often think.",
+    "reverseNote": "Items 2, 6, 12, 17, 18, 23, 24, 29, 30, 35, 37, and 40 are scored directly; all other items are reverse scored."
+  },
+  "scale": {
+    "type": "likert_7",
+    "min": 1,
+    "max": 7,
+    "options": [
+      {
+        "value": 1,
+        "label": "Completely agree"
+      },
+      {
+        "value": 2,
+        "label": "Mostly agree"
+      },
+      {
+        "value": 3,
+        "label": "Somewhat agree"
+      },
+      {
+        "value": 4,
+        "label": "Undecided"
+      },
+      {
+        "value": 5,
+        "label": "Somewhat disagree"
+      },
+      {
+        "value": 6,
+        "label": "Mostly disagree"
+      },
+      {
+        "value": 7,
+        "label": "Completely disagree"
+      }
+    ],
+    "reverseScoring": {
+      "1": 7,
+      "2": 6,
+      "3": 5,
+      "4": 4,
+      "5": 3,
+      "6": 2,
+      "7": 1
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "It is difficult to be happy unless you are attractive, intelligent, wealthy, and creatively talented.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Happiness is more related to one's attitude toward oneself than to the feelings other people have toward you.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "People will probably think poorly of me if I make a mistake.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "If I am not good all the time, other people will not respect me.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "Taking even a small risk is foolish, because if it fails, a catastrophe will happen.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "It is possible to gain another person's respect without being gifted in any particular area.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "I am happy only when other people admire me.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "text": "When a person asks for help, it is a sign of weakness.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "text": "If I am not as good as other people, it means I am a less valuable person.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "text": "If I do not cope with my work, then I am a failure as a person.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q11",
+      "number": 11,
+      "text": "If a person cannot do something correctly and perfectly, then there is no point in starting it at all.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q12",
+      "number": 12,
+      "text": "Making mistakes is useful because I can learn from them.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q13",
+      "number": 13,
+      "text": "If someone does not share my opinion, it probably means that they do not love me.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q14",
+      "number": 14,
+      "text": "If I partly fail at something, it is just as bad as failing completely.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q15",
+      "number": 15,
+      "text": "If people knew what a person is really like, they would think badly of that person.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q16",
+      "number": 16,
+      "text": "I am worthless if the person I love does not love me.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q17",
+      "number": 17,
+      "text": "It is possible to enjoy work without taking its final result into account.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q18",
+      "number": 18,
+      "text": "Before doing something, one should have a reasonable chance of success.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q19",
+      "number": 19,
+      "text": "My worth as a person depends more on what other people think of me.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q20",
+      "number": 20,
+      "text": "If I do not set the highest standards for myself, I will probably eventually become a second-rate person.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q21",
+      "number": 21,
+      "text": "If I want to be a valuable person, I must become outstanding in at least one area.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q22",
+      "number": 22,
+      "text": "People who have good ideas are more valuable than those who do not.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q23",
+      "number": 23,
+      "text": "I worry when I make a mistake.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q24",
+      "number": 24,
+      "text": "My own opinion of myself is more important than other people's opinion of me.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q25",
+      "number": 25,
+      "text": "To be a good, moral person, one must help everyone who needs help.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q26",
+      "number": 26,
+      "text": "If I ask a question, it is a sign of my incompetence.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q27",
+      "number": 27,
+      "text": "It is terrible when people who are important to you criticize you.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q28",
+      "number": 28,
+      "text": "If you do not have someone who can support you, you inevitably become unhappy.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q29",
+      "number": 29,
+      "text": "I can achieve goals that are important to me without overstraining myself.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q30",
+      "number": 30,
+      "text": "It is possible for a person who is being criticized not to become irritated.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q31",
+      "number": 31,
+      "text": "I cannot trust other people because they may turn out to be cruel to me.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q32",
+      "number": 32,
+      "text": "You cannot be happy if other people do not love you.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q33",
+      "number": 33,
+      "text": "It is good to give up your own interests in order to be liked by other people.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q34",
+      "number": 34,
+      "text": "My happiness depends more on other people than on myself.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q35",
+      "number": 35,
+      "text": "I do not need recognition from others in order to be happy.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q36",
+      "number": 36,
+      "text": "If a person avoids problems, they will probably disappear.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q37",
+      "number": 37,
+      "text": "I can be happy and content even if many good things in life pass me by.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q38",
+      "number": 38,
+      "text": "What other people think of me is very important.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q39",
+      "number": 39,
+      "text": "Isolation from others inevitably leads to unhappiness.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q40",
+      "number": 40,
+      "text": "I can be happy without being loved by others.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "dysfunctional_attitudes",
+    "directItems": [
+      2,
+      6,
+      12,
+      17,
+      18,
+      23,
+      24,
+      29,
+      30,
+      35,
+      37,
+      40
+    ],
+    "reverseItems": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15,
+      16,
+      19,
+      20,
+      21,
+      22,
+      25,
+      26,
+      27,
+      28,
+      31,
+      32,
+      33,
+      34,
+      36,
+      38,
+      39
+    ],
+    "minScore": 40,
+    "maxScore": 280,
+    "higherMeans": "more pronounced dysfunctional attitudes and cognitive distortions",
+    "showAverage": true,
+    "interpretationMode": "bands",
+    "interpretationBasis": "total",
+    "derivedMetrics": {
+      "rawSum": {
+        "label": "Raw Sum",
+        "description": "Total score across all 40 statements after reverse scoring is applied.",
+        "type": "sum",
+        "min": 40,
+        "max": 280
+      },
+      "averageScore": {
+        "label": "Average Score",
+        "description": "Average scored value across all statements.",
+        "type": "mean",
+        "min": 1,
+        "max": 7,
+        "formula": "sum/itemsCount"
+      },
+      "percentIntensity": {
+        "label": "Dysfunctional Attitudes Intensity (%)",
+        "description": "Normalized intensity of dysfunctional attitudes as a percentage.",
+        "type": "percentage",
+        "min": 0,
+        "max": 100,
+        "formula": "((sum-40)/240)*100"
+      },
+      "highResponseCount": {
+        "label": "High Scored Response Count",
+        "description": "Number of items scored 6 or 7 after applying the scoring key.",
+        "type": "count",
+        "countValues": [
+          6,
+          7
+        ],
+        "min": 0,
+        "max": 40
+      },
+      "highResponsesPercent": {
+        "label": "High Scored Response Percentage",
+        "description": "Percentage of items scored 6 or 7 after applying the scoring key.",
+        "type": "percentage",
+        "countValues": [
+          6,
+          7
+        ],
+        "min": 0,
+        "max": 100,
+        "formula": "(count/itemsCount)*100"
+      }
+    }
+  },
+  "resultBands": [
+    {
+      "key": "very_low",
+      "min": 40,
+      "max": 87,
+      "label": "Very Low"
+    },
+    {
+      "key": "low",
+      "min": 88,
+      "max": 135,
+      "label": "Low"
+    },
+    {
+      "key": "moderate",
+      "min": 136,
+      "max": 183,
+      "label": "Moderate"
+    },
+    {
+      "key": "high",
+      "min": 184,
+      "max": 231,
+      "label": "High"
+    },
+    {
+      "key": "very_high",
+      "min": 232,
+      "max": 280,
+      "label": "Very High"
+    }
+  ],
+  "flags": [
+    {
+      "id": "elevated_dysfunctional_attitudes",
+      "scope": "total",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 60,
+      "severity": "elevated",
+      "title": "Elevated Dysfunctional Attitudes",
+      "message": "The overall profile shows elevated dysfunctional cognitive attitudes."
+    },
+    {
+      "id": "high_dysfunctional_attitudes",
+      "scope": "total",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 75,
+      "severity": "high",
+      "title": "High Dysfunctional Attitudes",
+      "message": "The overall profile shows a high level of dysfunctional cognitive attitudes."
+    },
+    {
+      "id": "critical_dysfunctional_attitudes",
+      "scope": "total",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 85,
+      "severity": "critical",
+      "title": "Critical Dysfunctional Attitudes",
+      "message": "The overall profile shows a critically high level of dysfunctional cognitive attitudes."
+    },
+    {
+      "id": "high_endorsement",
+      "scope": "total",
+      "metric": "highResponsesPercent",
+      "operator": ">=",
+      "value": 60,
+      "severity": "high",
+      "title": "Many Highly Scored Responses",
+      "message": "A significant proportion of items received high scored values after applying the scoring key."
+    }
+  ]
+}

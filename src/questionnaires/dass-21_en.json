@@ -1,7 +1,7 @@
 {
   "id": "dass-21_en",
   "title": "Depression Anxiety Stress Scales (DASS-21)",
-  "description": "A 21-item questionnaire measuring depression, anxiety, and stress over the past week.",
+  "description": "A 21-item questionnaire measuring depression, anxiety, and stress over the past week. The calculation corresponds to the methodological guidelines, without adjustment to the DASS-42 scale.",
   "language": "en",
   "category": "mental_health",
   "estimatedMinutes": 5,

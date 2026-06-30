@@ -1,0 +1,516 @@
+{
+  "id": "das_ru",
+  "title": "Шкала дисфункциональных отношений (установок)",
+  "description": "Опросник для оценки выраженности дисфункциональных отношений и когнитивных установок. Чем выше суммарный балл, тем более выражены дисфункциональные когнитивные характеристики.",
+  "language": "ru",
+  "author": "Шкала дисфункциональных отношений (Dysfunctional Attitude Scale)",
+  "category": "Когнитивная терапия",
+  "estimatedMinutes": 10,
+  "instructions": {
+    "title": "Инструкция",
+    "text": "Этот опросник содержит ряд мнений, позиций и принципов, которых иногда придерживаются люди. Прочтите, пожалуйста, каждый пункт внимательно и решите затем, в какой степени вы согласны или не согласны с каждым высказыванием. Для каждого утверждения укажите свое мнение, выбрав вариант, который наиболее соответствует вашему мнению. Убедитесь, что для каждого высказывания вы дали только один ответ. Здесь не может быть правильных или неправильных ответов. При принятии решения просто подумайте о том, какой вы есть или как вы думаете обычно или чаще всего.",
+    "reverseNote": "Пункты 2, 6, 12, 17, 18, 23, 24, 29, 30, 35, 37 и 40 оцениваются напрямую; остальные пункты — с обратным кодированием."
+  },
+  "scale": {
+    "type": "likert_7",
+    "min": 1,
+    "max": 7,
+    "options": [
+      {
+        "value": 1,
+        "label": "Полностью согласен"
+      },
+      {
+        "value": 2,
+        "label": "В основном согласен"
+      },
+      {
+        "value": 3,
+        "label": "Скорее согласен"
+      },
+      {
+        "value": 4,
+        "label": "Трудно определить"
+      },
+      {
+        "value": 5,
+        "label": "Скорее не согласен"
+      },
+      {
+        "value": 6,
+        "label": "В основном не согласен"
+      },
+      {
+        "value": 7,
+        "label": "Полностью не согласен"
+      }
+    ],
+    "reverseScoring": {
+      "1": 7,
+      "2": 6,
+      "3": 5,
+      "4": 4,
+      "5": 3,
+      "6": 2,
+      "7": 1
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "text": "Трудно быть счастливым, если ты не красив, не интеллигентен, не богат и не имеешь творческих способностей.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "text": "Счастье — это нечто, связанное с отношением к самому себе, нежели с теми чувствами, которые другие люди испытывают к тебе.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "text": "Люди, вероятно, будут думать обо мне плохо, если я сделаю ошибку.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "text": "Если я не буду все время хорошим, то другие не будут меня уважать.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "text": "Подвергаться даже незначительному риску глупо, потому что в случае неудачи произойдет катастрофа.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q6",
+      "number": 6,
+      "text": "Можно приобрести уважение другого человека, не будучи одаренным в чем-либо.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q7",
+      "number": 7,
+      "text": "Я счастлив только тогда, когда другие люди мною восхищаются.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q8",
+      "number": 8,
+      "text": "Когда человек просит о помощи, то это признак слабости.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q9",
+      "number": 9,
+      "text": "Если я не такой хороший, как другие люди, то это значит, что я менее ценный человек.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q10",
+      "number": 10,
+      "text": "Если я не справляюсь со своей работой, то я вообще как человек несостоятелен (неудачник).",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q11",
+      "number": 11,
+      "text": "Если человек не может что-то сделать правильно и в совершенстве, то вообще нет смысла начинать это дело.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q12",
+      "number": 12,
+      "text": "Делать ошибки полезно, тогда я могу на них учиться.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q13",
+      "number": 13,
+      "text": "Если кто-то не разделяет моего мнения, то, по-видимому, это значит, что он не любит меня.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q14",
+      "number": 14,
+      "text": "Если я частично не справляюсь с чем-то, то это также плохо, как потерпеть полную неудачу.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q15",
+      "number": 15,
+      "text": "Если бы люди знали, каков данный человек в действительности, то они думали бы о нем плохо.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q16",
+      "number": 16,
+      "text": "Я — ничтожество, если человек, которого я люблю, меня не любит.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q17",
+      "number": 17,
+      "text": "Можно получить удовольствие от работы, не принимая во внимание ее конечный результат.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q18",
+      "number": 18,
+      "text": "Прежде, чем что-то предпринимать, надо иметь разумную перспективу на успех.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q19",
+      "number": 19,
+      "text": "Моя ценность как личности в большей степени зависит от того, какого мнения обо мне другие люди.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q20",
+      "number": 20,
+      "text": "Если я не буду предъявлять к себе самые высокие требования, то я, вероятно, в конце концов превращусь во второсортного человека.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q21",
+      "number": 21,
+      "text": "Если я хочу быть ценной личностью, то я должен по крайней мере в какой-то области стать выдающимся.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q22",
+      "number": 22,
+      "text": "Люди, у которых есть хорошие идеи, более ценны, чем те, у кого их нет.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q23",
+      "number": 23,
+      "text": "Я волнуюсь, когда делаю ошибку.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q24",
+      "number": 24,
+      "text": "Мое собственное мнение о себе более важно, чем мнение других обо мне.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q25",
+      "number": 25,
+      "text": "Чтобы быть добрым, нравственным человеком, надо помогать каждому, кто нуждается в помощи.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q26",
+      "number": 26,
+      "text": "Если я задаю вопрос, то это признак моей несостоятельности.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q27",
+      "number": 27,
+      "text": "Ужасно, когда тебя порицают люди, важные для тебя.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q28",
+      "number": 28,
+      "text": "Если у Вас нет человека, который может быть для Вас опорой, то Вы неизбежно становитесь несчастным.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q29",
+      "number": 29,
+      "text": "Я могу достичь важных для меня целей и не надрываясь.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q30",
+      "number": 30,
+      "text": "Может быть так, что человек, которого бранят, при этом не раздражается.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q31",
+      "number": 31,
+      "text": "Я не могу доверять другим людям, потому что они могут оказаться жестокими по отношению ко мне.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q32",
+      "number": 32,
+      "text": "Нельзя быть счастливым, если другие не любят тебя.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q33",
+      "number": 33,
+      "text": "Это хорошо — отказываться от собственных интересов, чтобы нравиться другим людям.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q34",
+      "number": 34,
+      "text": "Мое счастье зависит больше от других людей, чем от меня самого.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q35",
+      "number": 35,
+      "text": "Чтобы быть счастливым, мне не требуется признания со стороны других.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q36",
+      "number": 36,
+      "text": "Если человек будет избегать проблем, то они, вероятно, исчезнут.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q37",
+      "number": 37,
+      "text": "Я могу быть счастливым и довольным, даже если немало хорошего в жизни проходит мимо меня.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    },
+    {
+      "id": "q38",
+      "number": 38,
+      "text": "Очень важно, что обо мне думают другие люди.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q39",
+      "number": 39,
+      "text": "Изолированность от других неизменно ведет к ощущению несчастливости.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": true
+    },
+    {
+      "id": "q40",
+      "number": 40,
+      "text": "Я могу быть счастливым, не будучи любимым другими.",
+      "trait": "dysfunctional_attitudes",
+      "reverse": false
+    }
+  ],
+  "scoring": {
+    "method": "sum",
+    "trait": "dysfunctional_attitudes",
+    "directItems": [
+      2,
+      6,
+      12,
+      17,
+      18,
+      23,
+      24,
+      29,
+      30,
+      35,
+      37,
+      40
+    ],
+    "reverseItems": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15,
+      16,
+      19,
+      20,
+      21,
+      22,
+      25,
+      26,
+      27,
+      28,
+      31,
+      32,
+      33,
+      34,
+      36,
+      38,
+      39
+    ],
+    "minScore": 40,
+    "maxScore": 280,
+    "higherMeans": "более выраженные дисфункциональные установки и когнитивные искажения",
+    "showAverage": true,
+    "interpretationMode": "bands",
+    "interpretationBasis": "total",
+    "derivedMetrics": {
+      "rawSum": {
+        "label": "Сумма баллов",
+        "description": "Общий суммарный балл по всем 40 утверждениям с учетом обратного кодирования.",
+        "type": "sum",
+        "min": 40,
+        "max": 280
+      },
+      "averageScore": {
+        "label": "Средний балл",
+        "description": "Средний оценочный балл по всем утверждениям.",
+        "type": "mean",
+        "min": 1,
+        "max": 7,
+        "formula": "sum/itemsCount"
+      },
+      "percentIntensity": {
+        "label": "Выраженность дисфункциональных установок (%)",
+        "description": "Нормированная выраженность дисфункциональных установок в процентах.",
+        "type": "percentage",
+        "min": 0,
+        "max": 100,
+        "formula": "((sum-40)/240)*100"
+      },
+      "highResponseCount": {
+        "label": "Количество высоких оценочных ответов",
+        "description": "Количество пунктов с оценочным баллом 6 или 7 после учета обратного кодирования.",
+        "type": "count",
+        "countValues": [
+          6,
+          7
+        ],
+        "min": 0,
+        "max": 40
+      },
+      "highResponsesPercent": {
+        "label": "Доля высоких оценочных ответов (%)",
+        "description": "Процент пунктов с оценочным баллом 6 или 7 после учета обратного кодирования.",
+        "type": "percentage",
+        "countValues": [
+          6,
+          7
+        ],
+        "min": 0,
+        "max": 100,
+        "formula": "(count/itemsCount)*100"
+      }
+    }
+  },
+  "resultBands": [
+    {
+      "key": "very_low",
+      "min": 40,
+      "max": 87,
+      "label": "Очень низкая выраженность"
+    },
+    {
+      "key": "low",
+      "min": 88,
+      "max": 135,
+      "label": "Низкая выраженность"
+    },
+    {
+      "key": "moderate",
+      "min": 136,
+      "max": 183,
+      "label": "Умеренная выраженность"
+    },
+    {
+      "key": "high",
+      "min": 184,
+      "max": 231,
+      "label": "Высокая выраженность"
+    },
+    {
+      "key": "very_high",
+      "min": 232,
+      "max": 280,
+      "label": "Очень высокая выраженность"
+    }
+  ],
+  "flags": [
+    {
+      "id": "elevated_dysfunctional_attitudes",
+      "scope": "total",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 60,
+      "severity": "elevated",
+      "title": "Повышенная выраженность дисфункциональных установок",
+      "message": "Итоговый профиль демонстрирует повышенную выраженность дисфункциональных когнитивных установок."
+    },
+    {
+      "id": "high_dysfunctional_attitudes",
+      "scope": "total",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 75,
+      "severity": "high",
+      "title": "Высокая выраженность дисфункциональных установок",
+      "message": "Итоговый профиль демонстрирует высокую выраженность дисфункциональных когнитивных установок."
+    },
+    {
+      "id": "critical_dysfunctional_attitudes",
+      "scope": "total",
+      "metric": "percentIntensity",
+      "operator": ">=",
+      "value": 85,
+      "severity": "critical",
+      "title": "Критическая выраженность дисфункциональных установок",
+      "message": "Итоговый профиль демонстрирует критически высокую выраженность дисфункциональных когнитивных установок."
+    },
+    {
+      "id": "high_endorsement",
+      "scope": "total",
+      "metric": "highResponsesPercent",
+      "operator": ">=",
+      "value": 60,
+      "severity": "high",
+      "title": "Много высоких оценочных ответов",
+      "message": "Значительная доля пунктов получила высокие оценочные баллы после учета ключа."
+    }
+  ]
+}
